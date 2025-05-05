@@ -16,7 +16,7 @@
   <body>
     <div id="hero" class="container-fliud">
       <div class="row">
-        <div class="col-3 text-light">
+        <div class="col-3 text-light pt-4">
           <h5>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
               <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
@@ -96,69 +96,98 @@
             <li class="nav-item"><a class="nav-link text-white px-0" href="#">that fucking mood</a></li>
           </ul>
         </div>
-        <div class="container col-7 text-light">
+        <div id="middle-column" class="container col-7 text-light pt-4">
           <!-- Album -->
           <div class="d-flex mb-4">
-            <img src="https://via.placeholder.com/150" class="me-3" alt="copertina album" />
+            <img src="./assets/imgs/main/Viola_Album_Cover.jpg" id="copertina" class="me-3" alt="copertina album" />
             <div>
               <p>ALBUM</p>
               <h1>VIOLA (feat. Salmo)</h1>
               <p>Fedez, Salmo</p>
-              <button class="btn btn-success me-2">Play</button>
-              <button class="btn btn-outline-light">Salva</button>
+              <button id="play-btn" class="btn me-2 rounded-5 px-4"><strong>Play</strong></button>
+              <button class="btn btn-outline-light rounded-5 px-4"><strong>Salva</strong></button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-three-dots ms-4 text-secondary"
+                viewBox="0 0 16 16"
+              >
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+              </svg>
             </div>
           </div>
           <!-- Buonasera -->
           <h4 class="mb-3">Buonasera</h4>
           <div class="row mb-4">
             <div class="col-4">
-              <div class="bg-secondary p-3 text-white">early stage emily syndrome</div>
+              <div class="bg-dark mb-3 text-white rounded">
+                <img src="./assets/imgs/main/image-5.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
+                early stage emily syndrome
+              </div>
             </div>
             <div class="col-4">
-              <div class="bg-secondary p-3 text-white">Be The Young</div>
+              <div class="bg-dark mb-3 text-white rounded">
+                <img src="./assets/imgs/main/image-6.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
+                Be The Young
+              </div>
             </div>
             <div class="col-4">
-              <div class="bg-secondary p-3 text-white">saggio vibes</div>
+              <div class="bg-dark mb-3 text-white rounded">
+                <img src="./assets/imgs/main/image-7.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
+                saggio vibes
+              </div>
             </div>
             <div class="col-4">
-              <div class="bg-secondary p-3 text-white">Brani che ti piacciono</div>
+              <div class="bg-dark mb-3 text-white rounded">
+                <img src="./assets/imgs/main/image-8.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
+                Brani che ti piacciono
+              </div>
             </div>
             <div class="col-4">
-              <div class="bg-secondary p-3 text-white">2021 lol</div>
+              <div class="bg-dark mb-3 text-white rounded">
+                <img src="./assets/imgs/main/image-9.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
+                2021 lol
+              </div>
             </div>
             <div class="col-4">
-              <div class="bg-secondary p-3 text-white">Deep Dive with Ali Abdaal</div>
+              <div class="bg-dark mb-3 text-white rounded">
+                <img src="./assets/imgs/main/image-10.jpg" class="img-fluid me- rounded-start2" alt="placeholder" />
+                Deep Dive with Ali Abdaal
+              </div>
             </div>
           </div>
+          <!--Alto che ti piace-->
           <h4 class="mb-3">Altro di ciò che ti piace</h4>
-          <div class="row">
+          <div id="altro-che-ti-piace" class="row">
             <div class="col-3">
-              <div class="bg-secondary text-white p-2">
-                <img src="https://via.placeholder.com/150" class="img-fluid mb-2" alt="placeholder" />
-                Hot Hits Italia
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3">
+                <img src="./assets/imgs/main/image-1.jpg" class="img-fluid mb-2" alt="placeholder" />
+                <div class="card-body">Hot Hits Italia</div>
               </div>
             </div>
             <div class="col-3">
-              <div class="bg-secondary text-white p-2">
-                <img src="https://via.placeholder.com/150" class="img-fluid mb-2" alt="placeholder" />
-                big on the internet
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3">
+                <img src="./assets/imgs/main/image-11.jpg" class="img-fluid mb-2" alt="placeholder" />
+                <div class="card-body">Hot Hits Italia</div>
               </div>
             </div>
             <div class="col-3">
-              <div class="bg-secondary text-white p-2">
-                <img src="https://via.placeholder.com/150" class="img-fluid mb-2" alt="placeholder" />
-                Pop Rising
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3">
+                <img src="./assets/imgs/main/image-12.jpg" class="img-fluid mb-2" alt="placeholder" />
+                <div class="card-body">Hot Hits Italia</div>
               </div>
             </div>
             <div class="col-3">
-              <div class="bg-secondary text-white p-2">
-                <img src="https://via.placeholder.com/150" class="img-fluid mb-2" alt="placeholder" />
-                Canzoni Tristi
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3">
+                <img src="./assets/imgs/main/image-13.jpg" class="img-fluid mb-2" alt="placeholder" />
+                <div class="card-body">Hot Hits Italia</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-2 text-light">
+        <div class="col-2 text-light pt-4">
           <h6>Attività amici</h6>
           <div class="mb-3">
             <strong>Charlie Hookham</strong><br />
@@ -180,13 +209,18 @@
     </div>
 
     <!-- Player bar -->
-    <div id="player" class="row bg-black text-white py-2 px-3 fixed-bottom">
+    <div id="player" class="row bg-black text-white py-4 px-4 fixed-bottom">
       <div class="col-3 d-flex align-items-center">
-        <img src="https://via.placeholder.com/50" class="me-2" alt="brano" />
+        <img src="./assets/imgs/main/image-16.jpg" class="me-2" alt="brano" />
         <div>
           <div>Fat Funny Friend</div>
           <div class="small">Maddie Zahm</div>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart ms-4" viewBox="0 0 16 16">
+          <path
+            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+          />
+        </svg>
       </div>
       <div class="col-6 text-center">
         <p>Controlli lettore (placeholder)</p>

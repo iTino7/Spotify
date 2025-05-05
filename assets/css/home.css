@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  height: 100vh;
 }
 
 #hero,
@@ -7,5 +8,26 @@ body {
   box-sizing: border-box;
   max-width: 90%;
   margin: auto;
-  margin-top: 30px;
+}
+
+#middle-column {
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(51, 51, 51, 0.7));
+}
+
+#copertina {
+  width: 10rem;
+  height: 10rem;
+}
+
+img {
+  width: 4.5rem;
+}
+
+#play-btn {
+  background: #1ed760;
+}
+
+#altro-che-ti-piace img {
+  width: 10rem;
+  border-radius: 10px;
 }
