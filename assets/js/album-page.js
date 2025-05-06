@@ -1,7 +1,10 @@
 const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+const id = params.get("search") || "dua lipa";
 
-const URL = `https://deezerdevs-deezer.p.rapidapi.com/id?q=${id}`;
+console.log("SEARCH PARAM:", params.get("search"));
+
+
+const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${id}`;
 const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462";
 
 const albumPage = () => {
