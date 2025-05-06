@@ -1,3 +1,6 @@
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
 const API_URL = "https://deezerdevs-deezer.p.rapidapi.com/search";
 const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462"; // Sostituire con chiave RapidAPI
 
@@ -52,12 +55,18 @@ const createAlbumRow = (albums, title) => {
 
     // Contenuto della card
     albumCard.innerHTML = `
-      <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded" alt="${album.title}">
+      <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded album-img" alt="${album.title}">
       <div class="card-body text-center">
         <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
         <p class="small text-truncate">${album.artist.name}</p>
       </div>
     `;
+    // Aggiunta dell'evento click all'immagine
+    const albumImg = albumCard.querySelector(".album-img");
+
+    albumImg.addEventListener("click", () => {
+      window.location.assign(`album-page.html?id=${album.album.id}`);
+    });
 
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
