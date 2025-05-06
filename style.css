@@ -1,6 +1,202 @@
 .central-background {
-    background-image: url('./assets/imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg');
+    background-image: url('./assets/imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg'); /* Percorso corretto */
     background-size: cover;
     background-position: center;
+    height: 400px; /* Altezza della sezione superiore */
+    display: flex;
+    align-items: flex-end; /* Allinea il testo in basso */
+    padding: 20px; /* Spaziatura interna */
+}
+
+.central-background .text-content {
+    text-align: left; 
+    padding: 20px;
+}
+
+.mockup-content {
+    background-color: #1c1c1c;
     border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.popular-songs ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.popular-songs li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.popular-songs li:last-child {
+    border-bottom: none;
+}
+
+.popular-songs img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.popular-songs p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.popular-songs small {
+    color: #aaa;
+}
+
+.btn-success {
+    background-color: #1db954;
+    border: none;
+}
+
+.btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-weight: bold;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.dropdown-menu {
+    background-color: #1c1c1c;
+    border: none;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #333;
+    color: #1db954;
+}
+
+/* Navbar trasparente sopra il background */
+.top-bar {
+    background-color: transparent; 
+    z-index: 10; 
+    top: 0;
+    left: 0;
+}
+
+.btn-dark {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border: none;
+}
+
+.btn-dark:hover {
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+/* Colonna destra: Attività amici */
+.col-md-3 {
+    overflow-y: auto; /* Aggiunge lo scroll se il contenuto supera l'altezza */
+}
+
+.col-md-3 h5 {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.col-md-3 ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.col-md-3 li {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.col-md-3 li:last-child {
+    border-bottom: none;
+}
+
+.col-md-3 img {
+    object-fit: cover;
+}
+
+.col-md-3 p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.col-md-3 small {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Play Bar Sticky */
+.play-bar {
+    position: fixed; /* Fissa la barra in fondo alla pagina */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Larghezza completa */
+    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
+    background-color: #181818; /* Colore di sfondo */
+    border-top: 1px solid #333; /* Bordo superiore */
+}
+
+.play-bar img {
+    object-fit: cover;
+}
+
+.play-bar .form-range {
+    height: 4px;
+    background-color: #555;
+    border-radius: 5px;
+    appearance: none;
+}
+
+.play-bar .form-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.play-bar .form-range::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background-color: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.play-bar i {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.play-bar i.text-success {
+    color: #1db954;
+}
+
+.play-bar button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
 }
