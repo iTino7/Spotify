@@ -97,7 +97,7 @@
             <li class="nav-item"><a class="nav-link text-white px-0" href="#">that fucking mood</a></li>
           </ul>
         </div>
-        <div id="middle-column" class="container col-12 col-md-7 text-light pt-4">
+        <div id="middle-column" class="container col-12 col-md-10 col-xl-9 text-light pt-4">
           <div class="position-relative d-none d-md-inline-block mb-2">
             <!-- Freccia indietro -->
             <i class="bi bi-chevron-left m-3 fs-4 text-white"></i>
@@ -106,13 +106,13 @@
             <i class="bi bi-chevron-right m-3 fs-4 text-white" style="left: 2.5rem"></i>
           </div>
           <!-- Album -->
-          <div id="album" class="d-none d-md-flex mb-4">
+          <div id="album" class="d-none d-lg-flex mb-4">
             <img src="./assets/imgs/main/Viola_Album_Cover.jpg" id="copertina" class="me-3" alt="copertina album" />
             <div>
               <p>ALBUM</p>
               <button id="nascondi-btn" class="text-secondary rounded-3"><strong>NASCONDI ANNUNCIO</strong></button>
-
               <h1>VIOLA (feat. Salmo)</h1>
+
               <p>Fedez, Salmo</p>
               <div class="d-flex aligh-items-center">
                 <button id="play-btn" class="btn me-2 rounded-5 px-4"><strong>Play</strong></button>
@@ -164,17 +164,17 @@
             </div>
             <div class="col-6 col-md-4">
               <div class="bg-dark mb-3 text-white rounded text-truncate">
-                <img src="./assets/imgs/main/image-10.jpg" class="img-fluid me- rounded-start2" alt="placeholder" />
+                <img src="./assets/imgs/main/image-10.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
                 Deep Dive with Ali Abdaal
               </div>
             </div>
           </div>
           <!--Alto che ti piace-->
           <h4 class="mb-3">Altro di ciò che ti piace</h4>
-          <div id="altro-che-ti-piace" class="row">
+          <div id="altro-che-ti-piace" class="row d-none d-md-flex">
             <div class="col-12 col-md-6 col-lg-3">
-              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
-                <img src="./assets/imgs/main/image-1.jpg" class="img-fluid mb-2" alt="placeholder" />
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded pt-3 mb-3">
+                <img src="./assets/imgs/main/image-1.jpg" class="mb-4" alt="placeholder" />
                 <div class="card-body">
                   <p><strong>Hot Hits Italia</strong></p>
                   <p>Autore</p>
@@ -182,8 +182,8 @@
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
-                <img src="./assets/imgs/main/image-11.jpg" class="img-fluid mb-2" alt="placeholder" />
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded pt-3 mb-3">
+                <img src="./assets/imgs/main/image-11.jpg" class="mb-4" alt="placeholder" />
                 <div class="card-body">
                   <p><strong>Hot Hits Italia</strong></p>
                   <p>Autore</p>
@@ -191,8 +191,8 @@
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
-                <img src="./assets/imgs/main/image-12.jpg" class="img-fluid mb-2" alt="placeholder" />
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded pt-3 mb-3">
+                <img src="./assets/imgs/main/image-12.jpg" class="mb-4" alt="placeholder" />
                 <div class="card-body">
                   <p><strong>Hot Hits Italia</strong></p>
                   <p>Autore</p>
@@ -200,8 +200,8 @@
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
-                <img src="./assets/imgs/main/image-13.jpg" class="img-fluid mb-2" alt="placeholder" />
+              <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded pt-3 mb-3">
+                <img src="./assets/imgs/main/image-13.jpg" class="mb-4" alt="placeholder" />
                 <div class="card-body">
                   <p><strong>Hot Hits Italia</strong></p>
                   <p>Autore</p>
@@ -209,27 +209,111 @@
               </div>
             </div>
           </div>
+          <div id="altro-che-ti-piace-small" class="d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded">
+            <div class="d-flex w-100">
+              <div class="w-50 d-flex justify-content-center aligh-items-center">
+                <img src="./assets/imgs/main/image-19.jpg" class="img-fluid mb-4" alt="placeholder" />
+              </div>
+              <div>
+                <p>Playlist</p>
+                <p>Nome playlist</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between px-3">
+              <div>
+                <i class="bi bi-heart-fill"></i>
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+              <div class="d-flex justify-content-around w-25">
+                <p>Numero brani</p>
+                <i class="bi bi-play-circle-fill"></i>
+              </div>
+            </div>
+          </div>
+          <div id="altro-che-ti-piace-small" class="d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded">
+            <div class="d-flex w-100">
+              <div class="w-50 d-flex justify-content-center aligh-items-center">
+                <img src="./assets/imgs/main/image-10.jpg" class="img-fluid mb-4" alt="placeholder" />
+              </div>
+              <div>
+                <p>Playlist</p>
+                <p>Nome playlist</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between px-3">
+              <div>
+                <i class="bi bi-heart-fill"></i>
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+              <div class="d-flex justify-content-around w-25">
+                <p>Numero brani</p>
+                <i class="bi bi-play-circle-fill"></i>
+              </div>
+            </div>
+          </div>
+          <div id="altro-che-ti-piace-small" class="d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded">
+            <div class="d-flex w-100">
+              <div class="w-50 d-flex justify-content-center aligh-items-center">
+                <img src="./assets/imgs/main/image-8.jpg" class="img-fluid mb-4" alt="placeholder" />
+              </div>
+              <div>
+                <p>Playlist</p>
+                <p>Nome playlist</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between px-3">
+              <div>
+                <i class="bi bi-heart-fill"></i>
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+              <div class="d-flex justify-content-around w-25">
+                <p>Numero brani</p>
+                <i class="bi bi-play-circle-fill"></i>
+              </div>
+            </div>
+          </div>
+          <div id="altro-che-ti-piace-small" class="d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded">
+            <div class="d-flex w-100">
+              <div class="w-50 d-flex justify-content-center aligh-items-center">
+                <img src="./assets/imgs/main/image-5.jpg" class="img-fluid mb-4" alt="placeholder" />
+              </div>
+              <div>
+                <p>Playlist</p>
+                <p>Nome playlist</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between px-3">
+              <div>
+                <i class="bi bi-heart-fill"></i>
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+              <div class="d-flex justify-content-around w-25">
+                <p>Numero brani</p>
+                <i class="bi bi-play-circle-fill"></i>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-2 d-none d-md-block text-light pt-4">
+        <div class="col-1 d-none d-xl-block text-light pt-4">
           <div class="d-flex justify-content-between aligh-items-center">
-            <h6 class="d-inline-block"><strong>Attività amici</strong></h6>
-            <div>
+            <h6 class="d-inline-block text-truncate w-50"><strong>Attività amici</strong></h6>
+            <div class="d-flex justify-content-evenly">
               <i class="bi bi-person-plus"></i>
               <i class="bi bi-x"></i>
             </div>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-3 text-truncate">
             <strong>Charlie Hookham</strong><br />
             In Camera - Yumi Zouma<br />
             4 ore
           </div>
-          <div class="mb-3">
+          <div class="mb-3 text-truncate">
             <strong>lightdark02</strong><br />
             Aimed to Kill - Jade LeMac<br />
             8 ore
           </div>
-          <div>
+          <div class="text-truncate">
             <strong>Valeria Traverso</strong><br />
             New Kings - Sleeping Wolf<br />
             3 giorni
@@ -301,7 +385,7 @@
       </div>
     </div>
 
-    <div id="mobile-nav" class="d-md-none d-flex justify-content-evenly position-fixed bottom-0 w-100">
+    <div id="mobile-nav" class="d-md-none d-flex justify-content-evenly position-sticky bottom-0 w-100">
       <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
           <path
