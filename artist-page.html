@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-light">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Colonna Sinistra -->
+            <div class="col-12 col-md-3 bg-black p-3 vh-100">
+                <!-- Tre puntini -->
+                <div class="mb-4">
+                    <a class="text-white" href="#">
+                        <i class="bi bi-three-dots"></i>
+                    </a>
+                </div>
+                <ul class="nav flex-column mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-house-door me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-search me-2"></i>Cerca
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-music-note-list me-2"></i>La tua libreria
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav flex-column mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-plus-square me-2"></i>Crea playlist
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-heart-fill text-primary me-2"></i>Brani che ti piacciono
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-bookmark-fill text-success me-2"></i>I tuoi episodi
+                        </a>
+                    </li>
+                </ul>
+                <!-- Nuova sezione separata -->
+                <div class="border-top border-secondary pt-3">
+                   
+                </div>
+            </div>
+
+            <!-- Colonna Centrale -->
+            <div class="col-12 col-md-6 p-3">
+                <!-- Parte superiore: Frecce e Avatar -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <a class="text-white me-3" href="#">
+                            <i class="bi bi-arrow-left"></i>
+                        </a>
+                        <a class="text-white" href="#">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text-white d-flex align-items-center" href="#">
+                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="rounded-circle me-2">
+                            Lidia Nautilus
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Parte inferiore: Contenuto principale con background -->
+                <div class="text-white p-5 central-background">
+                    <p class="mb-1">
+                        <i class="bi bi-patch-check-fill text-primary me-2"></i>Artista verificato
+                    </p>
+                    <h1 class="display-4 fw-bold">Yellowcard</h1>
+                    <p>3.433.158 ascoltatori mensili</p>
+                </div>
+            </div>
+
+            <!-- Colonna Destra -->
+            <div class="col-12 col-md-3 bg-black p-3">
+                <h5>Colonna Destra</h5>
+                <p>Contenuto della colonna destra.</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
