@@ -48,7 +48,8 @@ const createAlbumRow = (albums, title) => {
 
     // Creazione della card
     const albumCard = document.createElement("div");
-    albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
+    albumCard.className =
+      "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
 
     // Contenuto della card
     albumCard.innerHTML = `
@@ -61,11 +62,26 @@ const createAlbumRow = (albums, title) => {
 
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
+    albumCard.innerHTML = `
+    <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded album-img" alt="${album.title}">
+    <div class="card-body text-center">
+      <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
+      <p class="small text-truncate">${album.artist.name}</p>
+    </div>
+  `;
+    // Aggiunta dell'evento click all'immagine
+    const albumImg = albumCard.querySelector(".album-img");
 
+    albumImg.addEventListener("click", () => {
+      window.location.assign(`album-page.html?search=${album.artist.name}`);
+    });
+
+    console.log(album);
     // Aggiunta della colonna alla riga
     row.appendChild(col);
 
-    altroCheTiPiaceSmall.className = "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
+    altroCheTiPiaceSmall.className =
+      "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
     altroCheTiPiaceSmall.innerHTML = `<div class="d-flex w-100">
               <div class="w-50 d-flex justify-content-center aligh-items-center">
                 <img src="${album.album.cover_medium}" class="img-fluid mb-4" alt="placeholder" />
