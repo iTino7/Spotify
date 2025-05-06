@@ -28,37 +28,43 @@ const fetchAlbums = async (query) => {
 const createAlbumRow = (albums, title) => {
   const container = document.getElementById("altro-che-ti-piace"); // ID corretto dal file HTML
 
-  const row = document.createElement("div");
-  row.className = "row mb-4"; // Classe per il layout delle righe
-
+  // Creazione del titolo della riga
   const rowTitle = document.createElement("h4");
   rowTitle.textContent = title;
   rowTitle.className = "text-white mb-3"; // Classe per il titolo della riga
-
   container.appendChild(rowTitle);
 
-  albums.forEach((album) => {
-    const col = document.createElement("div");
-    col.className = "col-3"; // Classe per le colonne
+  // Creazione del contenitore della riga
+  const row = document.createElement("div");
+  row.className = "row mb-4"; // Classe per il layout delle righe
 
+  albums.forEach((album) => {
+    // Creazione della colonna
+    const col = document.createElement("div");
+    col.className = "col-12 col-md-6 col-lg-3 mb-3"; // Classe per le colonne
+
+    // Creazione della card
     const albumCard = document.createElement("div");
     albumCard.className =
       "card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3";
-    albumCard.style.height = "275px";
 
-    // Usa il campo `cover_medium` per l'immagine dell'album
+    // Contenuto della card
     albumCard.innerHTML = `
-      <img src="${album.album.cover_medium}" class="img-fluid mb-2" alt="${album.title}">
-      <div class="card-body">
-        <p><strong>${album.title}</strong></p>
-        <p>${album.artist.name}</p>
+      <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded" alt="${album.title}">
+      <div class="card-body text-center">
+        <p class="mb-1"><strong>${album.title}</strong></p>
+        <p class="text-muted small">${album.artist.name}</p>
       </div>
     `;
 
+    // Aggiunta della card alla colonna
     col.appendChild(albumCard);
+
+    // Aggiunta della colonna alla riga
     row.appendChild(col);
   });
 
+  // Aggiunta della riga al contenitore principale
   container.appendChild(row);
 };
 
