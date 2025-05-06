@@ -108,3 +108,18 @@ const loadAlbums = async () => {
 window.onload = () => {
   loadAlbums();
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+  const micBtn = document.getElementById("mic-btn");
+  const listBtn = document.getElementById("list-btn");
+  const pcBtn = document.getElementById("pc-btn");
+  const volumeBtn = document.querySelector(".volume-btn");
+  const volumeSlider = document.querySelector(".volume-slider");
+
+  volumeBtn.addEventListener("click", () => {
+    volumeSlider.classList.toggle("d-none");
+    micBtn.classList.toggle("d-none");
+    listBtn.classList.toggle("d-none");
+    pcBtn.classList.toggle("d-none");
+  });
+});
