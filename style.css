@@ -1,3 +1,8 @@
+body{
+    background: linear-gradient(0deg,rgba(10, 10, 10, 1) 14%, rgba(60, 71, 63, 0.92) 100%);
+
+}
+
 .central-background {
     background-image: url('./assets/imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg'); /* Percorso corretto */
     background-size: cover;
@@ -11,46 +16,10 @@
 .central-background .text-content {
     text-align: left; 
     padding: 20px;
+    
 }
 
-.mockup-content {
-    background-color: #1c1c1c;
-    border-radius: 10px;
-    padding: 1.5rem;
-}
 
-.popular-songs ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.popular-songs li {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    border-bottom: 1px solid #333;
-    padding-bottom: 0.5rem;
-}
-
-.popular-songs li:last-child {
-    border-bottom: none;
-}
-
-.popular-songs img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-}
-
-.popular-songs p {
-    font-weight: bold;
-    margin: 0;
-}
-
-.popular-songs small {
-    color: #aaa;
-}
 
 .btn-success {
     background-color: #1db954;
@@ -212,31 +181,9 @@
     background: #1ed760;
   }
   
-  #altro-che-ti-piace img {
-    width: 10rem;
-    border-radius: 10px;
-  }
   
-  i:hover {
-    cursor: pointer;
-  }
-  
-  #barra-avanzamento:hover {
-    cursor: pointer;
-  }
-  
-  #album {
-    background: linear-gradient(45deg, rgba(0, 0, 0, 1) 30%, rgba(163, 163, 163, 0.29) 100%);
-    padding: 15px;
-    position: relative;
-  }
-  
-  #nascondi-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    border: none;
-    background: #2c2c2c;
-    font-size: 10px;
-  }
-  
+
+ 
+
+   
+
