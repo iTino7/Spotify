@@ -2,10 +2,10 @@
     background-image: url('./assets/imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg'); /* Percorso corretto */
     background-size: cover;
     background-position: center;
-    height: 400px; /* Altezza della sezione superiore */
+    height: 400px; 
     display: flex;
-    align-items: flex-end; /* Allinea il testo in basso */
-    padding: 20px; /* Spaziatura interna */
+    align-items: flex-end;
+    padding: 20px; 
 }
 
 .central-background .text-content {
@@ -123,7 +123,8 @@
     display: flex;
     align-items: center;
     padding-bottom: 10px;
-    border-bottom: 1px solid #333;
+    /* Rimuovi il bordo inferiore */
+    /* border-bottom: 1px solid #333; */
 }
 
 .col-md-3 li:last-child {
@@ -146,13 +147,13 @@
 
 /* Play Bar Sticky */
 .play-bar {
-    position: fixed; /* Fissa la barra in fondo alla pagina */
+    position: fixed; 
     bottom: 0;
     left: 0;
-    width: 100%; /* Larghezza completa */
-    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
-    background-color: #181818; /* Colore di sfondo */
-    border-top: 1px solid #333; /* Bordo superiore */
+    width: 100%; 
+    z-index: 1000; 
+    background-color: #181818; 
+    border-top: 1px solid #333;
 }
 
 .play-bar img {

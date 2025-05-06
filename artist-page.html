@@ -143,7 +143,7 @@
                                     <span>3:38</span>
                                 </li>
                             </ul>
-                            <a href="#" class="text-white">Visualizza altro</a>
+                            <a href="#" class="text-white text-decoration-none">Visualizza altro</a>
                         </div>
 
                         <!-- Sezione brani che ti piacciono -->
@@ -201,32 +201,37 @@
     </div>
 
     <!-- Play Bar -->
-    <div class="play-bar bg-dark text-white d-flex align-items-center justify-content-between px-4 py-2">
-        <!-- Informazioni sul brano -->
+    <div class="play-bar text-white d-flex align-items-center justify-content-between px-4 py-2">
+        <!-- Informazioni sul brano </div>-->
         <div class="d-flex align-items-center">
             <img src="https://via.placeholder.com/50" alt="Album Cover" class="rounded me-3" style="width: 50px; height: 50px;">
-            <div>
-                <p class="mb-0 fw-bold">Fat Funny Friend</p>
-                <small class="text-muted">Maddie Zahm</small>
+            <div class="d-flex align-items-center">
+                <div>
+                    <p class="mb-0 fw-bold">Fat Funny Friend</p>
+                    <small class=" text-white">Maddie Zahm</small>
+                </div>
+                <i class="bi bi-heart ms-3"></i>
             </div>
         </div>
-
         <!-- Controlli di riproduzione -->
-        <div class="d-flex align-items-center gap-3">
+        <div class="d-flex flex-column align-items-center w-50">
+            <!-- Controlli di riproduzione -->
+            <div class="d-flex align-items-center gap-3 mb-2">
             <i class="bi bi-shuffle text-success"></i>
             <i class="bi bi-skip-start-fill"></i>
             <button class="btn btn-light rounded-circle">
-                <i class="bi bi-play-fill"></i>
+            <i class="bi bi-play-fill"></i>
             </button>
             <i class="bi bi-skip-end-fill"></i>
             <i class="bi bi-repeat text-success"></i>
-        </div>
+            </div>
 
-        <!-- Barra di progresso -->
-        <div class="d-flex align-items-center gap-2 w-50">
+            <!-- Barra di progresso -->
+            <div class="d-flex align-items-center gap-2 w-100">
             <small>0:58</small>
             <input type="range" class="form-range" min="0" max="100" value="30">
             <small>3:20</small>
+            </div>
         </div>
 
         <!-- Controlli aggiuntivi -->
