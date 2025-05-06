@@ -17,7 +17,7 @@
   <body>
     <div id="hero" class="container-fliud">
       <div class="row">
-        <div class="col-2 text-light pt-4">
+        <div class="d-none d-md-block col-md-2 text-light pt-4">
           <h5>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
               <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
@@ -97,7 +97,7 @@
             <li class="nav-item"><a class="nav-link text-white px-0" href="#">that fucking mood</a></li>
           </ul>
         </div>
-        <div id="middle-column" class="container col-7 text-light pt-4">
+        <div id="middle-column" class="container col-12 col-md-7 text-light pt-4">
           <div class="position-relative d-inline-block mb-2">
             <!-- Freccia indietro -->
             <i class="bi bi-chevron-left m-3 fs-4 text-white"></i>
@@ -106,7 +106,7 @@
             <i class="bi bi-chevron-right m-3 fs-4 text-white" style="left: 2.5rem"></i>
           </div>
           <!-- Album -->
-          <div id="album" class="d-flex mb-4">
+          <div id="album" class="d-none d-md-flex mb-4">
             <img src="./assets/imgs/main/Viola_Album_Cover.jpg" id="copertina" class="me-3" alt="copertina album" />
             <div>
               <p>ALBUM</p>
@@ -122,39 +122,47 @@
             </div>
           </div>
           <!-- Buonasera -->
-          <h4 class="mb-3">Buonasera</h4>
+          <div class="d-flex justify-content-between aligh-items-center">
+            <h4 class="mb-3">Buonasera</h4>
+            <div class="d-flex d-md-none justify-content-around w-25">
+              <i class="bi bi-bell"></i>
+              <i class="bi bi-clock-history"></i>
+              <i class="bi bi-gear"></i>
+            </div>
+          </div>
+
           <div class="row mb-4">
-            <div class="col-4">
+            <div class="col-6 col-md-4">
               <div class="bg-dark mb-3 text-white rounded">
                 <img src="./assets/imgs/main/image-5.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
                 early stage emily syndrome
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-6 col-md-4">
               <div class="bg-dark mb-3 text-white rounded">
                 <img src="./assets/imgs/main/image-6.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
                 Be The Young
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-6 col-md-4">
               <div class="bg-dark mb-3 text-white rounded">
                 <img src="./assets/imgs/main/image-7.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
                 saggio vibes
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-6 col-md-4">
               <div class="bg-dark mb-3 text-white rounded">
                 <img src="./assets/imgs/main/image-8.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
                 Brani che ti piacciono
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-6 col-md-4">
               <div class="bg-dark mb-3 text-white rounded">
                 <img src="./assets/imgs/main/image-9.jpg" class="img-fluid me-2 rounded-start" alt="placeholder" />
                 2021 lol
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-6 col-md-4">
               <div class="bg-dark mb-3 text-white rounded">
                 <img src="./assets/imgs/main/image-10.jpg" class="img-fluid me- rounded-start2" alt="placeholder" />
                 Deep Dive with Ali Abdaal
@@ -164,7 +172,7 @@
           <!--Alto che ti piace-->
           <h4 class="mb-3">Altro di ciò che ti piace</h4>
           <div id="altro-che-ti-piace" class="row">
-            <div class="col-3">
+            <div class="col-12 col-md-6 col-lg-3">
               <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
                 <img src="./assets/imgs/main/image-1.jpg" class="img-fluid mb-2" alt="placeholder" />
                 <div class="card-body">
@@ -173,7 +181,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-6 col-lg-3">
               <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
                 <img src="./assets/imgs/main/image-11.jpg" class="img-fluid mb-2" alt="placeholder" />
                 <div class="card-body">
@@ -182,7 +190,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-6 col-lg-3">
               <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
                 <img src="./assets/imgs/main/image-12.jpg" class="img-fluid mb-2" alt="placeholder" />
                 <div class="card-body">
@@ -191,7 +199,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-6 col-lg-3">
               <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded py-3" style="height: 275px">
                 <img src="./assets/imgs/main/image-13.jpg" class="img-fluid mb-2" alt="placeholder" />
                 <div class="card-body">
@@ -202,7 +210,7 @@
             </div>
           </div>
         </div>
-        <div class="col-2 text-light pt-4">
+        <div class="col-2 d-none d-md-block text-light pt-4">
           <div class="d-flex justify-content-between aligh-items-center">
             <h6 class="d-inline-block"><strong>Attività amici</strong></h6>
             <div>
@@ -231,7 +239,7 @@
     </div>
 
     <!-- Player bar -->
-    <div id="player" class="row bg-dark text-white align-items-center py-4 px-4">
+    <div id="player" class="d-none d-md-block row bg-dark text-white align-items-center py-4 px-4">
       <div class="col-3 d-flex align-items-center">
         <img src="./assets/imgs/main/image-16.jpg" class="me-2" alt="brano" />
         <div>
@@ -278,6 +286,52 @@
           <i class="bi bi-arrows-angle-expand"></i>
         </div>
       </div>
+    </div>
+
+    <div class="mobile-player-bar d-md-none d-flex aligh-items-center rounded">
+      <img src="./assets/imgs/main/image-3.jpg" alt="Copertina" class="cover" />
+      <div class="track-text">
+        <span class="track-title">Supernatural Parody</span>
+        <span class="track-artist">The Hillywood Show</span>
+      </div>
+      <div class="icons d-flex justify-content-evenly w-25">
+        <button class="icon-btn"><i class="bi bi-heart"></i></button>
+        <button class="icon-btn"><i class="bi bi-pc-display"></i></button>
+        <button class="icon-btn"><i class="bi bi-play-fill"></i></button>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="d-md-none d-flex justify-content-evenly position-fixed bottom-0 w-100">
+      <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+          <path
+            d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+          />
+        </svg>
+        <p>Home</p>
+      </a>
+
+      <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+        <p>Cerca</p>
+      </a>
+
+      <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
+          <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2" />
+          <path fill-rule="evenodd" d="M12 3v10h-1V3z" />
+          <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z" />
+          <path
+            fill-rule="evenodd"
+            d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"
+          />
+        </svg>
+        <p>La tua libreria</p>
+      </a>
     </div>
 
     <script
