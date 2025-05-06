@@ -116,10 +116,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const volumeBtn = document.querySelector(".volume-btn");
   const volumeSlider = document.querySelector(".volume-slider");
 
+  const hideBtn = document.getElementById("nascondi-btn");
+  const album = document.getElementById("album");
+
   volumeBtn.addEventListener("click", () => {
     volumeSlider.classList.toggle("d-none");
     micBtn.classList.toggle("d-none");
     listBtn.classList.toggle("d-none");
     pcBtn.classList.toggle("d-none");
+  });
+
+  hideBtn.addEventListener("click", () => {
+    album.classList.toggle("d-lg-none");
   });
 });
