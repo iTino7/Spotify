@@ -21,6 +21,7 @@ const albumPage = () => {
       const containerAlbum = document.getElementById("container-album");
 
       console.log(dataAlbum);
+      console.log(dataAlbum);
 
       const background = document.createElement("div");
       background.style.background = "#ddbf4e";
@@ -193,9 +194,24 @@ const albumPage = () => {
         artistTitle.style.fontSize = "13px";
         artistTitle.className = "mt1";
         artistTitle.innerHTML = item.artist.name;
+
+        //DIV-RANK
+        const containerRank = document.createElement("div");
+        containerRank.className = "d-none d-md-flex col-md-3 d-flex";
+        const pRank = document.createElement("p");
+        pRank.className = "m-0";
+        const formatNumber = item.rank;
+        const format = formatNumber.toLocaleString();
+        console.log(format);
+        pRank.style.fontSize = "13px";
+        pRank.innerHTML = format;
+
+        containerRank.append(pRank);
+
         containerTitleSong.append(titleSong, artistTitle);
         containerSong.append(pSong, containerTitleSong);
-        containerSongs.appendChild(containerSong);
+        containerSongs.append(containerSong);
+        containerListRight.append();
       });
 
       containerIconListRight.appendChild(iconRightSong);
