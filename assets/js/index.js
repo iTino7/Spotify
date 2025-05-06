@@ -53,7 +53,7 @@ const createAlbumRow = (albums, title) => {
       <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded" alt="${album.title}">
       <div class="card-body text-center">
         <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
-        <p class="text-muted small text-truncate">${album.artist.name}</p>
+        <p class="small text-truncate">${album.artist.name}</p>
       </div>
     `;
 
