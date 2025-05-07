@@ -1,4 +1,5 @@
 const params = new URLSearchParams(window.location.search);
+
 const id = params.get("search") || "dua lipa";
 console.log("id:", id);
 
@@ -106,14 +107,15 @@ const albumPage = () => {
       buttonAlbumMobile.style.backgroundColor = "transparent";
       buttonAlbumMobile.addEventListener("click", () => {
         window.location.assign(`index.html`);
-      })
+      });
 
       buttonAlbumMobile.classList.add("d-flex");
       buttonAlbumMobile.classList.add("d-sm-none");
       buttonAlbumMobile.classList.add("m-0");
       const containerIconMobile = document.createElement("i");
-      containerIconMobile.className = "d-block d-sm-none bi bi-arrow-left text-white ";
-      
+      containerIconMobile.className =
+        "d-block d-sm-none bi bi-arrow-left text-white ";
+
       buttonAlbumMobile.appendChild(containerIconMobile);
       //ALBUM-IMG
       const containerImg = document.createElement("img");
