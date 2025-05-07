@@ -220,4 +220,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  const closeWindowBtn = document.getElementById("close-window");
+  const friendsBlocks = document.querySelectorAll(".friends-block");
+
+  closeWindowBtn.addEventListener("click", () => {
+    friendsBlocks.forEach((block) => {
+      block.classList.add("d-none"); // Aggiunge la classe d-none a ogni elemento
+    });
+  });
 });
