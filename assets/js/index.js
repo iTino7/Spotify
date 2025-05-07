@@ -190,4 +190,34 @@ document.addEventListener("DOMContentLoaded", () => {
   hideBtn.addEventListener("click", () => {
     album.classList.toggle("d-lg-none");
   });
+
+  const searchIcon = document.getElementById("search-icon");
+  const searchContainer = document.getElementById("search-container");
+  const searchInput = document.getElementById("search-input");
+  const container = document.getElementById("altro-che-ti-piace");
+
+  // Appare il campo di ricerca al click
+  searchIcon.addEventListener("click", () => {
+    searchContainer.classList.toggle("d-none");
+    searchInput.focus();
+  });
+
+  // Gestione della ricerca
+  searchInput.addEventListener("keypress", async (event) => {
+    if (event.key === "Enter") {
+      const query = searchInput.value.trim();
+      if (query) {
+        // Svuota il campo di ricerca
+        container.innerHTML = "";
+
+        // Ricerca gli album
+        const albums = await fetchAlbums(query);
+        if (albums && albums.length > 0) {
+          createAlbumRow(albums.slice(0, 8), `Album di ${query}`);
+        } else {
+          container.innerHTML = `<p class="text-white">Nessun album trovato per "${query}".</p>`;
+        }
+      }
+    }
+  });
 });
