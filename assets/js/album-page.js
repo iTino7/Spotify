@@ -233,7 +233,9 @@ const albumPage = () => {
         const minutesSong = Math.floor(durationSongs / 60);
         const secondsSong = durationSongs % 60;
 
-        timeP.innerHTML = `${minutesSong}:${secondsSong}`;
+        const secondi = secondsSong < 10 ? `0${secondsSong}` : secondsSong;
+
+        timeP.innerHTML = `${minutesSong}:${secondi}`;
 
         containerTitleSong.append(titleSong, artistTitle);
         containerSong.append(pSong, containerTitleSong);
