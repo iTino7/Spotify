@@ -95,14 +95,35 @@ const createAlbumRow = (albums, title) => {
   container.appendChild(row);
 };
 
-// Funzione principale per caricare album
+// Funzione per caricare album casuali
 const loadAlbums = async () => {
-  const queries = ["Imagine Dragons", "Bruno Mars", "Shakira", "One Republic"]; // Artisti o generi da personalizzare
-  for (const query of queries) {
-    const albums = await fetchAlbums(query);
-    if (albums && albums.length > 0) {
-      createAlbumRow(albums.slice(0, 4), `Album di ${query}`); // Mostra solo 4 album per riga
+  const container = document.getElementById("altro-che-ti-piace");
+  container.innerHTML = ""; // Pulisce il contenitore
+
+  // Generazione lettera casuale per la ricerca
+  const randomLetter = String.fromCharCode(97 + Math.floor(Math.random() * 26)); // Lettere da 'a' a 'z'
+
+  // Ricerca casuale
+  const albums = await fetchAlbums(randomLetter);
+
+  if (albums && albums.length > 0) {
+    // Estrazione artisti unici dagli album
+    const uniqueArtists = [
+      ...new Set(albums.map((album) => album.artist.name)),
+    ];
+
+    // Limitazione a 4 artisti casuali
+    const randomArtists = uniqueArtists.slice(0, 4);
+
+    // Caricamento album per ogni artista
+    for (const artist of randomArtists) {
+      const artistAlbums = await fetchAlbums(artist);
+      if (artistAlbums && artistAlbums.length > 0) {
+        createAlbumRow(artistAlbums.slice(0, 4), `Album di ${artist}`);
+      }
     }
+  } else {
+    container.innerHTML = `<p class="text-white">Nessun album trovato.</p>`;
   }
 };
 
