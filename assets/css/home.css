@@ -77,11 +77,7 @@ i:hover {
 }
 
 #album {
-  background: linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 1) 30%,
-    rgba(163, 163, 163, 0.29) 100%
-  );
+  background: linear-gradient(45deg, rgba(0, 0, 0, 1) 30%, rgba(163, 163, 163, 0.29) 100%);
   padding: 15px;
   position: relative;
 }
@@ -98,11 +94,7 @@ i:hover {
 #mobile-nav {
   height: 100px;
   align-items: center;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(0, 0, 0, 0.137) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0.137) 100%);
 }
 
 #mobile-nav a {

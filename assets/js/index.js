@@ -262,4 +262,74 @@ document.addEventListener("DOMContentLoaded", () => {
       openWindow.classList.add("d-none");
     });
   });
+
+  createBuonaseraSection();
+  toggleListVisibility();
 });
+
+const createBuonaseraSection = async () => {
+  const buonaseraSection = document.getElementById("buonasera-section"); // Seleziona la sezione
+  const listaDaModificare = document.getElementById("lista-da-modificare-randomicamente"); // Seleziona la lista
+  const listaItems = listaDaModificare.querySelectorAll("a"); // Seleziona i tag <a> nella lista
+  buonaseraSection.innerHTML = ""; // Pulisce il contenuto esistente
+
+  // Genera una lettera casuale per la ricerca
+  const randomLetter = String.fromCharCode(97 + Math.floor(Math.random() * 26)); // Lettere da 'a' a 'z'
+
+  // Ottieni album casuali dall'API
+  const albums = await fetchAlbums(randomLetter);
+
+  if (albums && albums.length > 0) {
+    // Prendi i primi 6 album
+    const randomAlbums = albums.slice(0, 6);
+
+    randomAlbums.forEach((album, index) => {
+      const col = document.createElement("div");
+      col.className = "col-6 col-md-4";
+
+      const card = document.createElement("div");
+      card.className = "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
+
+      card.innerHTML = `
+        <img src="${album.album.cover_medium}" class="img-fluid me-2 rounded-start" alt="${album.artist.name}" />
+        ${album.artist.name}
+      `;
+      console.log(album.artist.name);
+
+      col.appendChild(card);
+      buonaseraSection.appendChild(col);
+
+      // Aggiorna i tag <a> nella lista con il nome dell'artista e l'immagine
+      if (listaItems[index]) {
+        listaItems[index].innerHTML = `
+          <img src="${album.album.cover_small}" class="img-fluid me-2 rounded" alt="${album.artist.name}" style="width: 30px; height: 30px;" />
+          <p class=" d-inline-block">${album.artist.name}</p>
+        `;
+        listaItems[index].href = `album-page.html?search=${album.artist.name}`; // Aggiorna anche il link
+      }
+    });
+  } else {
+    buonaseraSection.innerHTML = `<p class="text-white">Nessun album trovato.</p>`;
+  }
+};
+
+const toggleListVisibility = () => {
+  const listaDaModificare = document.getElementById("lista-da-modificare-randomicamente");
+  const listaItems = listaDaModificare.querySelectorAll("a");
+
+  if (window.innerWidth < 992) {
+    listaItems.forEach((item) => {
+      item.style.display = "none"; // Nasconde i nomi
+    });
+  } else {
+    listaItems.forEach((item) => {
+      item.style.display = ""; // Mostra i nomi
+    });
+  }
+};
+
+// Aggiungi un listener per il ridimensionamento della finestra
+window.addEventListener("resize", toggleListVisibility);
+
+// Esegui la funzione al caricamento della pagina
+document.addEventListener("DOMContentLoaded", toggleListVisibility);
