@@ -62,7 +62,21 @@ const createAlbumRow = (albums, title) => {
 
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
+    albumCard.innerHTML = `
+    <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded album-img" alt="${album.title}">
+    <div class="card-body text-center">
+      <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
+      <p class="small text-truncate">${album.artist.name}</p>
+    </div>
+  `;
+    // Aggiunta dell'evento click all'immagine
+    const albumImg = albumCard.querySelector(".album-img");
 
+    albumImg.addEventListener("click", () => {
+      window.location.assign(`album-page.html?search=${album.artist.name}`);
+    });
+
+    console.log(album);
     // Aggiunta della colonna alla riga
     row.appendChild(col);
 
@@ -127,9 +141,56 @@ const loadAlbums = async () => {
   }
 };
 
-// Avvia il caricamento degli album
+//ARROW-STYLE
+const arrowStyle = (str, add, value) => {
+  str.addEventListener(add, () => {
+    str.style.opacity = value;
+    str.style.transition = "0.8s";
+  });
+};
+
+const arrowContainer = document.getElementById("arrow-container");
+// Avvia il caricamento degli album al caricamento della pagina
 window.onload = () => {
   loadAlbums();
+
+  //ARROW D-FLEX
+  const containerArrow = document.createElement("div");
+  containerArrow.className = "arrow d-flex";
+  //P-ARROW-LEFT
+  const pLeft = document.createElement("p");
+  pLeft.className = "ms-1 m-0";
+  // ARROW-LEFT
+  const buttonArrowLeft = document.createElement("button");
+  buttonArrowLeft.style.border = "none";
+  buttonArrowLeft.style.backgroundColor = "transparent";
+  const hrefArrowLeft = document.createElement("a");
+  hrefArrowLeft.href = "album-page.html";
+
+  const arrowLeft = document.createElement("i");
+  arrowLeft.className = "d-none d-sm-block bi bi-arrow-left-circle-fill";
+  arrowLeft.style.color = "white";
+  arrowLeft.style.fontSize = "30px";
+  arrowLeft.style.opacity = "0.3";
+  arrowStyle(arrowLeft, "mouseenter", "0.8");
+  arrowStyle(arrowLeft, "mouseleave", "0.3");
+
+  //P-ARROW-RIGHT
+  const pRight = document.createElement("p");
+  pRight.className = "ms-2";
+  //ARROW-RIGHT
+  const arrowRight = document.createElement("i");
+  arrowRight.className = "d-none d-sm-block bi bi-arrow-right-circle-fill";
+  arrowRight.style.color = "white";
+  arrowRight.style.fontSize = "30px";
+  arrowRight.style.opacity = "0.3";
+  arrowStyle(arrowRight, "mouseenter", "0.8");
+  arrowStyle(arrowRight, "mouseleave", "0.3");
+
+  hrefArrowLeft.appendChild(arrowLeft);
+  buttonArrowLeft.append(hrefArrowLeft);
+  containerArrow.append(pLeft, buttonArrowLeft, pRight, arrowRight);
+  arrowContainer.appendChild(containerArrow);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
