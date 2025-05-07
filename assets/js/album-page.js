@@ -37,11 +37,11 @@ const albumPage = () => {
       const background = document.createElement("div");
 
       background.style.backgroundImage = `
-  linear-gradient(180deg, rgba(221,191,78,0) 0%, rgba(18,18,18,1) 40%),
+  linear-gradient(180deg, rgba(221,191,78,0) 0%, rgba(18,18,18,1) 45%),
   url('${dataAlbum.data[0].album.cover_xl}')
 `;
       background.style.backgroundSize = "cover";
-      background.style.backgroundPosition = "center";
+      background.style.backgroundPosition = "bottom";
       background.style.backgroundRepeat = "no-repeat";
       background.style.height = "100vh";
       //CONTAINER-NAV
