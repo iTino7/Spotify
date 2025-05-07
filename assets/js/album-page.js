@@ -3,7 +3,6 @@ const id = params.get("search") || "dua lipa";
 
 console.log("SEARCH PARAM:", params.get("search"));
 
-
 const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${id}`;
 const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462";
 
@@ -214,6 +213,11 @@ const albumPage = () => {
     })
     .catch((error) => console.log(error));
 };
+
+const homeBtn = document.getElementById("home-button");
+homeBtn.addEventListener("click", () => {
+  window.location.assign(`index.html`);
+});
 
 window.onload = () => {
   albumPage();
