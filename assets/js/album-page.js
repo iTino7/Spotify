@@ -303,7 +303,6 @@ const albumPage = () => {
         pRank.className = "m-0";
         const formatNumber = item.rank;
         const format = formatNumber.toLocaleString();
-        console.log(format);
         pRank.style.fontSize = "13px";
         pRank.innerHTML = format;
 
@@ -444,3 +443,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
