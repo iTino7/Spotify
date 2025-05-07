@@ -142,7 +142,7 @@ window.onload = () => {
   buttonArrowLeft.style.border = "none";
   buttonArrowLeft.style.backgroundColor = "transparent";
   const hrefArrowLeft = document.createElement("a");
-  hrefArrowLeft.href = "#";
+  hrefArrowLeft.href = "album-page.html";
 
   const arrowLeft = document.createElement("i");
   arrowLeft.className = "d-none d-sm-block bi bi-arrow-left-circle-fill";
