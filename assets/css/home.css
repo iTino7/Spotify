@@ -34,6 +34,24 @@ img {
   background: #1ed760;
 }
 
+/* Stile per le card */
+.card {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
 #altro-che-ti-piace img {
   width: 90%;
   border-radius: 10px;
