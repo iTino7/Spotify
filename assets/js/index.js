@@ -76,7 +76,7 @@ const createAlbumRow = (albums, title) => {
       window.location.assign(`album-page.html?search=${album.artist.name}`);
     });
 
-    console.log(album);
+    console.log(album.album.id);
     // Aggiunta della colonna alla riga
     row.appendChild(col);
 

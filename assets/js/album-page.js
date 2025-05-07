@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("search") || "dua lipa";
+console.log("id:", id);
 
 const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${id}`;
 const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462";
@@ -241,7 +242,7 @@ const albumPage = () => {
         const minutesSong = Math.floor(durationSongs / 60);
         const secondsSong = durationSongs % 60;
 
-        timeP.innerHTML = `${minutesSong}.${secondsSong}`;
+        timeP.innerHTML = `${minutesSong}:${secondsSong}`;
 
         containerTitleSong.append(titleSong, artistTitle);
         containerSong.append(pSong, containerTitleSong);
