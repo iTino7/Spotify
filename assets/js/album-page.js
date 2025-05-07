@@ -1,10 +1,17 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("search") || "dua lipa";
-
-console.log("SEARCH PARAM:", params.get("search"));
+console.log("id:", id);
 
 const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${id}`;
 const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462";
+
+//ARROW-STYLE
+const arrowStyle = (str, add, value) => {
+  str.addEventListener(add, () => {
+    str.style.opacity = value;
+    str.style.transition = "0.8s";
+  });
+};
 
 const albumPage = () => {
   fetch(URL, {
@@ -23,10 +30,12 @@ const albumPage = () => {
       const containerAlbum = document.getElementById("container-album");
 
       console.log(dataAlbum);
+      console.log(dataAlbum);
 
       const background = document.createElement("div");
       background.style.background = "#ddbf4e";
-      background.style.background = "linear-gradient(180deg, rgba(221,191,78,1)0%, rgba(18,18,18,1)50%)";
+      background.style.background =
+        "linear-gradient(180deg, rgba(221,191,78,1)0%, rgba(18,18,18,1)50%)";
       background.style.height = "100vh";
       //CONTAINER-NAV
       const containerNav = document.createElement("div");
@@ -38,11 +47,20 @@ const albumPage = () => {
       const pLeft = document.createElement("p");
       pLeft.className = "ms-1 m-0";
       // ARROW-LEFT
+      const buttonArrowLeft = document.createElement("button");
+      buttonArrowLeft.style.border = "none";
+      buttonArrowLeft.style.backgroundColor = "transparent";
+      const hrefArrowLeft = document.createElement("a");
+      hrefArrowLeft.href = "./index.html";
+
       const arrowLeft = document.createElement("i");
       arrowLeft.className = "d-none d-sm-block bi bi-arrow-left-circle-fill";
       arrowLeft.style.color = "black";
       arrowLeft.style.fontSize = "30px";
-      arrowLeft.style.opacity = "0.8";
+      arrowLeft.style.opacity = "0.3";
+      arrowStyle(arrowLeft, "mouseenter", "0.8");
+      arrowStyle(arrowLeft, "mouseleave", "0.3");
+
       //P-ARROW-RIGHT
       const pRight = document.createElement("p");
       pRight.className = "ms-2";
@@ -52,11 +70,14 @@ const albumPage = () => {
       arrowRight.style.color = "black";
       arrowRight.style.fontSize = "30px";
       arrowRight.style.opacity = "0.3";
+      arrowStyle(arrowRight, "mouseenter", "0.8");
+      arrowStyle(arrowRight, "mouseleave", "0.3");
       //PROFILE
       const profile = document.createElement("div");
       profile.className = "ms-auto profile me-2";
       const bgProfile = document.createElement("div");
-      bgProfile.className = "d-none d-sm-inline-flex align-items-center bg-dark text-white px-2 py-1";
+      bgProfile.className =
+        "d-none d-sm-inline-flex align-items-center bg-dark text-white px-2 py-1";
       bgProfile.style.borderRadius = "50px";
       //PROFILE-IMG
       const profileImg = document.createElement("img");
@@ -74,7 +95,8 @@ const albumPage = () => {
       const item = dataAlbum.data[0];
 
       const containerInfo = document.createElement("div");
-      containerInfo.className = "d-flex flex-column align-items-center container-fluid mt-2 ms-md-2 flex-md-row align-items-end";
+      containerInfo.className =
+        "d-flex flex-column align-items-center container-fluid mt-2 ms-md-2 flex-md-row align-items-end";
       //CONTAINER-ALBUM-FLEX
       const containerInfoFlex = document.createElement("div");
       containerInfoFlex.className = "d-flex";
@@ -92,14 +114,16 @@ const albumPage = () => {
 
       //DESCRIPTION-ALBUM
       const descriptionContainer = document.createElement("div");
-      descriptionContainer.className = "d-flex flex-column d-sm-flex container-d-flex ms-2";
+      descriptionContainer.className =
+        "d-flex flex-column d-sm-flex container-d-flex ms-2";
       //P-DESCRIPTION
       const pDescription = document.createElement("p");
       pDescription.className = "mb-0";
       pDescription.innerHTML = "Album";
       //H1-DESCRIPTION
       const h1Description = document.createElement("h1");
-      h1Description.className = "d-none d-sm-flex fw-bold display-4 display-md-3 display-lg-1";
+      h1Description.className =
+        "d-none d-sm-flex fw-bold display-4 display-md-3 display-lg-1";
       h1Description.textContent = item.album.title;
       //SUB-DESCRIPTION
       const subDescriptionTitle = document.createElement("p");
@@ -110,7 +134,11 @@ const albumPage = () => {
       subDescriptionArtist.innerHTML = item.artist.name;
       const titleAndArtist = document.createElement("p");
       titleAndArtist.className = "d-none d-sm-flex mb-0 mt-4 fw-bold";
-      const duration = dataAlbum.data.reduce((acc, curr) => acc + curr.duration, 0);
+      const duration = dataAlbum.data.reduce(
+        (acc, curr) => acc + curr.duration,
+        0
+      );
+
       const minutes = Math.floor(duration / 60);
       const seconds = duration % 60;
       titleAndArtist.innerHTML = `${item.artist.name} ● ${item.album.title} ● Album, ${minutes} min, ${seconds}sec. `;
@@ -170,9 +198,14 @@ const albumPage = () => {
 
       const containerSongs = document.createElement("div");
       containerSongs.className = "container-fluid";
+      const containerSongRow = document.createElement("div");
+      containerSongRow.className = "row d-flex align-items-center";
+      containerSongRow.style.color = "#9a9998";
+
       dataAlbum.data.slice(0, 4).forEach((item, index) => {
         const containerSong = document.createElement("div");
-        containerSong.className = "col-12 col-md-8 d-flex align-items-center mt-4";
+        containerSong.className =
+          "col-12 col-md-8 d-flex align-items-center mt-4";
         const pSong = document.createElement("p");
         pSong.className = "me-3";
         pSong.innerHTML = index + 1;
@@ -186,38 +219,93 @@ const albumPage = () => {
         artistTitle.style.fontSize = "13px";
         artistTitle.className = "mt1";
         artistTitle.innerHTML = item.artist.name;
+
+        //DIV-RANK
+        const containerRank = document.createElement("div");
+        containerRank.className = "d-none d-md-flex col-md-3 d-flex";
+        const pRank = document.createElement("p");
+        pRank.className = "m-0";
+        const formatNumber = item.rank;
+        const format = formatNumber.toLocaleString();
+        console.log(format);
+        pRank.style.fontSize = "13px";
+        pRank.innerHTML = format;
+
+        //DIV-TIME
+        const containerTime = document.createElement("div");
+        containerTime.className = "d-none d-md-flex col-md-1 d-flex";
+        const timeP = document.createElement("p");
+        timeP.className = "m-0";
+        timeP.style.fontSize = "13px";
+        const durationSongs = item.duration;
+
+        const minutesSong = Math.floor(durationSongs / 60);
+        const secondsSong = durationSongs % 60;
+
+        timeP.innerHTML = `${minutesSong}:${secondsSong}`;
+
         containerTitleSong.append(titleSong, artistTitle);
         containerSong.append(pSong, containerTitleSong);
-        containerSongs.appendChild(containerSong);
+        containerRank.append(pRank);
+        containerTime.appendChild(timeP);
+        containerSongRow.append(containerSong, containerRank, containerTime);
       });
+
+      containerSongs.appendChild(containerSongRow);
 
       containerIconListRight.appendChild(iconRightSong);
       songList.append(pTrackList, pTitleTrackList);
       containerListRight.append(pListRight);
-      containerRowList.append(songList, containerListRight, containerIconListRight);
+      containerRowList.append(
+        songList,
+        containerListRight,
+        containerIconListRight
+      );
 
       containerPTrackList.appendChild(iconTrack);
-      containerIconTrack.append(containerPTrackList, iconHeart, iconArrow, iconDots);
-      containerTrackList.append(containerIconTrack, containerRowList, containerSongs);
-      descriptionContainer.append(pDescription, h1Description, subDescriptionTitle, subDescriptionArtist, titleAndArtist);
+      containerIconTrack.append(
+        containerPTrackList,
+        iconHeart,
+        iconArrow,
+        iconDots
+      );
+
+      containerTrackList.append(
+        containerIconTrack,
+        containerRowList,
+        containerSongRow
+      );
+      descriptionContainer.append(
+        pDescription,
+        h1Description,
+        subDescriptionTitle,
+        subDescriptionArtist,
+        titleAndArtist
+      );
       spanProfile.appendChild(iProfile);
       bgProfile.append(spanProfile, profileImg);
       profile.appendChild(bgProfile);
-      containerArrow.append(pLeft, arrowLeft, pRight, arrowRight);
+      hrefArrowLeft.appendChild(arrowLeft);
+      buttonArrowLeft.append(hrefArrowLeft);
+      containerArrow.append(pLeft, buttonArrowLeft, pRight, arrowRight);
       containerNav.append(containerArrow, profile);
-      background.append(containerNav, containerInfo, containerTrackList, containerSong);
-      containerInfoFlex.append(containerIconMobile, containerImg, descriptionContainer);
+      background.append(
+        containerNav,
+        containerInfo,
+        containerTrackList,
+        containerSong
+      );
+      containerInfoFlex.append(
+        containerIconMobile,
+        containerImg,
+        descriptionContainer
+      );
       containerInfo.append(containerInfoFlex, descriptionContainer);
-      containerAlbum.append(background);
+      containerAlbum.append(background, containerSongs);
       console.log(containerAlbum);
     })
     .catch((error) => console.log(error));
 };
-
-const homeBtn = document.getElementById("home-button");
-homeBtn.addEventListener("click", () => {
-  window.location.assign(`index.html`);
-});
 
 window.onload = () => {
   albumPage();
