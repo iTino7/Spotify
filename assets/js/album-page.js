@@ -102,12 +102,13 @@ const albumPage = () => {
       containerIconMobile.className = "d-block d-sm-none bi bi-arrow-left me-2";
       //ALBUM-IMG
       const containerImg = document.createElement("img");
-      containerImg.src = item.album.cover_big;
+      containerImg.style.width ="200px"
+      containerImg.src = item.album.cover_xl;
       containerImg.alt = item.name;
 
       containerImg.style.maxWidth = "300px";
       containerImg.style.boxShadow = "-2px 0px 23px 3px rgba(0, 0, 0, 0.63)";
-      containerImg.className = "w-75 w-sm-100";
+      
 
       //DESCRIPTION-ALBUM
       const descriptionContainer = document.createElement("div");
