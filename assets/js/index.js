@@ -1,5 +1,5 @@
 const API_URL = "https://deezerdevs-deezer.p.rapidapi.com/search";
-const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462"; // Sostituire con chiave RapidAPI
+const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462";
 
 // Funzione per ottenere album da Deezer
 const fetchAlbums = async (query) => {
@@ -17,14 +17,14 @@ const fetchAlbums = async (query) => {
     }
 
     const data = await response.json();
-    return data.data; // Restituisce l'array di album
+    return data.data; // Ritorna l'array di album
   } catch (error) {
     console.error("Errore:", error);
     return [];
   }
 };
 
-// Funzione per creare una striscia di album
+// Funzione per creare una riga di album
 const createAlbumRow = (albums, title) => {
   const container = document.getElementById("altro-che-ti-piace"); // ID corretto dal file HTML
   const middleColumn = document.getElementById("middle-column");
@@ -48,7 +48,8 @@ const createAlbumRow = (albums, title) => {
 
     // Creazione della card
     const albumCard = document.createElement("div");
-    albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
+    albumCard.className =
+      "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
 
     // Contenuto della card
     albumCard.innerHTML = `
@@ -65,7 +66,8 @@ const createAlbumRow = (albums, title) => {
     // Aggiunta della colonna alla riga
     row.appendChild(col);
 
-    altroCheTiPiaceSmall.className = "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
+    altroCheTiPiaceSmall.className =
+      "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
     altroCheTiPiaceSmall.innerHTML = `<div class="d-flex w-100">
               <div class="w-50 d-flex justify-content-center aligh-items-center">
                 <img src="${album.album.cover_medium}" class="img-fluid mb-4" alt="placeholder" />
@@ -104,7 +106,7 @@ const loadAlbums = async () => {
   }
 };
 
-// Avvia il caricamento degli album al caricamento della pagina
+// Avvia il caricamento degli album
 window.onload = () => {
   loadAlbums();
 };
@@ -128,5 +130,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hideBtn.addEventListener("click", () => {
     album.classList.toggle("d-lg-none");
+  });
+
+  const searchIcon = document.getElementById("search-icon");
+  const searchContainer = document.getElementById("search-container");
+  const searchInput = document.getElementById("search-input");
+  const container = document.getElementById("altro-che-ti-piace");
+
+  // Appare il campo di ricerca al click
+  searchIcon.addEventListener("click", () => {
+    searchContainer.classList.toggle("d-none");
+    searchInput.focus();
+  });
+
+  // Gestione della ricerca
+  searchInput.addEventListener("keypress", async (event) => {
+    if (event.key === "Enter") {
+      const query = searchInput.value.trim();
+      if (query) {
+        // Svuota il campo di ricerca
+        container.innerHTML = "";
+
+        // Ricerca gli album
+        const albums = await fetchAlbums(query);
+        if (albums && albums.length > 0) {
+          createAlbumRow(albums.slice(0, 8), `Album di ${query}`);
+        } else {
+          container.innerHTML = `<p class="text-white">Nessun album trovato per "${query}".</p>`;
+        }
+      }
+    }
   });
 });
