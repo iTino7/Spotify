@@ -6,7 +6,7 @@
     <title>Artist Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/artist.css">
 </head>
 <body class="text-light">
     <div class="container-fluid">
@@ -208,7 +208,8 @@
                         <p>3.453.158 ascoltatori mensili</p>
                     </div>
                 </div>
-               <!-- Parte inferiore: Brani popolari e bottoni -->
+
+<!-- Parte inferiore: Brani popolari e bottoni -->
                          
 <div id="buttom-part" class="text-white p-3">
   <div class="d-flex">
@@ -216,8 +217,8 @@
   
       <!-- Bottoni e icone -->
       <div class="d-flex align-items-center gap-3 mb-4">
-        <button class="btn btn-success btn-lg rounded-circle d-flex align-items-center justify-content-center position-relative" style="width: 56px; height: 56px;">
-          <i class="bi bi-play-fill fs-2" style="color: black; margin-left: 2px;"></i>
+        <button id="play-button" class="btn btn-success btn-lg rounded-circle d-flex align-items-center justify-content-center position-relative" style="width: 56px; height: 56px;">
+          <i id="play-icon" class="bi bi-play-fill fs-2" style="color: black; margin-left: 2px;"></i>
         </button>
         <button class="btn btn-outline-light">Following</button>
         <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: transparent;">
@@ -557,7 +558,8 @@
   </a>
 </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<audio id="audio-player" src="./assets/audio/Скриптонит - не расслабляйся [аудио 2024].mp3"></audio>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./artist.js"></script>
 </body>
 </html>

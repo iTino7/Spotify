@@ -1,15 +1,16 @@
 body{
     background: linear-gradient(0deg,rgba(10, 10, 10, 1) 14%, rgba(60, 71, 63, 0.92) 100%);
+           /* occupa tutta la larghezza disponibile */
 }
 
 .central-background {
-    background-image: url('./assets/imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg'); /* Percorso corretto */
-    background-size: cover;
+  background-image: url('../imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg'); /* Percorso corretto */
+  background-size: cover;
     background-position: center;
     height: 400px; 
     display: flex;
     align-items: flex-end;
-    padding: 20px; 
+    padding: 20px;   
 }
 
 .central-background .text-content {
