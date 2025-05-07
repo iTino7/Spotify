@@ -55,9 +55,12 @@ const createAlbumRow = (albums, title) => {
     // Contenuto della card
     albumCard.innerHTML = `
     <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded album-img" alt="${album.title}">
-    <div class="card-body text-center">
-      <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
-      <p class="small text-truncate">${album.artist.name}</p>
+    <div class="card-body d-flex justify-content-around">
+      <div class="w-50"> 
+        <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
+        <p class="small text-truncate">${album.artist.name}</p>
+      </div>
+      <i class="bi bi-play-circle-fill fs-1 pointer-hover start-btn"></i>
     </div>
   `;
     // Aggiunta dell'evento click all'immagine

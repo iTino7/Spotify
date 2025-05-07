@@ -143,6 +143,10 @@ button {
   cursor: pointer;
 }
 
+.start-btn {
+  color: #1ed760;
+}
+
 @media (max-width: 768px) {
   .mobile-player-bar {
     position: sticky;
