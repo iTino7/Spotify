@@ -17,12 +17,15 @@
   <body>
     <div id="hero" class="container-fliud">
       <div class="row">
+        <!--Colonna di sinistra-->
         <div class="d-none d-md-block col-md-2 text-light pt-4">
           <h5>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
               <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
             </svg>
           </h5>
+
+          <!--Prima lista-->
           <ul class="nav flex-column mb-3">
             <li class="nav-item">
               <a class="nav-link text-white px-0" href="#">
@@ -62,6 +65,8 @@
               >
             </li>
           </ul>
+
+          <!--Seconda lista-->
           <ul class="nav flex-column mb-3">
             <li class="nav-item">
               <a class="nav-link text-white px-0" href="#">
@@ -92,6 +97,8 @@
               >
             </li>
           </ul>
+
+          <!--Terza lista-->
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link text-white px-0" href="#">early stage emily syndrome</a>
@@ -110,15 +117,19 @@
             </li>
           </ul>
         </div>
+
+        <!--Colonna di mezzo-->
         <div id="middle-column" class="container col-12 col-md-10 col-xl-9 text-light pt-4">
           <div id="arrow-container" class="position-relative d-none d-md-flex justify-content-between align-items-center mb-2">
+            <!--Qui dentro compariranno le freccie per spostarsi da una paggina ad un altra-->
             <!-- Freccia indietro 
             <i class="bi bi-chevron-left m-3 fs-4 text-white"></i>
 
              Freccia avanti 
             <i class="bi bi-chevron-right m-3 fs-4 text-white" style="left: 2.5rem"></i>-->
           </div>
-          <!-- Album -->
+
+          <!--Sezione album -->
           <div id="album" class="d-none d-lg-flex mb-4">
             <img src="./assets/imgs/main/Viola_Album_Cover.jpg" id="copertina" class="me-3" alt="copertina album" />
             <div>
@@ -127,7 +138,6 @@
                 <strong>ELIMINA ANNUNCIO</strong>
               </button>
               <h1>VIOLA (feat. Salmo)</h1>
-
               <p>Fedez, Salmo</p>
               <div class="d-flex aligh-items-center">
                 <button id="play-btn" class="btn me-2 rounded-5 px-4">
@@ -140,9 +150,13 @@
               </div>
             </div>
           </div>
-          <!-- Buonasera -->
+
+          <!--Sezione buonasera-->
+          <!--TO DO: rendere dinamica questa sezione-->
           <div class="d-flex justify-content-between aligh-items-center">
             <h4 class="mb-3">Buonasera</h4>
+
+            <!--Piccolo menù visibile solo su mobile-->
             <div class="d-flex d-md-none justify-content-around w-25">
               <i class="bi bi-bell"></i>
               <i class="bi bi-clock-history"></i>
@@ -188,9 +202,11 @@
               </div>
             </div>
           </div>
-          <!--Alto che ti piace-->
+
+          <!--Sezione Altro che ti piace (ora usata per mettere le card)-->
           <!--<h4 class="mb-3">Altro di ciò che ti piace</h4>-->
           <div id="altro-che-ti-piace" class="row d-none d-md-flex justify-content-center">
+            <!--Qui dentro compaiono le card-->
             <!--
             <div class="col-12 col-md-6 col-lg-3">
               <div class="card bg-dark text-white border-0 d-flex flex-column justify-content-around align-items-center rounded pt-3 mb-3">
@@ -315,17 +331,21 @@
           </div>
           -->
         </div>
+
+        <!--Colonna di destra-->
         <div class="col-1 d-none d-xl-block text-light pt-4" id="left-column">
           <div class="d-flex justify-content-between aligh-items-center" id="friends-section">
             <h6 class="d-inline-block text-truncate w-50">
               <strong>Attività amici</strong>
             </h6>
             <div class="d-flex justify-content-evenly">
+              <!--TO DO permettere a questo pulsante di aggiungere eventuali amici-->
               <i class="bi bi-person-plus"></i>
               <i class="bi bi-x" id="close-window"></i>
             </div>
           </div>
 
+          <!--TO DO in questa sezione vanno aggiunte delle immagini per ogni utente-->
           <div class="mb-3 text-truncate friends-block">
             <strong>Charlie Hookham</strong><br />
             In Camera - Yumi Zouma<br />
@@ -345,9 +365,10 @@
       </div>
     </div>
 
-    <!-- Player bar -->
+    <!--Player bar per schermi grandi-->
     <div id="player" class="d-none d-md-flex row bg-dark text-white align-items-center py-4 px-4">
       <div class="col-3 d-flex align-items-center">
+        <!--Sezione di sinistra del player (Img, nome canzone e autore)-->
         <img src="./assets/imgs/main/image-16.jpg" class="me-2" alt="brano" />
         <div>
           <div>Fat Funny Friend</div>
@@ -360,7 +381,7 @@
         </svg>
       </div>
       <div class="col-6 text-center d-flex flex-column aligh-items-center">
-        <!-- Sezione centrale: controlli -->
+        <!--Sezione centrale del player (controlli)-->
         <div class="col-6 d-flex flex-column align-items-center" style="width: 100%">
           <!-- Controlli -->
           <div class="d-flex align-items-center gap-3">
@@ -371,7 +392,7 @@
             <i class="bi bi-repeat pointer-hover"></i>
           </div>
         </div>
-        <!-- Barra avanzamento -->
+        <!--Barra avanzamento della canzone-->
         <div class="d-flex align-items-center gap-2 w-100 mt-1">
           <small>1:32</small>
           <div id="barra-avanzamento" class="flex-grow-1 bg-secondary rounded" style="height: 4px">
@@ -381,7 +402,7 @@
         </div>
       </div>
       <div class="col-3 d-flex justify-content-end">
-        <!-- Sezione destra: volume & altro -->
+        <!--Sezione destra (volume & altro)-->
         <div class="col-3 d-flex justify-content-end align-items-center gap-3">
           <i id="mic-btn" class="bi bi-mic"></i>
           <i id="list-btn" class="bi bi-list"></i>
@@ -395,12 +416,15 @@
       </div>
     </div>
 
+    <!--Player bar per schermi piccoli-->
     <div class="mobile-player-bar d-md-none d-flex aligh-items-center rounded">
       <img src="./assets/imgs/main/image-3.jpg" alt="Copertina" class="cover" />
       <div class="track-text">
         <span class="track-title">Supernatural Parody</span>
         <span class="track-artist">The Hillywood Show</span>
       </div>
+
+      <!--Controlli player bar per schermi piccoli-->
       <div class="icons d-flex justify-content-evenly w-25">
         <button class="icon-btn"><i class="bi bi-heart"></i></button>
         <button class="icon-btn"><i class="bi bi-pc-display"></i></button>
@@ -408,6 +432,7 @@
       </div>
     </div>
 
+    <!--Controlli per schermi piccoli-->
     <div id="mobile-nav" class="d-md-none d-flex justify-content-evenly position-sticky bottom-0 w-100">
       <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">

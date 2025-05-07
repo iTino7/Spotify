@@ -17,11 +17,13 @@
   <body>
     <div id="hero" class="container-fliud">
       <div class="row">
+        <!--Colonna di sinistra-->
         <div class="col-2 d-none d-md-block text-light pt-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
           </svg>
 
+          <!--Prima lista-->
           <ul class="nav flex-column mb-3">
             <li class="nav-item" id="home-button">
               <a class="nav-link text-white px-0" href="#">
@@ -49,6 +51,8 @@
               >
             </li>
           </ul>
+
+          <!--Seconda lista-->
           <ul class="nav flex-column mb-3">
             <li class="nav-item">
               <a class="nav-link text-white px-0" href="#">
@@ -79,6 +83,8 @@
               >
             </li>
           </ul>
+
+          <!--Terza lista-->
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link text-white px-0" href="#">early stage emily syndrome</a>
@@ -97,6 +103,8 @@
             </li>
           </ul>
         </div>
+
+        <!--Colonna di mezzo-->
         <div id="container-album" class="container col-12 col-md-10 col-lg-9 text-light pt-4">
           <!-- Album -->
           <!-- <div
@@ -236,17 +244,22 @@
             </div>
           </div> -->
         </div>
+
+        <!--Colonna di destra-->
         <div class="col-1 d-none d-xl-block text-light pt-4" id="left-column">
           <div class="d-flex justify-content-between aligh-items-center" id="friends-section">
             <h6 class="d-inline-block text-truncate w-50">
               <strong>Attività amici</strong>
             </h6>
             <div class="d-flex justify-content-evenly">
+              <!--TO DO permettere di aggiungere eventuali amici-->
               <i class="bi bi-person-plus"></i>
               <i class="bi bi-x" id="close-window"></i>
             </div>
           </div>
 
+          <!--Sezione amici-->
+          <!--TO DO aggiungere img ai profili-->
           <div class="mb-3 text-truncate friends-block">
             <strong>Charlie Hookham</strong><br />
             In Camera - Yumi Zouma<br />
@@ -266,8 +279,9 @@
       </div>
     </div>
 
-    <!-- Player bar -->
+    <!--Player bar per schermi grandi-->
     <div id="player" class="d-none d-md-flex row bg-dark text-white align-items-center py-4 px-4">
+      <!--Sezione di sinistra (Img, nome canzone e autore)-->
       <div class="col-3 d-flex align-items-center">
         <img src="./assets/imgs/main/image-16.jpg" class="me-2" alt="brano" />
         <div>
@@ -281,9 +295,9 @@
         </svg>
       </div>
       <div class="col-6 text-center d-flex flex-column aligh-items-center">
-        <!-- Sezione centrale: controlli -->
+        <!--Sezione centrale (controlli)-->
         <div class="col-6 d-flex flex-column align-items-center" style="width: 100%">
-          <!-- Controlli -->
+          <!--Controlli-->
           <div class="d-flex align-items-center gap-3">
             <i class="bi bi-shuffle pointer-hover"></i>
             <i class="bi bi-skip-backward-fill fs-5 pointer-hover"></i>
@@ -292,7 +306,7 @@
             <i class="bi bi-repeat pointer-hover"></i>
           </div>
         </div>
-        <!-- Barra avanzamento -->
+        <!--Barra avanzamento-->
         <div class="d-flex align-items-center gap-2 w-100 mt-1">
           <small>1:32</small>
           <div id="barra-avanzamento" class="flex-grow-1 bg-secondary rounded" style="height: 4px">
@@ -302,7 +316,7 @@
         </div>
       </div>
       <div class="col-3 d-flex justify-content-end">
-        <!-- Sezione destra: volume & altro -->
+        <!--Sezione di destra (volume & altro)-->
         <div class="col-3 d-flex justify-content-end align-items-center gap-3">
           <i id="mic-btn" class="bi bi-mic"></i>
           <i id="list-btn" class="bi bi-list"></i>
@@ -316,6 +330,7 @@
       </div>
     </div>
 
+    <!--Player bar per schermi piccoli-->
     <div class="mobile-player-bar d-md-none d-flex aligh-items-center rounded">
       <img src="./assets/imgs/main/image-3.jpg" alt="Copertina" class="cover" />
       <div class="track-text">
@@ -329,6 +344,7 @@
       </div>
     </div>
 
+    <!--Sezione comandi per schermi piccoli-->
     <div id="mobile-nav" class="d-md-none d-flex justify-content-evenly position-sticky bottom-0 w-100">
       <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
