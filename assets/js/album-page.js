@@ -246,6 +246,20 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
+      /*let audios;
+
+      function pauseAudio() {
+        if (audios && !audios.paused) {
+          audios.pause();
+        }
+      }
+
+      function playAudio(src) {
+        pauseAudio();
+        audios = new Audio(src);
+        audios.play();
+      }*/
+
       dataAlbum.data.slice(0, 4).forEach((item, index) => {
         let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
@@ -266,6 +280,7 @@ const albumPage = () => {
         });
 
         titleSong.addEventListener("click", () => {
+          //playAudio(item.preview);
           if (audio.paused) {
             audio.play();
           } else {
