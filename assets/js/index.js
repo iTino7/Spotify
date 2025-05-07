@@ -51,14 +51,6 @@ const createAlbumRow = (albums, title) => {
     albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
 
     // Contenuto della card
-    albumCard.innerHTML = `
-      <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded" alt="${album.title}">
-      <div class="card-body text-center">
-        <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
-        <p class="small text-truncate">${album.artist.name}</p>
-      </div>
-    `;
-
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
     albumCard.innerHTML = `
