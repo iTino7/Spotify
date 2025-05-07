@@ -50,9 +50,9 @@ const createAlbumRow = (albums, title) => {
     const albumCard = document.createElement("div");
     albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
 
-    // Contenuto della card
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
+    // Contenuto della card
     albumCard.innerHTML = `
     <img src="${album.album.cover_medium}" class="img-fluid mb-3 rounded album-img" alt="${album.title}">
     <div class="card-body text-center">
@@ -71,6 +71,7 @@ const createAlbumRow = (albums, title) => {
     // Aggiunta della colonna alla riga
     row.appendChild(col);
 
+    //creazione dei contenitori per schermo piccolo
     altroCheTiPiaceSmall.className = "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
     altroCheTiPiaceSmall.innerHTML = `<div class="d-flex w-100">
               <div class="w-50 d-flex justify-content-center aligh-items-center">
@@ -95,7 +96,6 @@ const createAlbumRow = (albums, title) => {
   });
 
   // Aggiunta della riga al contenitore principale
-
   container.appendChild(row);
 };
 
@@ -182,14 +182,12 @@ window.onload = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  //Sezione per il bottone del volume
   const micBtn = document.getElementById("mic-btn");
   const listBtn = document.getElementById("list-btn");
   const pcBtn = document.getElementById("pc-btn");
   const volumeBtn = document.querySelector(".volume-btn");
   const volumeSlider = document.querySelector(".volume-slider");
-
-  const hideBtn = document.getElementById("nascondi-btn");
-  const album = document.getElementById("album");
 
   volumeBtn.addEventListener("click", () => {
     volumeSlider.classList.toggle("d-none");
@@ -198,10 +196,15 @@ document.addEventListener("DOMContentLoaded", () => {
     pcBtn.classList.toggle("d-none");
   });
 
+  //Sezione per il bottone che nasconde l'annuncio
+  const hideBtn = document.getElementById("nascondi-btn");
+  const album = document.getElementById("album");
+
   hideBtn.addEventListener("click", () => {
     album.classList.toggle("d-lg-none");
   });
 
+  //Sezione bottone di ricerca
   const searchIcon = document.getElementById("search-icon");
   const searchContainer = document.getElementById("search-container");
   const searchInput = document.getElementById("search-input");
@@ -232,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  //Sezione per il bottone che nasconde la barra laterale
   const closeWindowBtn = document.getElementById("close-window");
   const friendsBlocks = document.querySelectorAll(".friends-block");
   const friendsSection = document.getElementById("friends-section");
@@ -243,6 +247,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     friendsSection.classList.add("d-none");
     leftColumn.classList.remove("col-1");
+
+    //Creazione del bottone per riaprire la barra di sinistra
     const openWindow = document.createElement("i");
     openWindow.className = "bi bi-caret-left-square-fill text-secondary";
     arrowContainer.appendChild(openWindow);
