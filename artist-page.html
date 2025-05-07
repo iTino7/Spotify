@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Colonna Sinistra -->
-            <div class="col-12 col-md-3 bg-black p-3 vh-100">
+            <div class="col-12 col-md-3 bg-black p-5 vh-100">
                 <!-- Tre puntini -->
                
                 <svg
@@ -208,50 +208,160 @@
                         <p>3.453.158 ascoltatori mensili</p>
                     </div>
                 </div>
-                <div id="buttom-part">
-                <!-- Parte inferiore: Brani popolari e brani che ti piacciono -->
-                <div class="mockup-content  text-white p-4">
-                    <div class="d-flex align-items-center gap-3 mb-4">
-                        <button class="btn btn-success btn-lg rounded-circle">
-                            <i class="bi bi-play-fill"></i>
-                        </button>
-                        <button class="btn btn-outline-light">Following</button>
-                        <i class="bi bi-three-dots text-white"></i>
+               <!-- Parte inferiore: Brani popolari e bottoni -->
+                         
+<div id="buttom-part" class="text-white p-3">
+  <div class="d-flex">
+    <div class="text-white p-3 flex-grow-1">
+  
+      <!-- Bottoni e icone -->
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <button class="btn btn-success btn-lg rounded-circle d-flex align-items-center justify-content-center position-relative" style="width: 56px; height: 56px;">
+          <i class="bi bi-play-fill fs-2" style="color: black; margin-left: 2px;"></i>
+        </button>
+        <button class="btn btn-outline-light">Following</button>
+        <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: transparent;">
+          <i class="bi bi-three-dots text-secondary fs-3"></i>
+        </button>
+      </div>
+  
+      <!-- Titolo -->
+      <h4 class="mb-3">Popolari</h4>
 
-                    </div>
-                    <h4>Popolari</h4>
-                    <div class="row">
-                        <div>
-                  <ol>
-                    <li>
-                        Ocean Avenue <span></span>
-                    </li>
-                    <li>
-                        Only One <span></span>
-                    </li>
-                    <li>
-                        Breathing <span></span>
-                    </li>
-                    <li>
-                        Lights And Sounds <span></span>
-                    </li>
-                    <li>
-                        Way Away <span></span>
-                    </li>
-                  </ol>
-                </div>
-                </div>
-                </div>
-            </div>
+      <!-- Song list -->
+      <ol class="list-unstyled" style="counter-reset: song-counter;">
+  <li class="d-flex py-2">
+    <div class="row w-100">
+      <!-- Song Title and Image (col-8) -->
+      <div class="col-8 d-flex align-items-center gap-3">
+        <span class="d-flex align-items-center justify-content-center" style="width: 24px; color: #b3b3b3;">
+          <span style="counter-increment: song-counter; content: counter(song-counter);"></span>
+        </span>
+        <img src="assets/imgs/main/image-11.jpg" alt="" class="rounded" style="width: 40px; height: 40px; object-fit: cover;">
+        <span>Ocean Avenue</span>
+      </div>
+      <!-- Streams (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">48,278,178</span>
+      </div>
+      <!-- Duration (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">3:30</span>
+      </div>
+    </div>
+  </li>
+
+  <li class="d-flex py-2">
+    <div class="row w-100">
+      <!-- Song Title and Image (col-8) -->
+      <div class="col-8 d-flex align-items-center gap-3">
+        <span class="d-flex align-items-center justify-content-center" style="width: 24px; color: #b3b3b3;">
+          <span style="counter-increment: song-counter; content: counter(song-counter);"></span>
+        </span>
+        <img src="assets/imgs/main/image-11.jpg" alt="" class="rounded" style="width: 40px; height: 40px; object-fit: cover;">
+        <span>Only One</span>
+      </div>
+      <!-- Streams (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">35,129,543</span>
+      </div>
+      <!-- Duration (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">2:55</span>
+      </div>
+    </div>
+  </li>
+
+  <li class="d-flex py-2">
+    <div class="row w-100">
+      <!-- Song Title and Image (col-8) -->
+      <div class="col-8 d-flex align-items-center gap-3">
+        <span class="d-flex align-items-center justify-content-center" style="width: 24px; color: #b3b3b3;">
+          <span style="counter-increment: song-counter; content: counter(song-counter);"></span>
+        </span>
+        <img src="assets/imgs/main/image-11.jpg" alt="" class="rounded" style="width: 40px; height: 40px; object-fit: cover;">
+        <span>Breathing</span>
+      </div>
+      <!-- Streams (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">48,278,178</span>
+      </div>
+      <!-- Duration (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">3:12</span>
+      </div>
+    </div>
+  </li>
+
+  <li class="d-flex py-2">
+    <div class="row w-100">
+      <!-- Song Title and Image (col-8) -->
+      <div class="col-8 d-flex align-items-center gap-3">
+        <span class="d-flex align-items-center justify-content-center" style="width: 24px; color: #b3b3b3;">
+          <span style="counter-increment: song-counter; content: counter(song-counter);"></span>
+        </span>
+        <img src="assets/imgs/main/image-11.jpg" alt="" class="rounded" style="width: 40px; height: 40px; object-fit: cover;">
+        <span>Lights And Sounds</span>
+      </div>
+      <!-- Streams (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">42,876,321</span>
+      </div>
+      <!-- Duration (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">3:45</span>
+      </div>
+    </div>
+  </li>
+
+  <li class="d-flex py-2">
+    <div class="row w-100">
+      <!-- Song Title and Image (col-8) -->
+      <div class="col-8 d-flex align-items-center gap-3">
+        <span class="d-flex align-items-center justify-content-center" style="width: 24px; color: #b3b3b3;">
+          <span style="counter-increment: song-counter; content: counter(song-counter);"></span>
+        </span>
+        <img src="assets/imgs/main/image-11.jpg" alt="" class="rounded" style="width: 40px; height: 40px; object-fit: cover;">
+        <span>Way Away</span>
+      </div>
+      <!-- Streams (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">38,542,109</span>
+      </div>
+      <!-- Duration (col-2) -->
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <span class="small">3:15</span>
+      </div>
+    </div>
+  </li>
+</ol>
+
+    </div>
+  
+    <!-- New right section -->
+    <div class="text-white p-5">
+      <h4 class="mb-3">Brani che ti piacciano</h4>
+      <div class="mb-4 d-flex align-items-center gap-3">
+        <img src="./assets/imgs/Yellowcard-band-social-sharing-image.jpg" alt="Artist" 
+             class="img-fluid rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+        
+        <div>  <!-- Text container -->
+          <div class="small fw-bold">Hai messo Mi piace a 11 brani</div>
+          <div class="small text-secondary">di Yellowcard</div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
             </div>
 
             <!-- Colonna Destra -->
-            <div class="col-12 col-md-3 bg-black p-3 vh-100">
+            <div class="col-12 col-md-3 bg-black p-5 vh-100">
                 <h5 class="text-white fw-bold mb-4">Attività amici</h5>
                 <ul class="list-unstyled">
                     <!-- Amico 1 -->
                     <li class="d-flex align-items-center mb-3">
-                        <img src="https://via.placeholder.com/50" alt="Charlie Hookham" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                        <img src="./assets/imgs/download.jpeg" alt="Charlie Hookham" class="rounded-circle me-3" style="width: 50px; height: 50px;">
                         <div class="flex-grow-1">
                             <p class="mb-0 text-white fw-bold">Charlie Hookham</p>
                             <small >In Camera - Yumi Zouma</small><br>
@@ -261,7 +371,7 @@
                     </li>
                     <!-- Amico 2 -->
                     <li class="d-flex align-items-center mb-3">
-                        <img src="https://via.placeholder.com/50" alt="lightdark02" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                        <img src="./assets/imgs/images (1).jpeg" alt="lightdark02" class="rounded-circle me-3" style="width: 50px; height: 50px;">
                         <div class="flex-grow-1">
                             <p class="mb-0 text-white fw-bold">lightdark02</p>
                             <small >Aimed to Kill - Jade LeMac</small><br>
@@ -271,7 +381,7 @@
                     </li>
                     <!-- Amico 3 -->
                     <li class="d-flex align-items-center mb-3">
-                        <img src="https://via.placeholder.com/50" alt="Valeria Traverso" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                        <img src="./assets/imgs/images.jpeg" alt="Valeria Traverso" class="rounded-circle me-3" style="width: 50px; height: 50px;">
                         <div class="flex-grow-1">
                             <p class="mb-0 text-white fw-bold">Valeria Traverso</p>
                             <small >New Kings - Sleeping Wolf</small><br>
