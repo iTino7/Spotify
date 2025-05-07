@@ -247,6 +247,7 @@ const albumPage = () => {
       containerSongRow.style.color = "#9a9998";
 
       dataAlbum.data.slice(0, 4).forEach((item, index) => {
+        let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
         containerSong.className =
           "col-12 col-md-8 d-flex align-items-center mt-4";
@@ -259,6 +260,22 @@ const albumPage = () => {
         titleSong.className = "m-0 text-white";
         titleSong.style.fontSize = "13px";
         titleSong.innerHTML = item.title;
+        titleSong.addEventListener("mouseover", () => {
+          titleSong.style.cursor = "pointer";
+          titleSong.style.textDecoration = "underline";
+        });
+
+        titleSong.addEventListener("click", () => {
+          if (audio.paused) {
+            audio.play();
+          } else {
+            audio.pause();
+          }
+        });
+
+        titleSong.addEventListener("mouseleave", () => {
+          titleSong.style.textDecoration = "none";
+        });
         const artistTitle = document.createElement("p");
         artistTitle.style.fontSize = "13px";
         artistTitle.className = "mt1";
