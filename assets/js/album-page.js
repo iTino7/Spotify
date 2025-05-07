@@ -177,11 +177,32 @@ const albumPage = () => {
       const containerPTrackList = document.createElement("p");
       containerPTrackList.className = "m-0";
       //TRACK-LIST-ICON
+      const buttonPlayer = document.createElement("button");
+      const buttonPlayerPause = document.createElement("button");
+      buttonPlayer.style.background = "transparent";
+      buttonPlayer.style.border = "none";
+      buttonPlayerPause.style.background = "transparent";
+      buttonPlayerPause.style.border = "none";
       const iconTrack = document.createElement("i");
+      const iconTrackPause = document.createElement("i");
       iconTrack.className = "bi bi-play-circle-fill";
+      iconTrack.className = "bi bi-play-circle-fill";
+      iconTrackPause.className = "bi bi-pause-circle-fill";
+      iconTrackPause.style.color = "#1ed760";
+      iconTrackPause.style.fontSize = "45px";
       iconTrack.style.color = "#1ed760";
       iconTrack.style.fontSize = "45px";
 
+      let audio = new Audio(dataAlbum.data[0].preview);
+      buttonPlayer.addEventListener("click", () => {
+        audio.play();
+      });
+      buttonPlayerPause.addEventListener("click", () => {
+        audio.pause();
+      });
+
+      buttonPlayerPause.appendChild(iconTrackPause);
+      buttonPlayer.appendChild(iconTrack);
       //CONTAINER-ICON-TRACKLIST
       const iconHeart = document.createElement("i");
       iconHeart.className = "bi bi-heart mx-4 fs-4";
@@ -287,7 +308,7 @@ const albumPage = () => {
         containerIconListRight
       );
 
-      containerPTrackList.appendChild(iconTrack);
+      containerPTrackList.append(buttonPlayer, buttonPlayerPause);
       containerIconTrack.append(
         containerPTrackList,
         iconHeart,
