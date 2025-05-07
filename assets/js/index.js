@@ -48,8 +48,7 @@ const createAlbumRow = (albums, title) => {
 
     // Creazione della card
     const albumCard = document.createElement("div");
-    albumCard.className =
-      "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
+    albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
 
     // Contenuto della card
     albumCard.innerHTML = `
@@ -80,8 +79,7 @@ const createAlbumRow = (albums, title) => {
     // Aggiunta della colonna alla riga
     row.appendChild(col);
 
-    altroCheTiPiaceSmall.className =
-      "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
+    altroCheTiPiaceSmall.className = "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
     altroCheTiPiaceSmall.innerHTML = `<div class="d-flex w-100">
               <div class="w-50 d-flex justify-content-center aligh-items-center">
                 <img src="${album.album.cover_medium}" class="img-fluid mb-4" alt="placeholder" />
@@ -122,9 +120,7 @@ const loadAlbums = async () => {
 
   if (albums && albums.length > 0) {
     // Estrazione artisti unici dagli album
-    const uniqueArtists = [
-      ...new Set(albums.map((album) => album.artist.name)),
-    ];
+    const uniqueArtists = [...new Set(albums.map((album) => album.artist.name))];
 
     // Limitazione a 4 artisti casuali
     const randomArtists = uniqueArtists.slice(0, 4);
@@ -246,10 +242,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const closeWindowBtn = document.getElementById("close-window");
   const friendsBlocks = document.querySelectorAll(".friends-block");
+  const friendsSection = document.getElementById("friends-section");
+  const leftColumn = document.getElementById("left-column");
 
   closeWindowBtn.addEventListener("click", () => {
     friendsBlocks.forEach((block) => {
       block.classList.add("d-none"); // Aggiunge la classe d-none a ogni elemento
+    });
+    friendsSection.classList.add("d-none");
+    leftColumn.classList.remove("col-1");
+    const openWindow = document.createElement("i");
+    openWindow.className = "bi bi-caret-left-square-fill text-secondary";
+    arrowContainer.appendChild(openWindow);
+
+    openWindow.addEventListener("click", () => {
+      friendsBlocks.forEach((block) => {
+        block.classList.remove("d-none");
+      });
+      friendsSection.classList.remove("d-none");
+      leftColumn.classList.add("col-1");
+      openWindow.classList.add("d-none");
     });
   });
 });
