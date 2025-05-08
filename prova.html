@@ -87,127 +87,90 @@
 
         <!--Colonna di mezzo-->
         <div id="container-album" class="container col-12 col-md-10 col-lg-9 text-light pt-4">
-          <!-- Album -->
-          <div
-          style="
-            background-image: url('./assets/imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg');
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            aspect-ratio: 3 / 1;
-          "
-        >
-            <div class="containerNav d-flex w-100 align-items-center">
-              <div class="arrow d-flex">
-                <p class="ms-1 m-0">
-                  <i
-                    class="d-none d-sm-block bi bi-arrow-left-circle-fill"
-                    style="color: black; font-size: 30px; opacity: 0.8"
-                  ></i>
-                </p>
-                <p class="ms-2">
-                  <i
-                    class="d-none d-sm-block bi bi-arrow-right-circle-fill"
-                    style="color: black; opacity: 0.3; font-size: 30px"
-                  ></i>
-                </p>
-              </div>
-              <div class="ms-auto profile me-2">
-                <div
-                  class="d-none d-sm-inline-flex align-items-center bg-dark text-white px-2 py-1"
-                  style="border-radius: 50px"
-                >
-                  <img
-                    src="./assets/imgs/search/image-1.jpeg"
-                    alt=""
-                    height="auto"
-                    style="border-radius: 50%; width: 20px"
-                    class="me-2"
-                  />
-                  <span>
-                    Lidia Nautilus...
-                    <i class="bi bi-caret-down-fill ms-1"></i>
-                  </span>
+          
+
+          <div class="artist-header text-white">
+            <div class="d-flex align-items-center justify-content-between w-100 p-3 position-absolute top-0 start-0" style="z-index: 10;">
+
+                <!-- Frecce -->
+                <div class=" d-none d-sm-inline-flex d-flex  align-items-center gap-3">
+                  <i class="bi bi-arrow-left-circle-fill nav-arrow" style="font-size: 30px; cursor: pointer;"></i>
+                  <i class="bi bi-arrow-right-circle-fill nav-arrow" style="font-size: 30px; cursor: pointer;"></i>
                 </div>
-              </div>
-            </div>
-            <div
-              d-flex flex-column align-items-center container-fluid mt-2 ms-md-2 flex-md-row align-items-end              class=""
-            >
-              <div class="d-flex ">
-                <i class=" d-block d-sm-none bi bi-arrow-left me-2"></i>
-              </div>
-              <div class="  d-flex flex-column d-sm-flex container-d-flex ms-2">
-                <p class="mb-1">
-                  <i class="bi bi-patch-check-fill text-primary me-2"></i>Artista verificato
-              </p>
-                <h1
-                  class="d-none d-sm-flex fw-bold display-4 display-md-3 display-lg-1"
-                >
-                Yellowcard                </h1>
-                <p class="d-flex d-sm-none b-0">Gioventù Brucata</p>
-                <p class="d-flex d-sm-none">Pinguini Tattici Nucleari</p>
-                <p>3.453.158 ascoltatori mensili</p>
-              </div>
-            </div>
-            <div
-              class="container-fluid mt-3"
-              style="background-color: #0000001a"
-            >
-              <div class="containerSong d-flex align-items-center">
-                <p class="m-0">
-                  <i
-                    class="bi bi-play-circle-fill"
-                    style="font-size: 45px; color: #1ed760"
-                  ></i>
-                </p>
-                <i class="bi bi-heart mx-4 fs-4"></i>
-                <i class="bi bi-arrow-down fs-4 me-3"></i>
-                <i class="bi bi-three-dots fs-4"></i>
-              </div>
-              <div
-                class="container-fluid mt-4"
-                style="border-bottom: 1px solid rgba(128, 128, 128, 0.288)"
-              >
-                <div class="row d-flex" style="color: #9a9998">
-                  <div class="col-12 col-md-8 d-flex">
-                    <p style="font-size: 12px" class="m-0 me-3">#</p>
-                    <p style="font-size: 12px">TITOLO</p>
-                  </div>
-                  <div class="d-none d-md-flex col-md-3 d-flex">
-                    <p style="font-size: 12px">RIPRODUZIONI</p>
-                  </div>
-                  <div class="d-none d-md-flex col-md-1 d-flex">
-                    <i class="bi bi-clock"></i>
+              
+                <!-- Profilo -->
+                <div class="profile me-2">
+                  <div class="d-none d-sm-inline-flex align-items-center bg-dark text-white px-2 py-1" style="border-radius: 50px;">
+                    <img src="./assets/imgs/search/image-1.jpeg" alt="" height="auto" style="border-radius: 50%; width: 20px" class="me-2" />
+                    <span>
+                      Lidia Nautilus...
+                      <i class="bi bi-caret-down-fill ms-1"></i>
+                    </span>
                   </div>
                 </div>
+              
               </div>
-              <div class="container-fluid">
-                <div
-                  class="row d-flex align-items-center"
-                  style="color: #9a9998"
-                >
-                  <div class="col-12 col-md-8 d-flex align-items-center mt-4">
-                    <p class="me-3">1</p>
-                    <div class="container d-flex flex-column">
-                      <p class="m-0 text-white" style="font-size: 13px">
-                        Montanelli - Intro
-                      </p>
-                      <p style="font-size: 13px" class="mt-1">
-                        Pinguini Tattici Nucleari
-                      </p>
-                    </div>
+            <div class="artist-info">
+              <div class="d-flex align-items-center mb-2 flex-wrap">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" class="verified-badge img-fluid" alt="verified">
+                <span>Artista verificato</span>
+              </div>
+              <h1>Yellowcard</h1>
+              <p>3.433.158 ascoltatori mensili</p>
+            </div>
+          </div>
+          
+          <div class="container my-4">
+            <div class="d-flex align-items-center mb-4 flex-wrap gap-5">
+                <button id="play-button" class="btn btn-success btn-lg rounded-circle d-flex align-items-center justify-content-center position-relative" style="width: 56px; height: 56px;">
+                    <i id="play-icon" class="bi bi-play-fill fs-2" style="color: black; margin-left: 2px;"></i>
+                  </button>
+                  <button class="btn btn-outline-light">Following</button>
+                  <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: transparent;">
+                    <i class="bi bi-three-dots text-secondary fs-3"></i>
+                  </button>
+            </div>
+          
+            <div class="row">
+              <!-- Sezione Popolari -->
+              <div class="col-lg-8 col-md-12 mb-4">
+                <h4 class="mb-3">Popolari</h4>
+                <ul class="list-unstyled">
+                  <li class="d-flex align-items-center py-2 border-top border-secondary flex-wrap">
+                    <span class="me-3">1</span>
+                    <img src="your-album.jpg" class="track-img me-3 img-fluid" alt="Ocean Avenue">
+                    <div class="flex-grow-1">Ocean Avenue</div>
+                    <div class="text-end me-4">276.616.912</div>
+                    <div>3:18</div>
+                  </li>
+                  <li class="d-flex align-items-center py-2 border-top border-secondary flex-wrap">
+                    <span class="me-3">2</span>
+                    <img src="your-album.jpg" class="track-img me-3 img-fluid" alt="Only One">
+                    <div class="flex-grow-1">Only One</div>
+                    <div class="text-end me-4">98.839.244</div>
+                    <div>4:17</div>
+                  </li>
+                </ul>
+                <a href="#" class="text-white text-decoration-underline mt-3 d-inline-block">VISUALIZZA ALTRO</a>
+              </div>
+          
+              <!-- Colonna Brani che ti piacciono -->
+              <div class="col-lg-4 col-md-12">
+                <h5 class="mb-3">Brani che ti piacciono</h5>
+                <div class="d-flex align-items-center bg-dark rounded p-3 flex-wrap">
+                  <img src="band-photo.jpg" class="rounded-circle me-3 img-fluid" style="width: 60px;" alt="Yellowcard">
+                  <div>
+                    <div class="fw-bold">Hai messo Mi piace a 11 brani</div>
+                    <small class="text-muted">Di Yellowcard</small>
                   </div>
-                  <div class="d-none d-md-flex col-md-3 d-flex">
-                    <p class="m-0" style="font-size: 13px">694.578</p>
-                  </div>
-                  <div class="d-none d-md-flex col-md-1 d-flex">
-                    <p class="m-0" style="font-size: 13px">1:28</p>
+                  <div class="ms-auto mt-2 mt-md-0">
+                    <i class="bi bi-heart-fill like-icon"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
 
         <!--Colonna di destra-->
@@ -355,5 +318,6 @@
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"
     ></script>
+   
   </body>
 </html>
