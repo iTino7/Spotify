@@ -181,11 +181,12 @@ const albumPage = () => {
       buttonPlayer.style.border = "none";
       buttonPlayerPause.style.background = "transparent";
       buttonPlayerPause.style.border = "none";
+      buttonPlayerPause.className ="d-none"
       const iconTrack = document.createElement("i");
       const iconTrackPause = document.createElement("i");
       iconTrack.className = "bi bi-play-circle-fill";
       iconTrack.className = "bi bi-play-circle-fill";
-      iconTrackPause.className = "bi bi-pause-circle-fill d-none";
+      iconTrackPause.className = "bi bi-pause-circle-fill";
       iconTrackPause.style.color = "#1ed760";
       iconTrackPause.style.fontSize = "45px";
       iconTrack.style.color = "#1ed760";
@@ -206,7 +207,7 @@ const albumPage = () => {
 
       let audio = new Audio(dataAlbum.data[0].preview);
 
-      buttonSong(iconTrack, iconTrackPause);
+      buttonSong(buttonPlayer, buttonPlayerPause);
 
       //CONTAINER PLAYER
 
@@ -321,9 +322,6 @@ const albumPage = () => {
 
       dataAlbum.data.slice(0, 10).forEach((item, index) => {
         let audio = new Audio(item.preview);
-
-
-
         const containerSong = document.createElement("div");
         containerSong.className =
           "col-12 col-md-8 d-flex align-items-center mt-4";
@@ -344,7 +342,8 @@ const albumPage = () => {
         titleSong.style.fontSize = "13px";
         titleSong.innerHTML = item.title;
 
-       
+        titleSong.appendChild(span);
+        span.appendChild(iconSpan);
 
         titleSong.addEventListener("mouseover", () => {
           titleSong.style.cursor = "pointer";
@@ -357,11 +356,6 @@ const albumPage = () => {
             currentAudio.pause();
             currentAudio.currentTime = 0; // Riavvia l'audio fermato
           }
-
-          
-
-
-          
 
           // Imposta l'audio corrente e avvia la riproduzione
           currentAudio = audio;
