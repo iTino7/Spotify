@@ -13,7 +13,7 @@ body {
 
 #player {
   position: fixed;
-  width: 100%;
+  width: 110%;
   bottom: 0;
   z-index: 1000;
 }
