@@ -290,7 +290,7 @@ const createBuonaseraSection = async () => {
   }
 
   const toggleButton = document.createElement("button");
-  toggleButton.className = "btn btn-outline-light btn-sm";
+  toggleButton.className = "d-none d-md-flex btn btn-outline-light btn-sm";
   toggleButton.innerText = "Mostra di più";
 
   titleContainer.appendChild(title);
