@@ -1,18 +1,19 @@
 body {
   background-color: black;
-  height: 100vh;
-  margin: 0; /* Rimuove eventuali margini esterni */
+  margin: 0;
   overflow-x: hidden;
+  padding-bottom: 60px;
 }
 
 #hero {
   box-sizing: border-box;
-  max-width: 90%;
+  max-width: 95%;
   margin: auto;
 }
 
 #player {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   bottom: 0;
   z-index: 1000;
 }
@@ -34,8 +35,37 @@ img {
   background: #1ed760;
 }
 
+/* Stile per le card */
+.card {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
 #altro-che-ti-piace img {
-  width: 10rem;
+  width: 90%;
+  border-radius: 10px;
+}
+
+#altro-che-ti-piace .card-body {
+  text-align: left;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+#altro-che-ti-piace-small img {
+  width: 90%;
   border-radius: 10px;
 }
 
@@ -60,4 +90,125 @@ i:hover {
   border: none;
   background: #2c2c2c;
   font-size: 10px;
+}
+
+#mobile-nav {
+  height: 100px;
+  align-items: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0.137) 100%);
+}
+
+#mobile-nav a {
+  width: 100px;
+}
+
+#search-container {
+  position: relative;
+  width: 100%;
+}
+
+#search-input {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+#search-input::placeholder {
+  color: #aaa;
+}
+
+a {
+  cursor: pointer;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+#barra-avanzamento:hover {
+  cursor: pointer;
+}
+
+.start-btn {
+  color: #1ed760;
+}
+
+@media (max-width: 768px) {
+  .mobile-player-bar {
+    position: sticky;
+    bottom: 100px;
+    left: 2.5%;
+    width: 95%;
+
+    background-color: #282828;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobile-player-bar .cover {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .track-text {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .track-title {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .track-artist {
+    font-size: 12px;
+    color: #b3b3b3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icons {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+  }
+
+  .icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+  }
 }
