@@ -386,3 +386,5 @@ const updateBuonaseraTitle = () => {
 
 // Esegui la funzione al caricamento della pagina
 document.addEventListener("DOMContentLoaded", updateBuonaseraTitle);
+
+//commento inutile
