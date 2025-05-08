@@ -48,7 +48,7 @@ const createAlbumRow = (albums, title) => {
 
     // Creazione della card
     const albumCard = document.createElement("div");
-    albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
+    albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3 mb-4";
 
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
