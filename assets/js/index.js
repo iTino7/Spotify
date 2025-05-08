@@ -178,6 +178,11 @@ window.onload = () => {
   arrowStyle(arrowRight, "mouseenter", "0.8");
   arrowStyle(arrowRight, "mouseleave", "0.3");
 
+  // Aggiungi evento click alla freccia destra per navigare su album-page.html
+  arrowRight.addEventListener("click", () => {
+    window.location.href = "album-page.html";
+  });
+
   hrefArrowLeft.appendChild(arrowLeft);
   buttonArrowLeft.append(hrefArrowLeft);
   containerArrow.append(pLeft, buttonArrowLeft, pRight, arrowRight);
