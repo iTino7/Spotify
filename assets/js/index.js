@@ -124,7 +124,7 @@ const loadAlbums = async () => {
     for (const artist of randomArtists) {
       const artistAlbums = await fetchAlbums(artist);
       if (artistAlbums && artistAlbums.length > 0) {
-        createAlbumRow(artistAlbums.slice(0, 4), `Album di ${artist}`);
+        createAlbumRow(artistAlbums.slice(0, 4), `Canzoni di ${artist}`);
       }
     }
   } else {
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Ricerca gli album
         const albums = await fetchAlbums(query);
         if (albums && albums.length > 0) {
-          createAlbumRow(albums.slice(0, 8), `Album di ${query}`);
+          createAlbumRow(albums.slice(0, 8), `Canzoni di ${query}`);
         } else {
           container.innerHTML = `<p class="text-white">Nessun album trovato per "${query}".</p>`;
         }
@@ -268,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   createBuonaseraSection();
   toggleListVisibility();
+  updateBuonaseraTitle();
 });
 
 const createBuonaseraSection = async () => {
@@ -336,3 +337,19 @@ window.addEventListener("resize", toggleListVisibility);
 
 // Esegui la funzione al caricamento della pagina
 document.addEventListener("DOMContentLoaded", toggleListVisibility);
+
+const updateBuonaseraTitle = () => {
+  const buonaseraTitle = document.getElementById("buonasera-title");
+  const currentHour = new Date().getHours();
+
+  if (currentHour >= 7 && currentHour < 12) {
+    buonaseraTitle.innerText = "Buongiorno";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    buonaseraTitle.innerText = "Buon pomeriggio";
+  } else {
+    buonaseraTitle.innerText = "Buonasera";
+  }
+};
+
+// Esegui la funzione al caricamento della pagina
+document.addEventListener("DOMContentLoaded", updateBuonaseraTitle);
