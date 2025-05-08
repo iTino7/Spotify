@@ -203,9 +203,10 @@ const albumPage = () => {
       const playerIconPlay = document.createElement("i");
       playerIconPlay.className = "bi bi-play-circle-fill fs-2 pointer-hover";
       playerIconPlay.style.color = "#1ed760";
-      playerIconPlay.addEventListener("click", () => {
-        audio.play();
-      });
+      //PAUSE
+      const playerIconPause = document.createElement("i");
+      playerIconPause.className = "bi bi-pause-circle-fill fs-2 d-none";
+      playerIconPause.style.color = "#1ed760";
 
       //SKIP
       const playerIconSkip = document.createElement("i");
@@ -213,8 +214,28 @@ const albumPage = () => {
       //REPEAT
       const playerIconRepeat = document.createElement("i");
       playerIconRepeat.className = "bi bi-repeat pointer-hover";
+      playerIconPlay.addEventListener("click", () => {
+        audio.play();
 
-      containerControlsPlayer.append(playerIconShuffle, playerIconBackward, playerIconPlay, playerIconSkip, playerIconRepeat);
+        playerIconPlay.classList.add("d-none");
+        playerIconPause.classList.remove("d-none");
+        playerIconPause.classList.add("d-block");
+        playerIconPause.addEventListener("click", () => {
+          audio.pause();
+          playerIconPlay.classList.remove("d-none");
+          playerIconPause.classList.add("d-none");
+          playerIconPause.classList.add("d-block");
+        });
+      });
+
+      containerControlsPlayer.append(
+        playerIconShuffle,
+        playerIconBackward,
+        playerIconPlay,
+        playerIconPause,
+        playerIconSkip,
+        playerIconRepeat
+      );
 
       buttonPlayerPause.appendChild(iconTrackPause);
       buttonPlayer.appendChild(iconTrack);
