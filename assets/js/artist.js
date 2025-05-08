@@ -1,3 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Seleziona dove vuoi appendere questa colonna (per esempio al body o a un container esistente)
 const container = document.getElementById('container-album');
 
