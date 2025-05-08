@@ -15,6 +15,49 @@ const arrowStyle = (str, add, value) => {
 };
 
 let profile; // Dichiara profile come variabile globale
+let currentAudio = null; // Variabile globale per tracciare l'audio attualmente in riproduzione
+
+const playAudio = (src) => {
+  // Ferma l'audio precedente, se esiste
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0; // Riavvia l'audio precedente
+  }
+
+  // Crea un nuovo oggetto Audio e avvialo
+  currentAudio = new Audio(src);
+  currentAudio.play();
+
+  // Aggiorna i bottoni del player
+  updatePlayerControls();
+};
+
+const updatePlayerControls = () => {
+  const playButton = document.querySelector(".bi-play-circle-fill");
+  const pauseButton = document.querySelector(".bi-pause-circle-fill");
+
+  if (currentAudio) {
+    playButton.addEventListener("click", () => {
+      currentAudio.play();
+    });
+
+    pauseButton.addEventListener("click", () => {
+      currentAudio.pause();
+    });
+  }
+};
+
+const updatePlayerBar = (track) => {
+  const playerImg = document.getElementById("player-img");
+  const playerTitle = document.getElementById("player-title");
+  const playerArtist = document.getElementById("player-artist");
+
+  if (playerImg && playerTitle && playerArtist) {
+    playerImg.src = track.album.cover_medium;
+    playerTitle.textContent = track.title;
+    playerArtist.textContent = track.artist.name;
+  }
+};
 
 const albumPage = () => {
   fetch(URL, {
@@ -241,27 +284,13 @@ const albumPage = () => {
       iconRightSong.className = "bi bi-clock";
 
       const containerSongs = document.createElement("div");
-      containerSongs.className = "container-fluid";
       const containerSongRow = document.createElement("div");
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
-      /*let audios;
+      dataAlbum.data.forEach((item, index) => {
+        const audio = new Audio(item.preview);
 
-      function pauseAudio() {
-        if (audios && !audios.paused) {
-          audios.pause();
-        }
-      }
-
-      function playAudio(src) {
-        pauseAudio();
-        audios = new Audio(src);
-        audios.play();
-      }*/
-
-      dataAlbum.data.slice(0, 4).forEach((item, index) => {
-        let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
         containerSong.className =
           "col-12 col-md-8 d-flex align-items-center mt-4";
@@ -274,18 +303,15 @@ const albumPage = () => {
         titleSong.className = "m-0 text-white";
         titleSong.style.fontSize = "13px";
         titleSong.innerHTML = item.title;
+
+        titleSong.addEventListener("click", () => {
+          playAudio(item.preview); // Avvia la riproduzione della canzone selezionata
+          updatePlayerBar(item); // Aggiorna la player bar con i dettagli della canzone
+        });
+
         titleSong.addEventListener("mouseover", () => {
           titleSong.style.cursor = "pointer";
           titleSong.style.textDecoration = "underline";
-        });
-
-        titleSong.addEventListener("click", () => {
-          //playAudio(item.preview);
-          if (audio.paused) {
-            audio.play();
-          } else {
-            audio.pause();
-          }
         });
 
         titleSong.addEventListener("mouseleave", () => {
@@ -443,4 +469,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
