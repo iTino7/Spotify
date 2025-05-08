@@ -70,7 +70,7 @@ const artistLink = albumCard.querySelector(".artist-link");
 if (artistLink) {
   artistLink.addEventListener("click", (event) => {
     const artistName = event.target.dataset.artist;
-    window.location.href = `prova.html?artist=${encodeURIComponent(artistName)}`;
+    window.location.href = `artist-page.html?artist=${encodeURIComponent(artistName)}`;
   });
 }
 
@@ -350,7 +350,7 @@ const createBuonaseraSection = async () => {
       const listPoint = document.createElement("li");
       listPoint.className = "d-none d-xl-flex align-items-center mb-3";
       listPoint.innerHTML = `<img src="${album.album.cover_small}" class=" me-2 rounded-3" alt="${album.artist.name}"/>
-      <a class="nav-link text-white px-0" href="#">${album.artist.name}</a>`;
+      <a class="nav-link text-white px-0" href="artist-page.html?artist=${encodeURIComponent(album.artist.name)}">${album.artist.name}</a>`;
 
       listaDaModificare.appendChild(listPoint);
 
