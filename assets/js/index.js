@@ -331,7 +331,7 @@ const createBuonaseraSection = async () => {
 
       const listPoint = document.createElement("li");
       listPoint.className = "d-none d-xl-flex align-items-center mb-3";
-      listPoint.innerHTML = `<img src="${album.album.cover_small}" class=" me-2" alt="${album.artist.name}"/>
+      listPoint.innerHTML = `<img src="${album.album.cover_small}" class=" me-2 rounded-3" alt="${album.artist.name}"/>
       <a class="nav-link text-white px-0" href="#">${album.artist.name}</a>`;
 
       listaDaModificare.appendChild(listPoint);
