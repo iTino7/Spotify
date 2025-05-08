@@ -48,7 +48,8 @@ const createAlbumRow = (albums, title) => {
 
     // Creazione della card
     const albumCard = document.createElement("div");
-    albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
+    albumCard.className =
+      "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3";
 
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
@@ -75,7 +76,8 @@ const createAlbumRow = (albums, title) => {
     row.appendChild(col);
 
     //creazione dei contenitori per schermo piccolo
-    altroCheTiPiaceSmall.className = "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
+    altroCheTiPiaceSmall.className =
+      "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
     altroCheTiPiaceSmall.innerHTML = `<div class="d-flex w-100">
               <div class="w-50 d-flex justify-content-center aligh-items-center">
                 <img src="${album.album.cover_medium}" class="img-fluid mb-4" alt="placeholder" />
@@ -115,7 +117,9 @@ const loadAlbums = async () => {
 
   if (albums && albums.length > 0) {
     // Estrazione artisti unici dagli album
-    const uniqueArtists = [...new Set(albums.map((album) => album.artist.name))];
+    const uniqueArtists = [
+      ...new Set(albums.map((album) => album.artist.name)),
+    ];
 
     // Limitazione a 4 artisti casuali
     const randomArtists = uniqueArtists.slice(0, 4);
@@ -270,12 +274,49 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleListVisibility();
 });
 
+<<<<<<< Updated upstream
+=======
+const listaDaModificare = document.getElementById(
+  "lista-da-modificare-randomicamente"
+);
+
+>>>>>>> Stashed changes
 const createBuonaseraSection = async () => {
   const buonaseraSection = document.getElementById("buonasera-section"); // Seleziona la sezione
   const listaDaModificare = document.getElementById("lista-da-modificare-randomicamente"); // Seleziona la lista
   const listaItems = listaDaModificare.querySelectorAll("a"); // Seleziona i tag <a> nella lista
   buonaseraSection.innerHTML = ""; // Pulisce il contenuto esistente
 
+<<<<<<< Updated upstream
+=======
+  // Creazione del titolo con il pulsante accanto
+  const titleContainer = document.createElement("div");
+  titleContainer.className =
+    "d-flex justify-content-between align-items-center mb-3";
+
+  const title = document.createElement("h4");
+  title.className = "text-white";
+  title.id = "buonasera-title"; // Aggiungi un ID per aggiornare dinamicamente il titolo
+
+  // Aggiorna il titolo dinamicamente in base all'orario
+  const currentHour = new Date().getHours();
+  if (currentHour >= 7 && currentHour < 12) {
+    title.innerText = "Buongiorno";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    title.innerText = "Buon pomeriggio";
+  } else {
+    title.innerText = "Buonasera";
+  }
+
+  const toggleButton = document.createElement("button");
+  toggleButton.className = "btn btn-outline-light btn-sm";
+  toggleButton.innerText = "Mostra di più";
+
+  titleContainer.appendChild(title);
+  titleContainer.appendChild(toggleButton);
+  buonaseraSection.appendChild(titleContainer);
+
+>>>>>>> Stashed changes
   // Genera una lettera casuale per la ricerca
   const randomLetter = String.fromCharCode(97 + Math.floor(Math.random() * 26)); // Lettere da 'a' a 'z'
 
@@ -291,7 +332,8 @@ const createBuonaseraSection = async () => {
       col.className = "col-6 col-md-4";
 
       const card = document.createElement("div");
-      card.className = "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
+      card.className =
+        "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
 
       card.innerHTML = `
         <img src="${album.album.cover_medium}" class="img-fluid me-2 rounded-start" alt="${album.artist.name}" />
@@ -302,6 +344,7 @@ const createBuonaseraSection = async () => {
       col.appendChild(card);
       buonaseraSection.appendChild(col);
 
+<<<<<<< Updated upstream
       // Aggiorna i tag <a> nella lista con il nome dell'artista e l'immagine
       if (listaItems[index]) {
         listaItems[index].innerHTML = `
@@ -310,6 +353,24 @@ const createBuonaseraSection = async () => {
         `;
         listaItems[index].href = `album-page.html?search=${album.artist.name}`; // Aggiorna anche il link
       }
+=======
+    // Aggiungi evento al pulsante per mostrare/nascondere le card
+    toggleButton.addEventListener("click", () => {
+      const hiddenCards = document.querySelectorAll(".buonasera-card");
+      const areHidden = Array.from(hiddenCards).some(
+        (card, index) => index >= 6 && card.style.display === "none"
+      );
+
+      hiddenCards.forEach((card, index) => {
+        if (areHidden) {
+          card.style.display = "block"; // Mostra tutte le card
+        } else if (index >= 6) {
+          card.style.display = "none"; // Nascondi le card oltre le prime 6
+        }
+      });
+
+      toggleButton.innerText = areHidden ? "Mostra di meno" : "Mostra di più"; // Cambia il testo del pulsante
+>>>>>>> Stashed changes
     });
   } else {
     buonaseraSection.innerHTML = `<p class="text-white">Nessun album trovato.</p>`;

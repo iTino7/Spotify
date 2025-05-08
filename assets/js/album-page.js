@@ -15,6 +15,62 @@ const arrowStyle = (str, add, value) => {
 };
 
 let profile; // Dichiara profile come variabile globale
+let currentAudio = null; // Variabile globale per tracciare l'audio attualmente in riproduzione
+let isPlaying = false; // Stato di riproduzione
+
+const playAudio = (src) => {
+  // Ferma l'audio precedente, se esiste
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0; // Riavvia l'audio precedente
+  }
+
+  // Crea un nuovo oggetto Audio e avvialo
+  currentAudio = new Audio(src);
+  currentAudio.play();
+  isPlaying = true;
+
+  // Aggiorna i bottoni del player
+  updatePlayerControls();
+};
+
+const pauseAudio = () => {
+  if (currentAudio && isPlaying) {
+    currentAudio.pause();
+    isPlaying = false;
+  }
+};
+
+const updatePlayerControls = () => {
+  const playButton = document.querySelector(".bi-play-circle-fill");
+  const pauseButton = document.querySelector(".bi-pause-circle-fill");
+
+  playButton.addEventListener("click", () => {
+    if (currentAudio && !isPlaying) {
+      currentAudio.play();
+      isPlaying = true;
+    }
+  });
+
+  pauseButton.addEventListener("click", () => {
+    if (currentAudio && isPlaying) {
+      currentAudio.pause();
+      isPlaying = false;
+    }
+  });
+};
+
+const updatePlayerBar = (track) => {
+  const playerImg = document.getElementById("player-img");
+  const playerTitle = document.getElementById("player-title");
+  const playerArtist = document.getElementById("player-artist");
+
+  if (playerImg && playerTitle && playerArtist) {
+    playerImg.src = track.album.cover_medium;
+    playerTitle.textContent = track.title;
+    playerArtist.textContent = track.artist.name;
+  }
+};
 
 const albumPage = () => {
   fetch(URL, {
@@ -246,6 +302,7 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
+<<<<<<< Updated upstream
       /*let audios;
 
       function pauseAudio() {
@@ -261,6 +318,19 @@ const albumPage = () => {
       }*/
 
       dataAlbum.data.slice(0, 4).forEach((item, index) => {
+=======
+      dataAlbum.data.slice(0, 10).forEach((item, index) => {
+        const titleSong = document.createElement("p");
+        titleSong.className = "m-0 text-white";
+        titleSong.style.fontSize = "13px";
+        titleSong.innerHTML = item.title;
+
+        titleSong.addEventListener("click", () => {
+          playAudio(item.preview); // Avvia la riproduzione della canzone selezionata
+          updatePlayerBar(item); // Aggiorna la player bar con i dettagli della canzone
+        });
+
+>>>>>>> Stashed changes
         let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
         containerSong.className =
@@ -270,15 +340,13 @@ const albumPage = () => {
         pSong.innerHTML = index + 1;
         const containerTitleSong = document.createElement("div");
         containerTitleSong.className = "container d-flex flex-column";
-        const titleSong = document.createElement("p");
-        titleSong.className = "m-0 text-white";
-        titleSong.style.fontSize = "13px";
-        titleSong.innerHTML = item.title;
+
         titleSong.addEventListener("mouseover", () => {
           titleSong.style.cursor = "pointer";
           titleSong.style.textDecoration = "underline";
         });
 
+<<<<<<< Updated upstream
         titleSong.addEventListener("click", () => {
           //playAudio(item.preview);
           if (audio.paused) {
@@ -288,6 +356,8 @@ const albumPage = () => {
           }
         });
 
+=======
+>>>>>>> Stashed changes
         titleSong.addEventListener("mouseleave", () => {
           titleSong.style.textDecoration = "none";
         });
