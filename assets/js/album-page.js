@@ -157,7 +157,7 @@ const albumPage = () => {
       console.log(dataAlbum.data);
 
       const duration = dataAlbum.data
-        .slice(0, dataAlbum.data.length - 10)
+        .slice(0, 10)
         .reduce((acc, curr) => acc + curr.duration, 0);
 
       const minutes = Math.floor(duration / 60);
@@ -317,11 +317,9 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
-      // Variabile globale per tracciare l'audio attualmente in riproduzione
-      let currentAudio = null;
+      let audios = new Audio(dataAlbum.data);
 
       dataAlbum.data.slice(0, 10).forEach((item, index) => {
-        let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
         containerSong.className =
           "col-12 col-md-8 d-flex align-items-center mt-4";
@@ -330,15 +328,17 @@ const albumPage = () => {
         pSong.innerHTML = index + 1;
         const containerTitleSong = document.createElement("div");
         containerTitleSong.className = "container d-flex flex-column";
+
         const titleSong = document.createElement("p");
         const span = document.createElement("span");
-        span.style.marginLeft = "auto";
+        span.style.marginLeft = "10px";
+
         const iconSpan = document.createElement("i");
-        iconSpan.className = "bi bi-pause-circle-fill d-none";
+        iconSpan.className = "bi bi-volume-up-fill d-none";
         iconSpan.style.color = "#1ed760";
         iconSpan.style.fontSize = "16px";
 
-        titleSong.className = "m-0 text-white d-flex";
+        titleSong.className = "m-0 text-white d-flex align-items-center";
         titleSong.style.fontSize = "13px";
         titleSong.innerHTML = item.title;
 
@@ -351,11 +351,17 @@ const albumPage = () => {
         });
 
         titleSong.addEventListener("click", () => {
-          if (audio.paused) {
-            audio.play();
+          if (audios.paused) {
+            audios.src = item.preview;
+            audios.play();
+            iconSpan.classList.remove("d-none");
           } else {
-            audio.pause();
+            audios.pause();
+            iconSpan.classList.add("d-none");
           }
+          audios.addEventListener("ended", () => {
+            iconSpan.classList.add("d-none");
+          });
         });
 
         titleSong.addEventListener("mouseleave", () => {
