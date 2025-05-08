@@ -228,14 +228,7 @@ const albumPage = () => {
         });
       });
 
-      containerControlsPlayer.append(
-        playerIconShuffle,
-        playerIconBackward,
-        playerIconPlay,
-        playerIconPause,
-        playerIconSkip,
-        playerIconRepeat
-      );
+      containerControlsPlayer.append(playerIconShuffle, playerIconBackward, playerIconPlay, playerIconPause, playerIconSkip, playerIconRepeat);
 
       buttonPlayerPause.appendChild(iconTrackPause);
       buttonPlayer.appendChild(iconTrack);
@@ -282,6 +275,9 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
+      // Variabile globale per tracciare l'audio attualmente in riproduzione
+      let currentAudio = null;
+
       dataAlbum.data.slice(0, 10).forEach((item, index) => {
         let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
@@ -302,26 +298,35 @@ const albumPage = () => {
         });
 
         titleSong.addEventListener("click", () => {
-          if (audio.paused) {
-            audio.play();
-
-            // Aggiungi il fade-out automatico
-            const fadeOutStart = audio.duration - 5; // 5 secondi prima della fine
-            const fadeOutInterval = 100; // Intervallo di riduzione del volume (ms)
-            const fadeOutStep = 0.05; // Passo di riduzione del volume
-
-            const fadeOut = setInterval(() => {
-              if (audio.currentTime >= fadeOutStart) {
-                audio.volume = Math.max(0, audio.volume - fadeOutStep);
-                if (audio.volume === 0) {
-                  clearInterval(fadeOut);
-                  audio.pause(); // Pausa l'audio quando il volume è 0
-                }
-              }
-            }, fadeOutInterval);
-          } else {
-            audio.pause();
+          // Ferma l'audio attualmente in riproduzione, se esiste
+          if (currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Riavvia l'audio fermato
           }
+
+          // Imposta l'audio corrente e avvia la riproduzione
+          currentAudio = audio;
+          audio.play();
+
+          // Aggiungi il fade-out automatico
+          const fadeOutStart = audio.duration - 5; // 5 secondi prima della fine
+          const fadeOutInterval = 100; // Intervallo di riduzione del volume (ms)
+          const fadeOutStep = 0.05; // Passo di riduzione del volume
+
+          const fadeOut = setInterval(() => {
+            if (audio.currentTime >= fadeOutStart) {
+              audio.volume = Math.max(0, audio.volume - fadeOutStep);
+              if (audio.volume === 0) {
+                clearInterval(fadeOut);
+                audio.pause(); // Pausa l'audio quando il volume è 0
+              }
+            }
+          }, fadeOutInterval);
+
+          // Interrompi il fade-out se l'utente ferma manualmente l'audio
+          audio.addEventListener("pause", () => {
+            clearInterval(fadeOut);
+          });
         });
 
         titleSong.addEventListener("mouseleave", () => {
