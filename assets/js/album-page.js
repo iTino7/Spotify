@@ -181,7 +181,7 @@ const albumPage = () => {
       buttonPlayer.style.border = "none";
       buttonPlayerPause.style.background = "transparent";
       buttonPlayerPause.style.border = "none";
-      buttonPlayerPause.className ="d-none"
+      buttonPlayerPause.className = "d-none";
       const iconTrack = document.createElement("i");
       const iconTrackPause = document.createElement("i");
       iconTrack.className = "bi bi-play-circle-fill";
@@ -351,35 +351,11 @@ const albumPage = () => {
         });
 
         titleSong.addEventListener("click", () => {
-          // Ferma l'audio attualmente in riproduzione, se esiste
-          if (currentAudio && !currentAudio.paused) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0; // Riavvia l'audio fermato
+          if (audio.paused) {
+            audio.play();
+          } else {
+            audio.pause();
           }
-
-          // Imposta l'audio corrente e avvia la riproduzione
-          currentAudio = audio;
-          audio.play();
-
-          // Aggiungi il fade-out automatico
-          const fadeOutStart = audio.duration - 5; // 5 secondi prima della fine
-          const fadeOutInterval = 100; // Intervallo di riduzione del volume (ms)
-          const fadeOutStep = 0.05; // Passo di riduzione del volume
-
-          const fadeOut = setInterval(() => {
-            if (audio.currentTime >= fadeOutStart) {
-              audio.volume = Math.max(0, audio.volume - fadeOutStep);
-              if (audio.volume === 0) {
-                clearInterval(fadeOut);
-                audio.pause(); // Pausa l'audio quando il volume è 0
-              }
-            }
-          }, fadeOutInterval);
-
-          // Interrompi il fade-out se l'utente ferma manualmente l'audio
-          audio.addEventListener("pause", () => {
-            clearInterval(fadeOut);
-          });
         });
 
         titleSong.addEventListener("mouseleave", () => {
