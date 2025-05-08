@@ -236,12 +236,20 @@ const albumPage = () => {
       playerIconRepeat.className = "bi bi-repeat pointer-hover";
       buttonSong(playerIconPlay, playerIconPause);
 
-      containerControlsPlayer.append(playerIconShuffle, playerIconBackward, playerIconPlay, playerIconPause, playerIconSkip, playerIconRepeat);
+      containerControlsPlayer.append(
+        playerIconShuffle,
+        playerIconBackward,
+        playerIconPlay,
+        playerIconPause,
+        playerIconSkip,
+        playerIconRepeat
+      );
 
       //CONTAINER CONTROLS PLAYER
 
       const timeSong = (num) => {
-        let song = (audio.currentTime = num < 60 && num != 0 ? `0.${num}` : num);
+        let song = (audio.currentTime =
+          num < 60 && num != 0 ? `0.${num}` : num);
         return song;
       };
 
@@ -313,6 +321,9 @@ const albumPage = () => {
 
       dataAlbum.data.slice(0, 10).forEach((item, index) => {
         let audio = new Audio(item.preview);
+
+
+
         const containerSong = document.createElement("div");
         containerSong.className =
           "col-12 col-md-8 d-flex align-items-center mt-4";
@@ -322,9 +333,18 @@ const albumPage = () => {
         const containerTitleSong = document.createElement("div");
         containerTitleSong.className = "container d-flex flex-column";
         const titleSong = document.createElement("p");
-        titleSong.className = "m-0 text-white";
+        const span = document.createElement("span");
+        span.style.marginLeft = "auto";
+        const iconSpan = document.createElement("i");
+        iconSpan.className = "bi bi-pause-circle-fill d-none";
+        iconSpan.style.color = "#1ed760";
+        iconSpan.style.fontSize = "16px";
+
+        titleSong.className = "m-0 text-white d-flex";
         titleSong.style.fontSize = "13px";
         titleSong.innerHTML = item.title;
+
+       
 
         titleSong.addEventListener("mouseover", () => {
           titleSong.style.cursor = "pointer";
@@ -337,6 +357,11 @@ const albumPage = () => {
             currentAudio.pause();
             currentAudio.currentTime = 0; // Riavvia l'audio fermato
           }
+
+          
+
+
+          
 
           // Imposta l'audio corrente e avvia la riproduzione
           currentAudio = audio;
