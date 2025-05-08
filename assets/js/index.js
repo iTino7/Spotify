@@ -85,15 +85,9 @@ const createAlbumRow = (albums, title) => {
                 <p>${album.title}</p>
               </div>
             </div>
-            <div class="d-flex justify-content-between px-3">
-              <div>
-                <i class="bi bi-heart-fill"></i>
+            <div class="d-flex justify-content-end px-3 pb-2">
+                <i class="bi bi-heart-fill me-3"></i>
                 <i class="bi bi-three-dots-vertical"></i>
-              </div>
-              <div class="d-flex justify-content-around w-25">
-                <p>Numero canzoni</p>
-                <i class="bi bi-play-circle-fill"></i>
-              </div>
             </div>`;
     middleColumn.appendChild(altroCheTiPiaceSmall);
   });
