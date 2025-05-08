@@ -42,6 +42,7 @@ const albumPage = () => {
       background.style.backgroundPosition = "top";
       background.style.backgroundRepeat = "no-repeat";
       background.style.minHeight = "100vh";
+      background.style.marginBottom ="60px"
       //CONTAINER-NAV
       const containerNav = document.createElement("div");
       containerNav.className = "containerNav d-flex w-100 align-items-center";
@@ -245,7 +246,7 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
-      dataAlbum.data.slice(0, 12).forEach((item, index) => {
+      dataAlbum.data.slice(0, 15).forEach((item, index) => {
         let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
         containerSong.className =
