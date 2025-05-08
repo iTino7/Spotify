@@ -88,15 +88,18 @@
         <!--Colonna di mezzo-->
         <div id="container-album" class="container col-12 col-md-10 col-lg-9 text-light pt-4">
           <!-- Album -->
-          <div
-          style="
-            background-image: url('./assets/imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg');
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            aspect-ratio: 3 / 1;
-          "
-        >
+          <!-- <div
+            id="backgroundLinear"
+            style="
+              background: #ddbf4e;
+              background: linear-gradient(
+                180deg,
+                rgba(221, 191, 78, 1) 0%,
+                rgba(18, 18, 18, 1) 50%
+              );
+              height: 100vh;
+            "
+          >
             <div class="containerNav d-flex w-100 align-items-center">
               <div class="arrow d-flex">
                 <p class="ms-1 m-0">
@@ -134,20 +137,33 @@
             <div
               d-flex flex-column align-items-center container-fluid mt-2 ms-md-2 flex-md-row align-items-end              class=""
             >
-              <div class="d-flex ">
-                <i class=" d-block d-sm-none bi bi-arrow-left me-2"></i>
+              <div class="d-flex">
+                <i class="d-block d-sm-none bi bi-arrow-left me-2"></i>
+                <img
+                  src="./assets/imgs/main/Viola_Album_Cover.jpg"
+                  alt=""
+                  style="
+                    max-width: 200px;
+                    box-shadow: -2px 0px 23px 3px rgba(0, 0, 0, 0.63);
+                  "
+                  class="w-75 w-sm-100"
+                />
               </div>
-              <div class="  d-flex flex-column d-sm-flex container-d-flex ms-2">
-                <p class="mb-1">
-                  <i class="bi bi-patch-check-fill text-primary me-2"></i>Artista verificato
-              </p>
+              <div class="d-flex flex-column d-sm-flex container-d-flex ms-2">
+                <p class="mb-0">Album</p>
                 <h1
                   class="d-none d-sm-flex fw-bold display-4 display-md-3 display-lg-1"
                 >
-                Yellowcard                </h1>
+                  Gioventù brucata
+                </h1>
                 <p class="d-flex d-sm-none b-0">Gioventù Brucata</p>
                 <p class="d-flex d-sm-none">Pinguini Tattici Nucleari</p>
-                <p>3.453.158 ascoltatori mensili</p>
+                <p class="d-none d-sm-flex mb-0 mt-4 fw-bold">
+                  Pinguini Tattici Nucleari ● 2017 ● 12 brani,<span
+                    style="font-weight: 300"
+                    >53min 20sec</span
+                  >
+                </p>
               </div>
             </div>
             <div
@@ -207,7 +223,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <!--Colonna di destra-->
@@ -355,5 +371,6 @@
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/js/album-page.js"></script>
   </body>
 </html>
