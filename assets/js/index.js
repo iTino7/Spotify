@@ -271,11 +271,37 @@ document.addEventListener("DOMContentLoaded", () => {
   updateBuonaseraTitle();
 });
 
+const listaDaModificare = document.getElementById("lista-da-modificare-randomicamente");
+
 const createBuonaseraSection = async () => {
   const buonaseraSection = document.getElementById("buonasera-section"); // Seleziona la sezione
-  const listaDaModificare = document.getElementById("lista-da-modificare-randomicamente"); // Seleziona la lista
-  const listaItems = listaDaModificare.querySelectorAll("a"); // Seleziona i tag <a> nella lista
   buonaseraSection.innerHTML = ""; // Pulisce il contenuto esistente
+
+  // Creazione del titolo con il pulsante accanto
+  const titleContainer = document.createElement("div");
+  titleContainer.className = "d-flex justify-content-between align-items-center mb-3";
+
+  const title = document.createElement("h4");
+  title.className = "text-white";
+  title.id = "buonasera-title"; // Aggiungi un ID per aggiornare dinamicamente il titolo
+
+  // Aggiorna il titolo dinamicamente in base all'orario
+  const currentHour = new Date().getHours();
+  if (currentHour >= 7 && currentHour < 12) {
+    title.innerText = "Buongiorno";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    title.innerText = "Buon pomeriggio";
+  } else {
+    title.innerText = "Buonasera";
+  }
+
+  const toggleButton = document.createElement("button");
+  toggleButton.className = "btn btn-outline-light btn-sm";
+  toggleButton.innerText = "Mostra di più";
+
+  titleContainer.appendChild(title);
+  titleContainer.appendChild(toggleButton);
+  buonaseraSection.appendChild(titleContainer);
 
   // Genera una lettera casuale per la ricerca
   const randomLetter = String.fromCharCode(97 + Math.floor(Math.random() * 26)); // Lettere da 'a' a 'z'
@@ -284,12 +310,16 @@ const createBuonaseraSection = async () => {
   const albums = await fetchAlbums(randomLetter);
 
   if (albums && albums.length > 0) {
-    // Prendi i primi 6 album
-    const randomAlbums = albums.slice(0, 6);
+    // Prendi i primi 18 album
+    const randomAlbums = albums.slice(0, 18);
 
     randomAlbums.forEach((album, index) => {
       const col = document.createElement("div");
-      col.className = "col-6 col-md-4";
+      col.className = "col-6 col-md-4 buonasera-card"; // Aggiungi una classe per gestire la visibilità
+
+      if (index >= 6) {
+        col.style.display = "none"; // Nascondi le card oltre le prime 6
+      }
 
       const card = document.createElement("div");
       card.className = "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
@@ -298,37 +328,35 @@ const createBuonaseraSection = async () => {
         <img src="${album.album.cover_medium}" class="img-fluid me-2 rounded-start" alt="${album.artist.name}" />
         ${album.artist.name}
       `;
-      console.log(album.artist.name);
+
+      const listPoint = document.createElement("li");
+      listPoint.className = "d-flex align-items-center mb-3";
+      listPoint.innerHTML = `<img src="${album.album.cover_small}" class=" me-2" alt="${album.artist.name}"/>
+      <a class="nav-link text-white px-0" href="#">${album.artist.name}</a>`;
+
+      listaDaModificare.appendChild(listPoint);
 
       col.appendChild(card);
       buonaseraSection.appendChild(col);
+    });
 
-      // Aggiorna i tag <a> nella lista con il nome dell'artista e l'immagine
-      if (listaItems[index]) {
-        listaItems[index].innerHTML = `
-          <img src="${album.album.cover_small}" class="img-fluid me-2 rounded" alt="${album.artist.name}" style="width: 30px; height: 30px;" />
-          <p class=" d-inline-block">${album.artist.name}</p>
-        `;
-        listaItems[index].href = `album-page.html?search=${album.artist.name}`; // Aggiorna anche il link
-      }
+    // Aggiungi evento al pulsante per mostrare/nascondere le card
+    toggleButton.addEventListener("click", () => {
+      const hiddenCards = document.querySelectorAll(".buonasera-card");
+      const areHidden = Array.from(hiddenCards).some((card, index) => index >= 6 && card.style.display === "none");
+
+      hiddenCards.forEach((card, index) => {
+        if (areHidden) {
+          card.style.display = "block"; // Mostra tutte le card
+        } else if (index >= 6) {
+          card.style.display = "none"; // Nascondi le card oltre le prime 6
+        }
+      });
+
+      toggleButton.innerText = areHidden ? "Mostra di meno" : "Mostra di più"; // Cambia il testo del pulsante
     });
   } else {
     buonaseraSection.innerHTML = `<p class="text-white">Nessun album trovato.</p>`;
-  }
-};
-
-const toggleListVisibility = () => {
-  const listaDaModificare = document.getElementById("lista-da-modificare-randomicamente");
-  const listaItems = listaDaModificare.querySelectorAll("a");
-
-  if (window.innerWidth < 992) {
-    listaItems.forEach((item) => {
-      item.style.display = "none"; // Nasconde i nomi
-    });
-  } else {
-    listaItems.forEach((item) => {
-      item.style.display = ""; // Mostra i nomi
-    });
   }
 };
 
