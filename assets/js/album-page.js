@@ -32,8 +32,6 @@ const albumPage = () => {
     .then((dataAlbum) => {
       const containerAlbum = document.getElementById("container-album");
 
-      console.log(dataAlbum.data[0].album.cover_xl);
-
       const background = document.createElement("div");
 
       background.style.backgroundImage = `
@@ -41,9 +39,9 @@ const albumPage = () => {
   url('${dataAlbum.data[0].album.cover_xl}')
 `;
       background.style.backgroundSize = "cover";
-      background.style.backgroundPosition = "bottom";
+      background.style.backgroundPosition = "top";
       background.style.backgroundRepeat = "no-repeat";
-      background.style.height = "100vh";
+      background.style.minHeight = "100vh";
       //CONTAINER-NAV
       const containerNav = document.createElement("div");
       containerNav.className = "containerNav d-flex w-100 align-items-center";
@@ -81,9 +79,11 @@ const albumPage = () => {
       arrowStyle(arrowRight, "mouseleave", "0.3");
       //PROFILE
       profile = document.createElement("div"); // Assegna il valore a profile
-      profile.className = "ms-auto profile me-2 d-flex justify-content-around align-items-center";
+      profile.className =
+        "ms-auto profile me-2 d-flex justify-content-around align-items-center";
       const bgProfile = document.createElement("div");
-      bgProfile.className = "d-none d-sm-inline-flex align-items-center bg-dark text-white px-2 py-1";
+      bgProfile.className =
+        "d-none d-sm-inline-flex align-items-center bg-dark text-white px-2 py-1";
       bgProfile.style.borderRadius = "50px";
       //PROFILE-IMG
       const profileImg = document.createElement("img");
@@ -101,7 +101,8 @@ const albumPage = () => {
       const item = dataAlbum.data[0];
 
       const containerInfo = document.createElement("div");
-      containerInfo.className = "d-flex flex-column align-items-center container-fluid mt-2 ms-md-2 flex-md-row align-items-end";
+      containerInfo.className =
+        "d-flex flex-column align-items-center container-fluid mt-2 ms-md-2 flex-md-row align-items-end";
       //CONTAINER-ALBUM-FLEX
       const containerInfoFlex = document.createElement("div");
       containerInfoFlex.className = "d-flex";
@@ -117,7 +118,8 @@ const albumPage = () => {
       buttonAlbumMobile.classList.add("d-sm-none");
       buttonAlbumMobile.classList.add("m-0");
       const containerIconMobile = document.createElement("i");
-      containerIconMobile.className = "d-block d-sm-none bi bi-arrow-left text-white ";
+      containerIconMobile.className =
+        "d-block d-sm-none bi bi-arrow-left text-white ";
 
       buttonAlbumMobile.appendChild(containerIconMobile);
       //ALBUM-IMG
@@ -131,25 +133,33 @@ const albumPage = () => {
 
       //DESCRIPTION-ALBUM
       const descriptionContainer = document.createElement("div");
-      descriptionContainer.className = "d-flex flex-column d-sm-flex container-d-flex ms-2";
+      descriptionContainer.className =
+        "d-flex flex-column d-sm-flex container-d-flex ms-2";
       //P-DESCRIPTION
       const pDescription = document.createElement("p");
       pDescription.className = "mb-0 text-center text-md-start fw-bold ";
       pDescription.innerHTML = "Album";
       //H1-DESCRIPTION
       const h1Description = document.createElement("h1");
-      h1Description.className = "d-none d-sm-flex fw-bold display-4  justify-content-center justify-content-md-start display-md-3 display-lg-1";
+      h1Description.className =
+        "d-none d-sm-flex fw-bold display-4  justify-content-center justify-content-md-start display-md-3 display-lg-1";
       h1Description.textContent = item.album.title;
       //SUB-DESCRIPTION
       const subDescriptionTitle = document.createElement("p");
-      subDescriptionTitle.className = "d-flex d-sm-none justify-content-center my-2 fw-bold";
+      subDescriptionTitle.className =
+        "d-flex d-sm-none justify-content-center my-2 fw-bold";
       subDescriptionTitle.innerHTML = item.album.title;
       const subDescriptionArtist = document.createElement("p");
-      subDescriptionArtist.className = "d-flex d-sm-none justify-content-center fw-bold";
+      subDescriptionArtist.className =
+        "d-flex d-sm-none justify-content-center fw-bold";
       subDescriptionArtist.innerHTML = item.artist.name;
       const titleAndArtist = document.createElement("p");
       titleAndArtist.className = "d-none d-sm-flex mb-0 mt-4 fw-bold";
-      const duration = dataAlbum.data.reduce((acc, curr) => acc + curr.duration, 0);
+      console.log(dataAlbum.data);
+
+      const duration = dataAlbum.data
+        .slice(0, dataAlbum.data.length - 12)
+        .reduce((acc, curr) => acc + curr.duration, 0);
 
       const minutes = Math.floor(duration / 60);
       const seconds = duration % 60;
@@ -235,24 +245,11 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
-      let audios;
-
-      function pauseAudio() {
-        if (audios && !audios.paused) {
-          audios.pause();
-        }
-      }
-
-      function playAudio(src) {
-        pauseAudio();
-        audios = new Audio(src);
-        audios.play();
-      }
-
-      dataAlbum.data.slice(0, 4).forEach((item, index) => {
+      dataAlbum.data.slice(0, 12).forEach((item, index) => {
         let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
-        containerSong.className = "col-12 col-md-8 d-flex align-items-center mt-4";
+        containerSong.className =
+          "col-12 col-md-8 d-flex align-items-center mt-4";
         const pSong = document.createElement("p");
         pSong.className = "me-3";
         pSong.innerHTML = index + 1;
@@ -268,12 +265,11 @@ const albumPage = () => {
         });
 
         titleSong.addEventListener("click", () => {
-          playAudio(item.preview);
-          /*if (audio.paused) {
+          if (audio.paused) {
             audio.play();
           } else {
             audio.pause();
-          }*/
+          }
         });
 
         titleSong.addEventListener("mouseleave", () => {
@@ -300,6 +296,7 @@ const albumPage = () => {
         const timeP = document.createElement("p");
         timeP.className = "m-0";
         timeP.style.fontSize = "13px";
+
         const durationSongs = item.duration;
 
         const minutesSong = Math.floor(durationSongs / 60);
@@ -321,13 +318,32 @@ const albumPage = () => {
       containerIconListRight.appendChild(iconRightSong);
       songList.append(pTrackList, pTitleTrackList);
       containerListRight.append(pListRight);
-      containerRowList.append(songList, containerListRight, containerIconListRight);
+      containerRowList.append(
+        songList,
+        containerListRight,
+        containerIconListRight
+      );
 
       containerPTrackList.append(buttonPlayer, buttonPlayerPause);
-      containerIconTrack.append(containerPTrackList, iconHeart, iconArrow, iconDots);
+      containerIconTrack.append(
+        containerPTrackList,
+        iconHeart,
+        iconArrow,
+        iconDots
+      );
 
-      containerTrackList.append(containerIconTrack, containerRowList, containerSongRow);
-      descriptionContainer.append(pDescription, h1Description, subDescriptionTitle, subDescriptionArtist, titleAndArtist);
+      containerTrackList.append(
+        containerIconTrack,
+        containerRowList,
+        containerSongRow
+      );
+      descriptionContainer.append(
+        pDescription,
+        h1Description,
+        subDescriptionTitle,
+        subDescriptionArtist,
+        titleAndArtist
+      );
       spanProfile.appendChild(iProfile);
       bgProfile.append(spanProfile, profileImg);
       profile.appendChild(bgProfile);
@@ -335,8 +351,17 @@ const albumPage = () => {
       buttonArrowLeft.append(hrefArrowLeft);
       containerArrow.append(pLeft, buttonArrowLeft, pRight, arrowRight);
       containerNav.append(containerArrow, profile);
-      background.append(containerNav, containerInfo, containerTrackList, containerSong);
-      containerInfoFlex.append(buttonAlbumMobile, containerImg, descriptionContainer);
+      background.append(
+        containerNav,
+        containerInfo,
+        containerTrackList,
+        containerSong
+      );
+      containerInfoFlex.append(
+        buttonAlbumMobile,
+        containerImg,
+        descriptionContainer
+      );
       containerInfo.append(containerInfoFlex, descriptionContainer);
       containerAlbum.append(background, containerSongs);
       console.log(containerAlbum);
