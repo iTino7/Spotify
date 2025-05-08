@@ -34,15 +34,13 @@ const albumPage = () => {
 
       const background = document.createElement("div");
 
-      background.style.backgroundImage = `
-  linear-gradient(180deg, rgba(221,191,78,0) 0%, rgba(18,18,18,1) 45%),
-  url('${dataAlbum.data[0].album.cover_xl}')
-`;
+      background.style.backgroundImage = ` linear-gradient(180deg, rgba(221,191,78,0) 0%, rgba(18,18,18,1) 35%),url('${dataAlbum.data[0].album.cover_xl}')`;
       background.style.backgroundSize = "cover";
-      background.style.backgroundPosition = "top";
+      background.style.backgroundPosition = "bottom";
+
       background.style.backgroundRepeat = "no-repeat";
       background.style.minHeight = "100vh";
-      background.style.marginBottom ="60px"
+      background.style.marginBottom = "60px";
       //CONTAINER-NAV
       const containerNav = document.createElement("div");
       containerNav.className = "containerNav d-flex w-100 align-items-center";
@@ -159,7 +157,7 @@ const albumPage = () => {
       console.log(dataAlbum.data);
 
       const duration = dataAlbum.data
-        .slice(0, dataAlbum.data.length - 12)
+        .slice(0, dataAlbum.data.length - 10)
         .reduce((acc, curr) => acc + curr.duration, 0);
 
       const minutes = Math.floor(duration / 60);
@@ -246,7 +244,7 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
-      dataAlbum.data.slice(0, 15).forEach((item, index) => {
+      dataAlbum.data.slice(0, 10).forEach((item, index) => {
         let audio = new Audio(item.preview);
         const containerSong = document.createElement("div");
         containerSong.className =
