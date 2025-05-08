@@ -82,13 +82,13 @@ homeBtn.addEventListener("click", () => {
 });
 
 
-// Seleziona dove vuoi appendere questa colonna (per esempio al body o a un container esistente)
+
 const container = document.getElementById('container-album');
 
 // Crea il div principale
 const albumContainer = document.createElement('div');
 albumContainer.id = 'container-album';
-albumContainer.className = 'container col-12 col-md-10 col-lg-9 text-light pt-4';
+albumContainer.className = 'container col-12 col-md-10 col-lg-9 text-light pt-1';
 
 // Artist Header
 const artistHeader = document.createElement('div');
@@ -173,7 +173,7 @@ artistHeader.appendChild(artistInfo);
 
 // Container principale
 const mainContainer = document.createElement('div');
-mainContainer.className = 'container my-4';
+mainContainer.className = 'container my-3';
 
 const buttonsDiv = document.createElement('div');
 buttonsDiv.className = 'd-flex align-items-center mb-4 flex-wrap gap-5';
@@ -224,7 +224,7 @@ popularTitle.textContent = 'Popolari';
 const trackList = document.createElement('ul');
 trackList.className = 'list-unstyled';
 
-function createTrackItem(num, title, listeners, duration) {
+function createTrackItem(num, title, listeners,) {
   const li = document.createElement('li');
   li.className = 'd-flex align-items-center py-2 border-top border-secondary flex-wrap';
 
@@ -300,3 +300,4 @@ albumContainer.appendChild(artistHeader);
 albumContainer.appendChild(mainContainer);
 
 container.appendChild(albumContainer);
+
