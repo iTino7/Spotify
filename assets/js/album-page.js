@@ -209,6 +209,68 @@ const albumPage = () => {
 
       buttonSong(buttonPlayer, buttonPlayerPause);
 
+      //CONTAINER PLAYER-ARTIST AND ALBUM
+
+      const photoAlbum = document.getElementById("album-photo");
+      const imgAlbum = document.createElement("img");
+      imgAlbum.src = dataAlbum.data[0].album.cover;
+      imgAlbum.className = "me-2";
+
+      const albumArtist = document.getElementById("album-artist");
+
+      const nameAlbum = document.createElement("div");
+      nameAlbum.innerHTML = dataAlbum.data[0].album.title;
+      const nameArtist = document.createElement("div");
+      nameArtist.innerHTML = dataAlbum.data[0].artist.name;
+
+      const iconHeartPlayer = document.createElement("i");
+      iconHeartPlayer.className = "ms-4 bi bi-heart";
+
+      albumArtist.append(nameAlbum, nameArtist);
+      photoAlbum.append(imgAlbum, albumArtist, iconHeartPlayer);
+
+      //CONTAINER PLAYER-ARTIST AND ALBUM RESPONSIVE
+
+      const divAlbumResponsive = document.getElementById(
+        "album-photo-responsive"
+      );
+      const imgResponsiveAlbum = document.createElement("img");
+      imgResponsiveAlbum.src = dataAlbum.data[0].album.cover_small;
+
+      const trackText = document.querySelector(".track-text");
+      const spanTitle = document.createElement("span");
+      const spanArtist = document.createElement("span");
+      spanTitle.className = "track-title";
+      spanTitle.innerHTML = dataAlbum.data[0].album.title;
+      spanArtist.className = "track-artist";
+      spanArtist.innerHTML = dataAlbum.data[0].artist.name;
+
+      const iconsResponsive = document.querySelector(".icons");
+
+      const iconHeartContainer = document.createElement("button");
+      iconHeartContainer.className = "icon-btn";
+      const heartIcon = document.createElement("i");
+      heartIcon.className = "bi bi-heart";
+      const iconPcContainer = document.createElement("button");
+      iconPcContainer.className = "icon-btn";
+      const pcIcon = document.createElement("i");
+      pcIcon.className = "bi bi-pc-display";
+      const iconPlayContainer = document.createElement("button");
+      iconPlayContainer.className = "icon-btn";
+      const playIconFill = document.createElement("i");
+      playIconFill.className = "bi bi-play-fill";
+
+      iconHeartContainer.appendChild(heartIcon);
+      iconPcContainer.appendChild(pcIcon);
+      iconPlayContainer.appendChild(playIconFill);
+
+      iconsResponsive.append(
+        iconHeartContainer,
+        iconPcContainer,
+        iconPlayContainer
+      );
+      trackText.append(spanTitle, spanArtist);
+      divAlbumResponsive.append(imgResponsiveAlbum, trackText, iconsResponsive);
       //CONTAINER PLAYER
 
       const containerControlsPlayer = document.getElementById("controls-audio");
