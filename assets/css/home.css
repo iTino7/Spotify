@@ -13,7 +13,7 @@ body {
 
 #player {
   position: fixed;
-  width: 110%;
+  width: 101%;
   bottom: 0;
   z-index: 1000;
 }
@@ -146,6 +146,16 @@ button {
 
 .start-btn {
   color: #1ed760;
+}
+
+.buonasera-card {
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.buonasera-card:hover {
+  transform: scale(1.03);
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
