@@ -78,7 +78,7 @@ const createAlbumRow = (albums, title) => {
     altroCheTiPiaceSmall.className = "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
     altroCheTiPiaceSmall.innerHTML = `<div class="d-flex w-100">
               <div class="w-50 d-flex justify-content-center aligh-items-center">
-                <img src="${album.album.cover_medium}" class="img-fluid mb-4" alt="placeholder" />
+                <img src="${album.album.cover_medium}" class="img-fluid mb-4 altroCheTiPiaceImg" alt="placeholder" />
               </div>
               <div>
                 <p>Playlist</p>
@@ -89,6 +89,12 @@ const createAlbumRow = (albums, title) => {
                 <i class="bi bi-heart-fill me-3"></i>
                 <i class="bi bi-three-dots-vertical"></i>
             </div>`;
+
+    // Aggiungi evento click al contenitore
+    altroCheTiPiaceSmall.addEventListener("click", () => {
+      window.location.assign(`album-page.html?search=${album.artist.name}`);
+    });
+
     middleColumn.appendChild(altroCheTiPiaceSmall);
   });
 
