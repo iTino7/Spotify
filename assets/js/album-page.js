@@ -34,7 +34,7 @@ const albumPage = () => {
 
       const background = document.createElement("div");
 
-      background.style.backgroundImage = ` linear-gradient(180deg, rgba(221,191,78,0) 0%, rgba(18,18,18,1) 35%),url('${dataAlbum.data[0].album.cover_xl}')`;
+      background.style.backgroundImage = ` linear-gradient(180deg, rgba(221,191,78,0) 0%, rgba(18,18,18,1) 45%),url('${dataAlbum.data[0].album.cover_xl}')`;
       background.style.backgroundSize = "cover";
       background.style.backgroundPosition = "bottom";
 
@@ -198,6 +198,40 @@ const albumPage = () => {
       buttonPlayerPause.addEventListener("click", () => {
         audio.pause();
       });
+
+      //CONTAINER PLAYER
+
+      const containerControlsPlayer = document.getElementById("controls-audio");
+
+      //SHUFFLE
+      const playerIconShuffle = document.createElement("i");
+      playerIconShuffle.className = "bi bi-shuffle pointer-hover";
+      //BACKWARD
+      const playerIconBackward = document.createElement("i");
+      playerIconBackward.className =
+        "bi bi-skip-backward-fill fs-5 pointer-hover";
+      //PLAY
+      const playerIconPlay = document.createElement("i");
+      playerIconPlay.className = "bi bi-play-circle-fill fs-2 pointer-hover";
+      playerIconPlay.style.color = "#1ed760";
+      playerIconPlay.addEventListener("click", () => {
+        audio.play();
+      });
+
+      //SKIP
+      const playerIconSkip = document.createElement("i");
+      playerIconSkip.className = "bi bi-skip-forward-fill fs-5 pointer-hover";
+      //REPEAT
+      const playerIconRepeat = document.createElement("i");
+      playerIconRepeat.className = "bi bi-repeat pointer-hover";
+
+      containerControlsPlayer.append(
+        playerIconShuffle,
+        playerIconBackward,
+        playerIconPlay,
+        playerIconSkip,
+        playerIconRepeat
+      );
 
       buttonPlayerPause.appendChild(iconTrackPause);
       buttonPlayer.appendChild(iconTrack);
