@@ -58,11 +58,24 @@ const createAlbumRow = (albums, title) => {
     <div class="card-body d-flex justify-content-around">
       <div class="w-50"> 
         <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
-        <p class="small text-truncate">${album.artist.name}</p>
+       <p class="small text-truncate text-white artist-link" data-artist="${album.artist.name}">${album.artist.name}</p>
+
       </div>
       <i class="bi bi-play-circle-fill fs-1 pointer-hover start-btn"></i>
     </div>
   `;
+
+  // Aggiungi evento click al nome artista
+const artistLink = albumCard.querySelector(".artist-link");
+if (artistLink) {
+  artistLink.addEventListener("click", (event) => {
+    const artistName = event.target.dataset.artist;
+    window.location.href = `prova.html?artist=${encodeURIComponent(artistName)}`;
+  });
+}
+
+
+
     // Aggiunta dell'evento click all'immagine
     const albumImg = albumCard.querySelector(".album-img");
 

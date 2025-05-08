@@ -1,19 +1,85 @@
 
+const API_KEY = "fab328e384msh921008f1a65af16p1061ebjsne15bd95c0462";
+const API_HOST = "deezerdevs-deezer.p.rapidapi.com";
 
+const params = new URLSearchParams(window.location.search);
+const artistQuery = params.get("artist");
 
+const fetchArtistData = async (query) => {
+  const response = await fetch(`https://${API_HOST}/search?q=${query}`, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": API_KEY,
+      "X-RapidAPI-Host": API_HOST,
+    },
+  });
 
+  if (!response.ok) throw new Error("Errore API");
+  const data = await response.json();
+  return data.data;
+};
 
+window.addEventListener("DOMContentLoaded", async () => {
+  if (!artistQuery) {
+    console.error("Parametro 'artist' mancante nell'URL");
+    return;
+  }
 
+  try {
+    const results = await fetchArtistData(artistQuery);
+    if (results.length === 0) return;
 
+    const artist = results[0].artist;
 
+    // 🔁 Aggiorna background header
+    const header = document.querySelector(".artist-header");
+    if (header) {
+      header.style.backgroundImage = `url('${artist.picture_xl}')`;
+      header.style.backgroundSize = "cover";
+      header.style.backgroundPosition = "center";
+    }
 
+    // 🔁 Aggiorna nome artista
+    const nameEl = document.querySelector(".artist-info h1");
+    if (nameEl) nameEl.textContent = artist.name;
 
+    // 🔁 Aggiorna ascoltatori mensili
+    const listenersEl = document.querySelector(".artist-info p");
+    if (listenersEl) listenersEl.textContent = `${Math.floor(Math.random() * 5_000_000)} ascoltatori mensili`;
 
+    // 🔁 Popola brani popolari
+    const trackList = document.querySelector(".list-unstyled");
+    if (trackList) {
+      trackList.innerHTML = "";
 
+      results.slice(0, 5).forEach((track, index) => {
+        const li = document.createElement("li");
+        li.className = "d-flex align-items-center py-2 border-top border-secondary flex-wrap";
 
+        li.innerHTML = `
+          <span class="me-3">${index + 1}</span>
+          <img src="${track.album.cover_small}" class="track-img me-3 img-fluid" alt="${track.title}">
+          <div class="flex-grow-1">
+            <strong>${track.title}</strong><br />
+            <small>${artist.name}</small>
+          </div>
+          <span class="ms-auto">${Math.floor(track.duration / 60)}:${String(track.duration % 60).padStart(2, '0')}</span>
+        `;
+        trackList.appendChild(li);
+      });
+    }
 
+  } catch (error) {
+    console.error("Errore durante il caricamento artista:", error);
+  }
+});
 
+// Home 
 
+const homeBtn = document.getElementById("home-button");
+homeBtn.addEventListener("click", () => {
+  window.location.assign(`index.html`);
+});
 
 
 // Seleziona dove vuoi appendere questa colonna (per esempio al body o a un container esistente)
@@ -39,6 +105,9 @@ arrowsDiv.className = 'd-none d-sm-inline-flex d-flex align-items-center gap-3';
 const leftArrow = document.createElement('i');
 leftArrow.className = 'bi bi-arrow-left-circle-fill nav-arrow';
 leftArrow.style.cssText = 'font-size: 30px; cursor: pointer;';
+leftArrow.addEventListener('click', () => {
+  window.location.href = 'index.html'; // or the correct relative path to your homepage
+});
 
 const rightArrow = document.createElement('i');
 rightArrow.className = 'bi bi-arrow-right-circle-fill nav-arrow';
@@ -114,6 +183,8 @@ playButton.id = 'play-button';
 playButton.className = 'btn btn-success btn-lg rounded-circle d-flex align-items-center justify-content-center position-relative';
 playButton.style.cssText = 'width: 56px; height: 56px;';
 
+
+
 const playIcon = document.createElement('i');
 playIcon.id = 'play-icon';
 playIcon.className = 'bi bi-play-fill fs-2';
@@ -162,7 +233,7 @@ function createTrackItem(num, title, listeners, duration) {
     <img src="your-album.jpg" class="track-img me-3 img-fluid" alt="${title}">
     <div class="flex-grow-1">${title}</div>
     <div class="text-end me-4">${listeners}</div>
-    <div>${duration}</div>
+    
   `;
 
   return li;
@@ -173,7 +244,7 @@ trackList.appendChild(createTrackItem(2, 'Only One', '98.839.244', '4:17'));
 
 const viewMore = document.createElement('a');
 viewMore.href = '#';
-viewMore.className = 'text-white text-decoration-underline mt-3 d-inline-block';
+viewMore.className = 'text-white text-decoration-none mb-3 d-inline-block';
 viewMore.textContent = 'VISUALIZZA ALTRO';
 
 popularCol.appendChild(popularTitle);
@@ -192,7 +263,7 @@ const likedBox = document.createElement('div');
 likedBox.className = 'd-flex align-items-center bg-dark rounded p-3 flex-wrap';
 
 const bandImg = document.createElement('img');
-bandImg.src = 'band-photo.jpg';
+bandImg.src = 'assets/imgs/Yellowcard-band-social-sharing-image.jpg';
 bandImg.className = 'rounded-circle me-3 img-fluid';
 bandImg.style.width = '60px';
 bandImg.alt = 'Yellowcard';

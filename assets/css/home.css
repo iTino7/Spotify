@@ -222,3 +222,65 @@ button {
     padding: 0;
   }
 }
+
+
+
+
+
+
+.artist-header {
+  background: url('../imgs/ab67616d0000b2739cdf38332f1a6ea8c15c925a.jpeg') center center / cover no-repeat;
+  position: relative;
+  height: 50vh;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.artist-header h1 {
+  font-size: 4vw;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,  
+    -1px  1px 0 #000,  
+     1px  1px 0 #000;
+}
+
+
+.artist-info {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.verified-badge {
+  width: 20px;
+  margin-right: 8px;
+}
+.like-icon {
+  color: #1db954;
+}
+
+@media (max-width: 576px) {
+  .artist-header h1 {
+    font-size: 5vw;
+  }
+  .artist-info {
+    bottom: 10px;
+    left: 15px;
+  }
+}
+
+.nav-arrow {
+  color: white;
+  font-size: 30px;
+  mix-blend-mode: difference; /* trucco dinamico */
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-arrow:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
