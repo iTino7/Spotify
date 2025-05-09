@@ -191,7 +191,10 @@ const albumPage = () => {
 
       const minutes = Math.floor(duration / 60);
       const seconds = duration % 60;
-      titleAndArtist.innerHTML = `${item.artist.name} ● ${item.album.title} ● Album, ${minutes} min, ${seconds}sec. `;
+
+      const artistName = item.artist.name;
+
+      titleAndArtist.innerHTML = `${artistName} ● ${item.album.title} ● Album, ${minutes} min, ${seconds}sec. `;
 
       //TRACK-LIST
       const containerTrackList = document.createElement("div");
@@ -288,15 +291,34 @@ const albumPage = () => {
       iconPlayContainer.className = "icon-btn";
       const playIconFill = document.createElement("i");
       playIconFill.className = "bi bi-play-fill";
+      playIconFill.style.color = "#1ed760";
+      const iconPauseContainer = document.createElement("button");
+      iconPauseContainer.className = "icon-btn d-none";
+      const pauseIconFill = document.createElement("i");
+      pauseIconFill.className = "bi bi-pause-fill";
+      pauseIconFill.style.color = "#1ed760";
+
+      playIconFill.addEventListener("click", () => {
+        audio.play();
+        iconPlayContainer.classList.add("d-none");
+        iconPauseContainer.classList.remove("d-none");
+        iconPauseContainer.addEventListener("click", () => {
+          audio.pause();
+          iconPlayContainer.classList.remove("d-none");
+          iconPauseContainer.classList.add("d-none");
+        });
+      });
 
       iconHeartContainer.appendChild(heartIcon);
       iconPcContainer.appendChild(pcIcon);
       iconPlayContainer.appendChild(playIconFill);
+      iconPauseContainer.appendChild(pauseIconFill);
 
       iconsResponsive.append(
         iconHeartContainer,
         iconPcContainer,
-        iconPlayContainer
+        iconPlayContainer,
+        iconPauseContainer
       );
       trackText.append(spanTitle, spanArtist);
       divAlbumResponsive.append(imgResponsiveAlbum, trackText, iconsResponsive);
@@ -443,7 +465,9 @@ const albumPage = () => {
 
         titleSong.addEventListener("click", () => {
           if (audios.paused) {
-            audios.src = item.preview;
+            if (audios.src !== item.preview) {
+              audios.src = item.preview;
+            }
             audios.play();
             iconSpan.classList.remove("d-none");
           } else {
@@ -476,10 +500,6 @@ const albumPage = () => {
         artistTitle.addEventListener("click", () => {
           window.location.assign(`artist-page.html?artist=${item.artist.name}`);
         });
-
-        
-        
-
 
         artistTitle.addEventListener("mouseover", () => {
           artistTitle.style.textDecoration = "underline";
