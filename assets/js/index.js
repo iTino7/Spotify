@@ -65,16 +65,14 @@ const createAlbumRow = (albums, title) => {
     </div>
   `;
 
-  // Aggiungi evento click al nome artista
-const artistLink = albumCard.querySelector(".artist-link");
-if (artistLink) {
-  artistLink.addEventListener("click", (event) => {
-    const artistName = event.target.dataset.artist;
-    window.location.href = `artist-page.html?artist=${encodeURIComponent(artistName)}`;
-  });
-}
-
-
+    // Aggiungi evento click al nome artista
+    const artistLink = albumCard.querySelector(".artist-link");
+    if (artistLink) {
+      artistLink.addEventListener("click", (event) => {
+        const artistName = event.target.dataset.artist;
+        window.location.href = `artist-page.html?artist=${encodeURIComponent(artistName)}`;
+      });
+    }
 
     // Aggiunta dell'evento click all'immagine
     const albumImg = albumCard.querySelector(".album-img");
@@ -343,8 +341,10 @@ const createBuonaseraSection = async () => {
       card.className = "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
 
       card.innerHTML = `
+      <a class="text-white px-0 text-decoration-none" href="artist-page.html?artist=${encodeURIComponent(album.artist.name)}">
         <img src="${album.album.cover_medium}" class="img-fluid me-2 rounded-start" alt="${album.artist.name}" />
         ${album.artist.name}
+        </a>
       `;
 
       const listPoint = document.createElement("li");
