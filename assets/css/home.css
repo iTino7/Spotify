@@ -35,6 +35,16 @@ img {
   background: #1ed760;
 }
 
+#play-btn,
+#album .btn-outline-light {
+  transition: transform 0.2s ease-in-out;
+}
+
+#play-btn:hover,
+#album .btn-outline-light:hover {
+  transform: scale(1.1);
+}
+
 /* Stile per le card */
 .card {
   cursor: pointer;
@@ -78,7 +88,11 @@ i:hover {
 }
 
 #album {
-  background: linear-gradient(45deg, rgba(0, 0, 0, 1) 30%, rgba(163, 163, 163, 0.29) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(163, 163, 163, 0.29) 100%
+  );
   padding: 15px;
   position: relative;
 }
@@ -95,7 +109,11 @@ i:hover {
 #mobile-nav {
   height: 100px;
   align-items: center;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0.137) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.137) 100%
+  );
 }
 
 #mobile-nav a {
@@ -156,6 +174,14 @@ button {
 .buonasera-card:hover {
   transform: scale(1.03);
   cursor: pointer;
+}
+
+.me-2.rounded-3 {
+  transition: transform 0.2s ease-in-out; /* Transizione fluida */
+}
+
+.me-2.rounded-3:hover {
+  transform: scale(1.1); /* Ingrandisce leggermente l'immagine */
 }
 
 @media (max-width: 768px) {
