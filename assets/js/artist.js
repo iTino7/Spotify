@@ -74,13 +74,13 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+
 // Home 
 
 const homeBtn = document.getElementById("home-button");
 homeBtn.addEventListener("click", () => {
   window.location.assign(`index.html`);
 });
-
 
 
 const container = document.getElementById('container-album');
@@ -112,7 +112,13 @@ leftArrow.addEventListener('click', () => {
 const rightArrow = document.createElement('i');
 rightArrow.className = 'bi bi-arrow-right-circle-fill nav-arrow';
 rightArrow.style.cssText = 'font-size: 30px; cursor: pointer;';
-
+rightArrow.addEventListener('click', () => {
+  if (artistQuery) {
+    window.location.href = `album-page.html?search=${encodeURIComponent(artistQuery)}`;
+  } else {
+    alert("Artista non valido");
+  }
+});
 arrowsDiv.appendChild(leftArrow);
 arrowsDiv.appendChild(rightArrow);
 
@@ -223,6 +229,15 @@ popularTitle.textContent = 'Popolari';
 
 const trackList = document.createElement('ul');
 trackList.className = 'list-unstyled';
+
+trackList.addEventListener('click', () => {
+  if (artistQuery) {
+    window.location.href = `album-page.html?search=${encodeURIComponent(artistQuery)}`;
+  } else {
+    alert("Artista non valido");
+  }
+});
+arrowsDiv.appendChild(trackList);
 
 function createTrackItem(num, title, listeners,) {
   const li = document.createElement('li');
