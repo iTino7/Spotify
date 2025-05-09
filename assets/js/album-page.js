@@ -234,6 +234,12 @@ const albumPage = () => {
             play.classList.remove("d-none");
             pause.classList.add("d-none");
           });
+
+          audio.addEventListener("ended", () => {
+            pause.classList.add("d-none");
+            play.classList.remove("d-none");
+          })
+
         });
       };
 
