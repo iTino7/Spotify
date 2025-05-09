@@ -59,11 +59,22 @@ const createAlbumRow = (albums, title) => {
     <div class="card-body d-flex justify-content-around">
       <div class="w-50"> 
         <p class="mb-1 text-truncate"><strong>${album.title}</strong></p>
-        <p class="small text-truncate">${album.artist.name}</p>
+       <p class="small text-truncate text-white artist-link" data-artist="${album.artist.name}">${album.artist.name}</p>
+
       </div>
       <i class="bi bi-play-circle-fill fs-1 pointer-hover start-btn"></i>
     </div>
   `;
+
+    // Aggiungi evento click al nome artista
+    const artistLink = albumCard.querySelector(".artist-link");
+    if (artistLink) {
+      artistLink.addEventListener("click", (event) => {
+        const artistName = event.target.dataset.artist;
+        window.location.href = `artist-page.html?artist=${encodeURIComponent(artistName)}`;
+      });
+    }
+
     // Aggiunta dell'evento click all'immagine
     const albumImg = albumCard.querySelector(".album-img");
 
@@ -339,14 +350,16 @@ const createBuonaseraSection = async () => {
         "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
 
       card.innerHTML = `
+      <a class="text-white px-0 text-decoration-none" href="artist-page.html?artist=${encodeURIComponent(album.artist.name)}">
         <img src="${album.album.cover_medium}" class="img-fluid me-2 rounded-start" alt="${album.artist.name}" />
         ${album.artist.name}
+        </a>
       `;
 
       const listPoint = document.createElement("li");
       listPoint.className = "d-none d-xl-flex align-items-center mb-3";
       listPoint.innerHTML = `<img src="${album.album.cover_small}" class=" me-2 rounded-3" alt="${album.artist.name}"/>
-      <a class="nav-link text-white px-0" href="#">${album.artist.name}</a>`;
+      <a class="nav-link text-white px-0" href="artist-page.html?artist=${encodeURIComponent(album.artist.name)}">${album.artist.name}</a>`;
 
       listaDaModificare.appendChild(listPoint);
 

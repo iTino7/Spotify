@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css" />
+    <title>Artist-Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
+    <link rel="stylesheet" href="./assets/css/home.css" />
+  </head>
+  <body>
+    <div id="hero" class="container-fliud">
+      <div class="row">
+        <!--Colonna di sinistra-->
+        <div class="col-2 d-none d-md-block text-light pt-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+          </svg>
+
+          <!--Prima lista-->
+          <ul class="nav flex-column mb-3">
+            <li class="nav-item" id="home-button">
+              <a class="nav-link text-white px-0" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+                  />
+                </svg>
+                Home</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-white px-0" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
+                  <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2" />
+                  <path fill-rule="evenodd" d="M12 3v10h-1V3z" />
+                  <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"
+                  />
+                </svg>
+                La tua libreria</a
+              >
+            </li>
+          </ul>
+
+          <!--Seconda lista-->
+          <ul class="nav flex-column mb-3">
+            <li class="nav-item">
+              <a class="nav-link text-white px-0" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"
+                  />
+                </svg>
+                Crea playlist</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-0" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                </svg>
+                Brani che ti piacciono</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-0" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"
+                  />
+                </svg>
+                I tuoi episodi</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!--Colonna di mezzo-->
+        <div id="container-album" class="container col-12 col-md-10 col-lg-9 text-light pt-4">
+          <!-- <div class="artist-header text-white">
+              <div class="d-flex align-items-center justify-content-between w-100 p-3 position-absolute top-0 start-0" style="z-index: 10;">
+  
+                
+                  <div class=" d-none d-sm-inline-flex d-flex  align-items-center gap-3">
+                    <i class="bi bi-arrow-left-circle-fill nav-arrow" style="font-size: 30px; cursor: pointer;"></i>
+                    <i class="bi bi-arrow-right-circle-fill nav-arrow" style="font-size: 30px; cursor: pointer;"></i>
+                  </div>
+                
+                 
+                  <div class="profile me-2">
+                    <div class="d-none d-sm-inline-flex align-items-center bg-dark text-white px-2 py-1" style="border-radius: 50px;">
+                      <img src="./assets/imgs/search/image-1.jpeg" alt="" height="auto" style="border-radius: 50%; width: 20px" class="me-2" />
+                      <span>
+                        Lidia Nautilus...
+                        <i class="bi bi-caret-down-fill ms-1"></i>
+                      </span>
+                    </div>
+                  </div>
+                
+                </div>
+              <div class="artist-info">
+                <div class="d-flex align-items-center mb-2 flex-wrap">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" class="verified-badge img-fluid" alt="verified">
+                  <span>Artista verificato</span>
+                </div>
+                <h1>Yellowcard</h1>
+                <p>3.433.158 ascoltatori mensili</p>
+              </div>
+            </div>
+            
+            <div class="container my-4">
+              <div class="d-flex align-items-center mb-4 flex-wrap gap-5">
+                  <button id="play-button" class="btn btn-success btn-lg rounded-circle d-flex align-items-center justify-content-center position-relative" style="width: 56px; height: 56px;">
+                      <i id="play-icon" class="bi bi-play-fill fs-2" style="color: black; margin-left: 2px;"></i>
+                    </button>
+                    <button class="btn btn-outline-light">Following</button>
+                    <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: transparent;">
+                      <i class="bi bi-three-dots text-secondary fs-3"></i>
+                    </button>
+              </div>
+            
+              <div class="row">
+             
+                <div class="col-lg-8 col-md-12 mb-4">
+                  <h4 class="mb-3">Popolari</h4>
+                  <ul class="list-unstyled">
+                    <li class="d-flex align-items-center py-2 border-top border-secondary flex-wrap">
+                      <span class="me-3">1</span>
+                      <img src="your-album.jpg" class="track-img me-3 img-fluid" alt="Ocean Avenue">
+                      <div class="flex-grow-1">Ocean Avenue</div>
+                      <div class="text-end me-4">276.616.912</div>
+                      <div>3:18</div>
+                    </li>
+                    <li class="d-flex align-items-center py-2 border-top border-secondary flex-wrap">
+                      <span class="me-3">2</span>
+                      <img src="your-album.jpg" class="track-img me-3 img-fluid" alt="Only One">
+                      <div class="flex-grow-1">Only One</div>
+                      <div class="text-end me-4">98.839.244</div>
+                      <div>4:17</div>
+                    </li>
+                  </ul>
+                  <a href="#" class="text-white text-decoration-underline mt-3 d-inline-block">VISUALIZZA ALTRO</a>
+                </div>
+            
+                
+                <div class="col-lg-4 col-md-12">
+                  <h5 class="mb-3">Brani che ti piacciono</h5>
+                  <div class="d-flex align-items-center bg-dark rounded p-3 flex-wrap">
+                    <img src="band-photo.jpg" class="rounded-circle me-3 img-fluid" style="width: 60px;" alt="Yellowcard">
+                    <div>
+                      <div class="fw-bold">Hai messo Mi piace a 11 brani</div>
+                      <small class="text-muted">Di Yellowcard</small>
+                    </div>
+                    <div class="ms-auto mt-2 mt-md-0">
+                      <i class="bi bi-heart-fill like-icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            
+            
+          </div>
+
+        <!--Colonna di destra-->
+        <div class="col-1 d-none d-xl-block text-light pt-4" id="left-column">
+          <div class="d-flex justify-content-between aligh-items-center" id="friends-section">
+            <h6 class="d-inline-block text-truncate w-50">
+              <strong>Attività amici</strong>
+            </h6>
+            <div class="d-flex justify-content-evenly">
+              <i class="bi bi-person-plus"></i>
+              <i class="bi bi-x" id="close-window"></i>
+            </div>
+          </div>
+
+          <!--Sezione amici-->
+          <div class="mb-3 friends-block d-flex justify-content-around aligh-items-top">
+            <i class="bi bi-person-circle me-2"></i>
+            <div class="text-truncate">
+              <strong>Charlie Hookham</strong><br />
+              In Camera - Yumi Zouma<br />
+              4 ore
+            </div>
+          </div>
+          <div class="mb-3 friends-block d-flex justify-content-around aligh-items-top">
+            <i class="bi bi-person-circle me-2"></i>
+            <div class="text-truncate">
+              <strong>lightdark02</strong><br />
+              Aimed to Kill - Jade LeMac<br />
+              8 ore
+            </div>
+          </div>
+          <div class="friends-block d-flex justify-content-around aligh-items-top">
+            <i class="bi bi-person-circle me-2"></i>
+            <div class="text-truncate">
+              <strong>Valeria Traverso</strong><br />
+              New Kings - Sleeping Wolf<br />
+              3 giorni
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Player bar per schermi grandi-->
+    <div id="player" class="d-none d-md-flex row bg-dark text-white align-items-center py-4 px-4">
+      <!--Sezione di sinistra (Img, nome canzone e autore)-->
+      <div class="col-3 d-flex align-items-center">
+        <img src="./assets/imgs/main/image-16.jpg" class="me-2" alt="brano" />
+        <div>
+          <div>Fat Funny Friend</div>
+          <div class="small">Maddie Zahm</div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart ms-4" viewBox="0 0 16 16">
+          <path
+            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+          />
+        </svg>
+      </div>
+      <div id="container-control" class="col-6 text-center d-flex flex-column aligh-items-center">
+        <!--Sezione centrale (controlli)-->
+        <div class="col-6 d-flex flex-column align-items-center" style="width: 100%">
+          <!--Controlli-->
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-shuffle pointer-hover"></i>
+            <i class="bi bi-skip-backward-fill fs-5 pointer-hover"></i>
+            <i class="bi bi-play-circle-fill fs-2 pointer-hover"></i>
+            <i class="bi bi-skip-forward-fill fs-5 pointer-hover"></i>
+            <i class="bi bi-repeat pointer-hover"></i>
+          </div>
+        </div>
+        <!--Barra avanzamento-->
+        <div class="d-flex align-items-center gap-2 w-100 mt-1">
+          <small>1:32</small>
+          <div id="barra-avanzamento" class="flex-grow-1 bg-secondary rounded" style="height: 4px">
+            <div class="bg-white" style="width: 35%; height: 100%"></div>
+          </div>
+          <small>3:45</small>
+        </div>
+      </div>
+      <div class="col-3 d-flex justify-content-end">
+        <!--Sezione di destra (volume & altro)-->
+        <div class="col-3 d-flex justify-content-end align-items-center gap-3">
+          <i id="mic-btn" class="bi bi-mic"></i>
+          <i id="list-btn" class="bi bi-list"></i>
+          <i id="pc-btn" class="bi bi-pc-display"></i>
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-volume-up volume-btn"></i>
+            <input type="range" class="volume-slider d-none" min="0" max="1" step="0.01" value="1" />
+          </div>
+          <i class="bi bi-arrows-angle-expand"></i>
+        </div>
+      </div>
+    </div>
+
+    <!--Player bar per schermi piccoli-->
+    <div class="mobile-player-bar d-md-none d-flex aligh-items-center rounded">
+      <img src="./assets/imgs/main/image-3.jpg" alt="Copertina" class="cover" />
+      <div class="track-text">
+        <span class="track-title">Supernatural Parody</span>
+        <span class="track-artist">The Hillywood Show</span>
+      </div>
+      <div class="icons d-flex justify-content-evenly w-25">
+        <button class="icon-btn"><i class="bi bi-heart"></i></button>
+        <button class="icon-btn"><i class="bi bi-pc-display"></i></button>
+        <button class="icon-btn"><i class="bi bi-play-fill"></i></button>
+      </div>
+    </div>
+
+    <!--Sezione comandi per schermi piccoli-->
+    <div id="mobile-nav" class="d-md-none d-flex justify-content-evenly position-sticky bottom-0 w-100">
+      <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+          <path
+            d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+          />
+        </svg>
+        <p>Home</p>
+      </a>
+
+      <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+        <p>Cerca</p>
+      </a>
+
+      <a class="nav-link text-white px-0 d-flex flex-column align-items-center" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
+          <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2" />
+          <path fill-rule="evenodd" d="M12 3v10h-1V3z" />
+          <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z" />
+          <path
+            fill-rule="evenodd"
+            d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"
+          />
+        </svg>
+        <p>La tua libreria</p>
+      </a>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./assets/js/artist.js"></script>
+    <audio src="./assets/js/artist.js"></audio>
+  </body>
+</html>
