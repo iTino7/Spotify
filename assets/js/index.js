@@ -67,6 +67,7 @@ const createAlbumRow = (albums, title) => {
   `;
 
   // Aggiungi evento click al nome artista
+
 const artistLink = albumCard.querySelector(".artist-link");
 if (artistLink) {
   artistLink.addEventListener("click", (event) => {
@@ -74,7 +75,6 @@ if (artistLink) {
     window.location.href = `artist-page.html?artist=${encodeURIComponent(artistName)}`;
   });
 }
-
 
 
     // Aggiunta dell'evento click all'immagine
@@ -366,6 +366,8 @@ const createBuonaseraSection = async () => {
       col.appendChild(card);
       buonaseraSection.appendChild(col);
     });
+
+
 
     // Aggiungi evento al pulsante per mostrare/nascondere le card
     toggleButton.addEventListener("click", () => {
