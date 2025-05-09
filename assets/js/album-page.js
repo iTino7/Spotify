@@ -238,8 +238,7 @@ const albumPage = () => {
           audio.addEventListener("ended", () => {
             pause.classList.add("d-none");
             play.classList.remove("d-none");
-          })
-
+          });
         });
       };
 
@@ -310,6 +309,11 @@ const albumPage = () => {
         iconPauseContainer.classList.remove("d-none");
         iconPauseContainer.addEventListener("click", () => {
           audio.pause();
+          iconPlayContainer.classList.remove("d-none");
+          iconPauseContainer.classList.add("d-none");
+        });
+
+        audio.addEventListener("ended", () => {
           iconPlayContainer.classList.remove("d-none");
           iconPauseContainer.classList.add("d-none");
         });
