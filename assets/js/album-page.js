@@ -66,8 +66,13 @@ const albumPage = () => {
       arrowStyle(arrowLeft, "mouseleave", "0.3");
 
       //P-ARROW-RIGHT
+      const buttonArrowRight = document.createElement("button");
+      buttonArrowRight.style.border = "none";
+      buttonArrowRight.style.backgroundColor = "transparent";
+      const hrefArrowRight = document.createElement("a");
+      hrefArrowRight.href = "./artist-page.html";
       const pRight = document.createElement("p");
-      pRight.className = "ms-2";
+
       //ARROW-RIGHT
       const arrowRight = document.createElement("i");
       arrowRight.className = "d-none d-sm-block bi bi-arrow-right-circle-fill";
@@ -120,8 +125,27 @@ const albumPage = () => {
       containerIconMobile.className =
         "d-block d-sm-none bi bi-arrow-left text-white ";
 
-      buttonAlbumMobile.appendChild(containerIconMobile);
+      //ICON-MOBILE-ALBUM-ARTIST PAGE
+
+      const buttonAlbumMobileRight = document.createElement("button");
+      buttonAlbumMobileRight.style.border = "none";
+      buttonAlbumMobileRight.style.backgroundColor = "transparent";
+      buttonAlbumMobileRight.addEventListener("click", () => {
+        window.location.assign(`artist-page.html`);
+      });
+
+      buttonAlbumMobileRight.classList.add("d-flex");
+      buttonAlbumMobileRight.classList.add("d-sm-none");
+      buttonAlbumMobileRight.classList.add("m-0");
+      const containerIconMobileRight = document.createElement("i");
+      containerIconMobileRight.className =
+        "d-block d-sm-none bi bi-arrow-right text-white ";
+
+      buttonAlbumMobile.append(containerIconMobile);
+      buttonAlbumMobileRight.appendChild(containerIconMobileRight);
       //ALBUM-IMG
+      const containerImgDiv = document.createElement("div");
+      containerImgDiv.className = "d-flex";
       const containerImg = document.createElement("img");
       containerImg.style.width = "200px";
       containerImg.src = item.album.cover_xl;
@@ -129,6 +153,11 @@ const albumPage = () => {
 
       containerImg.style.maxWidth = "300px";
       containerImg.style.boxShadow = "-2px 0px 23px 3px rgba(0, 0, 0, 0.63)";
+      containerImgDiv.append(
+        buttonAlbumMobile,
+        containerImg,
+        buttonAlbumMobileRight
+      );
 
       //DESCRIPTION-ALBUM
       const descriptionContainer = document.createElement("div");
@@ -444,6 +473,22 @@ const albumPage = () => {
         artistTitle.className = "mt1";
         artistTitle.innerHTML = item.artist.name;
 
+        artistTitle.addEventListener("click", () => {
+          window.location.assign(`artist-page.html?artist=${item.artist.name}`);
+        });
+
+        
+        
+
+
+        artistTitle.addEventListener("mouseover", () => {
+          artistTitle.style.textDecoration = "underline";
+          artistTitle.style.cursor = "pointer";
+        });
+        artistTitle.addEventListener("mouseleave", () => {
+          artistTitle.style.textDecoration = "none";
+        });
+
         //DIV-RANK
         const containerRank = document.createElement("div");
         containerRank.className = "d-none d-md-flex col-md-3 d-flex";
@@ -513,7 +558,9 @@ const albumPage = () => {
       profile.appendChild(bgProfile);
       hrefArrowLeft.appendChild(arrowLeft);
       buttonArrowLeft.append(hrefArrowLeft);
-      containerArrow.append(pLeft, buttonArrowLeft, pRight, arrowRight);
+      hrefArrowRight.appendChild(arrowRight);
+      buttonArrowRight.appendChild(hrefArrowRight);
+      containerArrow.append(pLeft, buttonArrowLeft, pRight, buttonArrowRight);
       containerNav.append(containerArrow, profile);
       background.append(
         containerNav,
@@ -521,11 +568,7 @@ const albumPage = () => {
         containerTrackList,
         containerSong
       );
-      containerInfoFlex.append(
-        buttonAlbumMobile,
-        containerImg,
-        descriptionContainer
-      );
+      containerInfoFlex.append(containerImgDiv, descriptionContainer);
       containerInfo.append(containerInfoFlex, descriptionContainer);
       containerAlbum.append(background, containerSongs);
       console.log(containerAlbum);
