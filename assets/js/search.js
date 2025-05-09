@@ -199,7 +199,7 @@ async function renderCategories() {
   });
 }
 
-document.getElementById("back-button").addEventListener("click", () => {
+document.getElementById("back-button-home").addEventListener("click", () => {
   document.getElementById("middle-column").classList.remove("d-none");
   document.getElementById("search-results").classList.add("d-none");
   document.getElementById("results-container").innerHTML = ""; // Pulisce i risultati della ricerca
