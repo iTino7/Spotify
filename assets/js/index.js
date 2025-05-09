@@ -48,8 +48,7 @@ const createAlbumRow = (albums, title) => {
 
     // Creazione della card
     const albumCard = document.createElement("div");
-    albumCard.className =
-      "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3 mb-4";
+    albumCard.className = "card bg-dark text-white border-0 d-flex flex-column justify-content-between align-items-center rounded pt-3 mb-4";
 
     // Aggiunta della card alla colonna
     col.appendChild(albumCard);
@@ -87,8 +86,7 @@ const createAlbumRow = (albums, title) => {
     row.appendChild(col);
 
     //creazione dei contenitori per schermo piccolo
-    altroCheTiPiaceSmall.className =
-      "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
+    altroCheTiPiaceSmall.className = "d-flex d-md-none flex-column mb-3 pt-3 bg-dark rounded";
     altroCheTiPiaceSmall.innerHTML = `<div class="d-flex w-100">
               <div class="w-50 d-flex justify-content-center aligh-items-center">
                 <img src="${album.album.cover_medium}" class="img-fluid mb-4 altroCheTiPiaceImg" alt="placeholder" />
@@ -128,9 +126,7 @@ const loadAlbums = async () => {
 
   if (albums && albums.length > 0) {
     // Estrazione artisti unici dagli album
-    const uniqueArtists = [
-      ...new Set(albums.map((album) => album.artist.name)),
-    ];
+    const uniqueArtists = [...new Set(albums.map((album) => album.artist.name))];
 
     // Limitazione a 4 artisti casuali
     const randomArtists = uniqueArtists.slice(0, 4);
@@ -172,7 +168,7 @@ window.onload = () => {
   buttonArrowLeft.style.border = "none";
   buttonArrowLeft.style.backgroundColor = "transparent";
   const hrefArrowLeft = document.createElement("a");
-  hrefArrowLeft.href = "album-page.html";
+  hrefArrowLeft.href = "artist-page.html";
 
   const arrowLeft = document.createElement("i");
   arrowLeft.className = "d-none d-sm-block bi bi-arrow-left-circle-fill";
@@ -292,9 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateBuonaseraTitle();
 });
 
-const listaDaModificare = document.getElementById(
-  "lista-da-modificare-randomicamente"
-);
+const listaDaModificare = document.getElementById("lista-da-modificare-randomicamente");
 
 const createBuonaseraSection = async () => {
   const buonaseraSection = document.getElementById("buonasera-section"); // Seleziona la sezione
@@ -302,8 +296,7 @@ const createBuonaseraSection = async () => {
 
   // Creazione del titolo con il pulsante accanto
   const titleContainer = document.createElement("div");
-  titleContainer.className =
-    "d-flex justify-content-between align-items-center mb-3";
+  titleContainer.className = "d-flex justify-content-between align-items-center mb-3";
 
   const title = document.createElement("h4");
   title.className = "text-white";
@@ -346,8 +339,7 @@ const createBuonaseraSection = async () => {
       }
 
       const card = document.createElement("div");
-      card.className =
-        "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
+      card.className = "bg-dark mb-3 text-white rounded text-truncate d-flex align-items-center";
 
       card.innerHTML = `
       <a class="text-white px-0 text-decoration-none" href="artist-page.html?artist=${encodeURIComponent(album.artist.name)}">
@@ -370,9 +362,7 @@ const createBuonaseraSection = async () => {
     // Aggiungi evento al pulsante per mostrare/nascondere le card
     toggleButton.addEventListener("click", () => {
       const hiddenCards = document.querySelectorAll(".buonasera-card");
-      const areHidden = Array.from(hiddenCards).some(
-        (card, index) => index >= 6 && card.style.display === "none"
-      );
+      const areHidden = Array.from(hiddenCards).some((card, index) => index >= 6 && card.style.display === "none");
 
       hiddenCards.forEach((card, index) => {
         if (areHidden) {
