@@ -157,7 +157,7 @@ const albumPage = () => {
       console.log(dataAlbum.data);
 
       const duration = dataAlbum.data
-        .slice(0, dataAlbum.data.length - 10)
+        .slice(0, 10)
         .reduce((acc, curr) => acc + curr.duration, 0);
 
       const minutes = Math.floor(duration / 60);
@@ -181,11 +181,12 @@ const albumPage = () => {
       buttonPlayer.style.border = "none";
       buttonPlayerPause.style.background = "transparent";
       buttonPlayerPause.style.border = "none";
+      buttonPlayerPause.className = "d-none";
       const iconTrack = document.createElement("i");
       const iconTrackPause = document.createElement("i");
       iconTrack.className = "bi bi-play-circle-fill";
       iconTrack.className = "bi bi-play-circle-fill";
-      iconTrackPause.className = "bi bi-pause-circle-fill d-none";
+      iconTrackPause.className = "bi bi-pause-circle-fill";
       iconTrackPause.style.color = "#1ed760";
       iconTrackPause.style.fontSize = "45px";
       iconTrack.style.color = "#1ed760";
@@ -206,8 +207,70 @@ const albumPage = () => {
 
       let audio = new Audio(dataAlbum.data[0].preview);
 
-      buttonSong(iconTrack, iconTrackPause);
+      buttonSong(buttonPlayer, buttonPlayerPause);
 
+      //CONTAINER PLAYER-ARTIST AND ALBUM
+
+      const photoAlbum = document.getElementById("album-photo");
+      const imgAlbum = document.createElement("img");
+      imgAlbum.src = dataAlbum.data[0].album.cover;
+      imgAlbum.className = "me-2";
+
+      const albumArtist = document.getElementById("album-artist");
+
+      const nameAlbum = document.createElement("div");
+      nameAlbum.innerHTML = dataAlbum.data[0].album.title;
+      const nameArtist = document.createElement("div");
+      nameArtist.innerHTML = dataAlbum.data[0].artist.name;
+
+      const iconHeartPlayer = document.createElement("i");
+      iconHeartPlayer.className = "ms-4 bi bi-heart";
+
+      albumArtist.append(nameAlbum, nameArtist);
+      photoAlbum.append(imgAlbum, albumArtist, iconHeartPlayer);
+
+      //CONTAINER PLAYER-ARTIST AND ALBUM RESPONSIVE
+
+      const divAlbumResponsive = document.getElementById(
+        "album-photo-responsive"
+      );
+      const imgResponsiveAlbum = document.createElement("img");
+      imgResponsiveAlbum.src = dataAlbum.data[0].album.cover_small;
+
+      const trackText = document.querySelector(".track-text");
+      const spanTitle = document.createElement("span");
+      const spanArtist = document.createElement("span");
+      spanTitle.className = "track-title";
+      spanTitle.innerHTML = dataAlbum.data[0].album.title;
+      spanArtist.className = "track-artist";
+      spanArtist.innerHTML = dataAlbum.data[0].artist.name;
+
+      const iconsResponsive = document.querySelector(".icons");
+
+      const iconHeartContainer = document.createElement("button");
+      iconHeartContainer.className = "icon-btn";
+      const heartIcon = document.createElement("i");
+      heartIcon.className = "bi bi-heart";
+      const iconPcContainer = document.createElement("button");
+      iconPcContainer.className = "icon-btn";
+      const pcIcon = document.createElement("i");
+      pcIcon.className = "bi bi-pc-display";
+      const iconPlayContainer = document.createElement("button");
+      iconPlayContainer.className = "icon-btn";
+      const playIconFill = document.createElement("i");
+      playIconFill.className = "bi bi-play-fill";
+
+      iconHeartContainer.appendChild(heartIcon);
+      iconPcContainer.appendChild(pcIcon);
+      iconPlayContainer.appendChild(playIconFill);
+
+      iconsResponsive.append(
+        iconHeartContainer,
+        iconPcContainer,
+        iconPlayContainer
+      );
+      trackText.append(spanTitle, spanArtist);
+      divAlbumResponsive.append(imgResponsiveAlbum, trackText, iconsResponsive);
       //CONTAINER PLAYER
 
       const containerControlsPlayer = document.getElementById("controls-audio");
@@ -316,14 +379,9 @@ const albumPage = () => {
       containerSongRow.className = "row d-flex align-items-center";
       containerSongRow.style.color = "#9a9998";
 
-      // Variabile globale per tracciare l'audio attualmente in riproduzione
-      let currentAudio = null;
+      let audios = new Audio(dataAlbum.data);
 
       dataAlbum.data.slice(0, 10).forEach((item, index) => {
-        let audio = new Audio(item.preview);
-
-
-
         const containerSong = document.createElement("div");
         containerSong.className =
           "col-12 col-md-8 d-flex align-items-center mt-4";
@@ -332,19 +390,22 @@ const albumPage = () => {
         pSong.innerHTML = index + 1;
         const containerTitleSong = document.createElement("div");
         containerTitleSong.className = "container d-flex flex-column";
+
         const titleSong = document.createElement("p");
         const span = document.createElement("span");
-        span.style.marginLeft = "auto";
+        span.style.marginLeft = "10px";
+
         const iconSpan = document.createElement("i");
-        iconSpan.className = "bi bi-pause-circle-fill d-none";
+        iconSpan.className = "bi bi-volume-up-fill d-none";
         iconSpan.style.color = "#1ed760";
         iconSpan.style.fontSize = "16px";
 
-        titleSong.className = "m-0 text-white d-flex";
+        titleSong.className = "m-0 text-white d-flex align-items-center";
         titleSong.style.fontSize = "13px";
         titleSong.innerHTML = item.title;
 
-       
+        titleSong.appendChild(span);
+        span.appendChild(iconSpan);
 
         titleSong.addEventListener("mouseover", () => {
           titleSong.style.cursor = "pointer";
@@ -352,39 +413,16 @@ const albumPage = () => {
         });
 
         titleSong.addEventListener("click", () => {
-          // Ferma l'audio attualmente in riproduzione, se esiste
-          if (currentAudio && !currentAudio.paused) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0; // Riavvia l'audio fermato
+          if (audios.paused) {
+            audios.src = item.preview;
+            audios.play();
+            iconSpan.classList.remove("d-none");
+          } else {
+            audios.pause();
+            iconSpan.classList.add("d-none");
           }
-
-          
-
-
-          
-
-          // Imposta l'audio corrente e avvia la riproduzione
-          currentAudio = audio;
-          audio.play();
-
-          // Aggiungi il fade-out automatico
-          const fadeOutStart = audio.duration - 5; // 5 secondi prima della fine
-          const fadeOutInterval = 100; // Intervallo di riduzione del volume (ms)
-          const fadeOutStep = 0.05; // Passo di riduzione del volume
-
-          const fadeOut = setInterval(() => {
-            if (audio.currentTime >= fadeOutStart) {
-              audio.volume = Math.max(0, audio.volume - fadeOutStep);
-              if (audio.volume === 0) {
-                clearInterval(fadeOut);
-                audio.pause(); // Pausa l'audio quando il volume è 0
-              }
-            }
-          }, fadeOutInterval);
-
-          // Interrompi il fade-out se l'utente ferma manualmente l'audio
-          audio.addEventListener("pause", () => {
-            clearInterval(fadeOut);
+          audios.addEventListener("ended", () => {
+            iconSpan.classList.add("d-none");
           });
         });
 
