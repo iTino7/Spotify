@@ -277,9 +277,9 @@ const albumPage = () => {
       const trackText = document.querySelector(".track-text");
       const spanTitle = document.createElement("span");
       const spanArtist = document.createElement("span");
-      spanTitle.className = "track-title";
+      spanTitle.className = "track-title ms-2";
       spanTitle.innerHTML = dataAlbum.data[0].album.title;
-      spanArtist.className = "track-artist";
+      spanArtist.className = "track-artist ms-2";
       spanArtist.innerHTML = dataAlbum.data[0].artist.name;
 
       const iconsResponsive = document.querySelector(".icons");
